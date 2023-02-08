@@ -20,8 +20,8 @@ const ReviewCard = (reviews) => {
     neque.`)
 
     const truncateReviewText = () =>{
-      if(reviewBody.length > 350){
-        let review = reviewBody.slice(0,350)+ '...'
+      if(reviewBody.length > 415){
+        let review = reviewBody.slice(0,415)+ '...'
 
         return (
           <div className = 'ellipsis'>
@@ -84,3 +84,5 @@ const ReviewCard = (reviews) => {
 };
 
 export default ReviewCard;
+ //Hash for the refresh 
+ // using useState and History  .. window.location ?
