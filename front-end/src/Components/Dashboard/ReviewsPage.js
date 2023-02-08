@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 import SidebarNav from "./SidebarNav";
 import Rate from './Rate'
-import Reviews from "./Reviews";
+import Reviews from "./ReviewCard";
 import "./ReviewsPage.css";
 
 

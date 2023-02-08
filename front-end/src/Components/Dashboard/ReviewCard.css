@@ -25,9 +25,10 @@ h6{
     margin-right: 10px;
 }
 .ellipsis{
-    height:180px;
-    width: 470px;
+    width: 500px;
     white-space: wrap;
     overflow: hidden;
-    text-overflow: ellipsis;
+}
+.ellipsis button{
+    margin: 0 auto;
 }

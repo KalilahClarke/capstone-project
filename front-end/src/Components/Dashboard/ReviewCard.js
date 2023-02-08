@@ -1,9 +1,44 @@
-import React from "react";
+import React, {useState} from "react";
 
-import './Reviews.css'
+import './ReviewCard.css'
 
-const Reviews = (reviews) => {
-  
+const ReviewCard = (reviews) => {
+    const [showMore, setShowMore] = useState(false)
+    const [reviewBody, setReviewBody] = useState(`Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+    eiusmod tempor incididunt ut labore et dolore magna aliqua. Dictum
+    fusce ut placerat orci nulla pellentesque dignissim. Ultrices gravida
+    dictum fusce ut placerat orci nulla pellentesque dignissim. Aliquet
+    nibh praesent tristique magna sit amet. Ipsum consequat nisl vel
+    pretium lectus. A diam maecenas sed enim ut sem viverra aliquet eget.
+    Ac placerat vestibulum lectus mauris ultrices eros in. Sit amet justo
+    donec enim diam vulputate ut. A scelerisque purus semper eget duis at
+    tellus. At consectetur lorem donec massa. Venenatis tellus in metus
+    vulputate eu. In hac habitasse platea dictumst vestibulum rhoncus est
+    pellentesque elit. Porta nibh venenatis cras sed felis eget velit
+    aliquet sagittis. Orci phasellus egestas tellus rutrum tellus
+    pellentesque. Quisque non tellus orci ac auctor augue mauris augue
+    neque.`)
+
+    const truncateReviewText = () =>{
+      if(reviewBody.length > 350){
+        let review = reviewBody.slice(0,350)+ '...'
+
+        return (
+          <div className = 'ellipsis'>
+            <p>{showMore ? reviewBody : review }</p>
+            <button onClick = {()=>{setShowMore(!showMore)}}>{showMore ? 'Show Less': 'Read More'}</button>
+          </div>
+        )
+        //slice text and add ellipsis
+      }else{
+        return (
+          <div className = 'ellipsis'>
+            <p>{reviewBody}</p>
+          </div>
+        )
+      }
+    }
+    const processText = truncateReviewText()
     const starRating = (num) => {
         switch (num) {
           case 1:
@@ -41,26 +76,11 @@ const Reviews = (reviews) => {
           )}{" "}
           Date: {reviews.date || "02/04/2023"}
         </div>
-        <div className='ellipsis'>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Dictum
-          fusce ut placerat orci nulla pellentesque dignissim. Ultrices gravida
-          dictum fusce ut placerat orci nulla pellentesque dignissim. Aliquet
-          nibh praesent tristique magna sit amet. Ipsum consequat nisl vel
-          pretium lectus. A diam maecenas sed enim ut sem viverra aliquet eget.
-          Ac placerat vestibulum lectus mauris ultrices eros in. Sit amet justo
-          donec enim diam vulputate ut. A scelerisque purus semper eget duis at
-          tellus. At consectetur lorem donec massa. Venenatis tellus in metus
-          vulputate eu. In hac habitasse platea dictumst vestibulum rhoncus est
-          pellentesque elit. Porta nibh venenatis cras sed felis eget velit
-          aliquet sagittis. Orci phasellus egestas tellus rutrum tellus
-          pellentesque. Quisque non tellus orci ac auctor augue mauris augue
-          neque.
-          <button></button>
-        </div>
+            {truncateReviewText()}
+
       </div>
     </div>
   );
 };
 
-export default Reviews;
+export default ReviewCard;
