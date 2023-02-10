@@ -4,7 +4,7 @@ import { FaStar } from 'react-icons/fa'
 const StarRating = () => {
    
 return(
-    <div>
+    <div className='star'>
       {[...Array(5)].map((star)=>{
           return  <FaStar size = {40}/>
       })}

@@ -9,6 +9,8 @@ import "./MyRequests.css";
 
 const MyRequests = ({ requests, date, requestSearch }) => {
   const search = requestSearch.toLowerCase()
+  // requests.sort((a,b)=> b.req_date - a.req_date)
+ 
 
   const dateConverter = (specifiedDate = '') => {
     const fullYear = specifiedDate?.getFullYear();

@@ -27,7 +27,7 @@ const OpenRequests = ({ openRequests, date, requestSearch}) => {
   let currentDate = dateConverter(new Date());
   let selectedCalendarDate = dateConverter(date) 
 
-  let requestFilter = openRequests.filter((request)=> selectedCalendarDate === currentDate && request.title.toLowerCase().includes(search) ? request.req_date >= currentDate : selectedCalendarDate === request.req_date).map((request)=> <RequestCard key={request.id} request={request} />)
+  let requestFilter = openRequests.filter((request)=> selectedCalendarDate === currentDate && request.title.toLowerCase().includes(search) ? request.req_date >= currentDate : selectedCalendarDate === request.req_date).map((request, index)=> index < 4 && <RequestCard key={request.id} request={request} />)
  
  
   // const specifiedrequests = openRequests.map((openRequest, index) => {

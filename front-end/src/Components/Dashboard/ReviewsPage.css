@@ -29,3 +29,6 @@
     position: sticky;
     top: 0;
 }
+.ReviewPage__personalInfo h5{
+    margin: 15px 0px;
+}
