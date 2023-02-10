@@ -58,9 +58,9 @@ const OpenRequestPage = ({
       <SidebarNav setDate={setDate} date = {date} applicationUser={applicationUser} setRequestSearch = {setRequestSearch}
                     requestSearch = {requestSearch}/>
       </div>
-      <div className="main-page">
-        <h3>Open Request</h3>
-        <div className="open-request-page">
+      <div className="openRequestPage__main-page">
+        <h3 className='openRequestPage__title top'>Open Request</h3>
+        <div className="openRequestPage__filter">
           {currentDate === selectedCalendarDate ? neighborhood : currentNeighborhood}
         </div>
       </div>

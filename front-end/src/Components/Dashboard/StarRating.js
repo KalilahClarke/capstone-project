@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react'
+import React from 'react'
 import { FaStar } from 'react-icons/fa'
 
 const StarRating = () => {
@@ -6,7 +6,7 @@ const StarRating = () => {
 return(
     <div className='star'>
       {[...Array(5)].map((star)=>{
-          return  <FaStar size = {40}/>
+          return  <FaStar size = {40} />
       })}
 
     </div>

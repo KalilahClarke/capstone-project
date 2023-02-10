@@ -14,11 +14,6 @@
     margin-left: 10px;  
 }
 
-
-/* .main-page h3 .completed{
-    margin: 0px;
-    margin-left: 10px;  
-} */
 .acceptedRequestPage__filter{
     min-height: 200px;
     margin: 15px;
@@ -32,29 +27,5 @@
 .top{
     margin-top: 20px;
 }
-/* .pending{
-    min-height: 200px;
-    margin: 15px;
-    display: grid;
-    margin-top: 30px;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    column-gap: 2.5rem;
-    gap: 2.5rem
 
-}
 
-.History{
-    margin: 15px;
-    display: grid;
-    margin-top: 2rem;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    column-gap: 2.5rem;
-    gap: 2.5rem
-} */
-/* .comphead {
-    padding-top: 40px;
-} */
-
-/* .request{
- padding-top: 30px;
-} */
