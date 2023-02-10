@@ -2,31 +2,34 @@
     width: 780px;
     background-color:  #71264314;
     display: grid;
-    grid-template-columns: 3fr 6fr ;
+    grid-template-columns: 1fr 6fr ;
     padding: 5px;
     margin-right: 25px;
-    border-radius: 5%;
+    border-radius: 10px;
 }
 .Reviews__reviewer-info{
-    display: grid;
-    grid-template-columns: 1fr 2fr;
     margin-top: 10px;
 }
 .reviewer_img {
-    padding-right: 20px ;
+    padding-right: 20px ; 
 }
 
 .Reviews__img{
-    width: 100px;
+    width: 100px;   
 }
 .Reviewer__profile{
-    width: 100px
+    width: 100px;
+    border-radius: 50%;
+    border: cadetblue solid 1px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 10px;
 }
-h6{
+/* h6{
     margin-right: 10px;
-}
+} */
 .ellipsis{
-    width: 500px;
+    width: 580px;
     white-space: wrap;
     overflow: hidden;
     display: flex;
@@ -36,7 +39,9 @@ h6{
 .ReviewCard__rating{
     display: grid;
     grid-template-columns: repeat(2,1fr);
-    padding: 10px 0px;
+}
+.Reviews__review h6{
+    margin-top: 20px;
 }
 .ReviewCard__date{
     margin: 0 auto;

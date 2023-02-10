@@ -65,9 +65,9 @@ const ReviewCard = (reviews) => {
             }
           />
         </div>
-        <h6>{reviews.reviewerName || "Reviewer Name"}</h6>
       </div>
       <div className="Reviews__review">
+        <h6>{reviews.reviewerName || "Reviewer Name"}</h6>
         <div className="ReviewCard__rating">
           <div>{starRating(4)}</div>
           <div className="ReviewCard__date">Date: {reviews.date || "02/04/2023"}</div>
