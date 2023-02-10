@@ -1,10 +1,11 @@
 .Reviews{
     width: 780px;
-    border: red 2px solid;
+    background-color:  #71264314;
     display: grid;
     grid-template-columns: 3fr 6fr ;
     padding: 5px;
     margin-right: 25px;
+    border-radius: 5%;
 }
 .Reviews__reviewer-info{
     display: grid;
@@ -28,10 +29,21 @@ h6{
     width: 500px;
     white-space: wrap;
     overflow: hidden;
-}
-.ellipsis button{
-    margin: 0 auto;
     display: flex;
-    align-items: center;
+}
+
+
+.ReviewCard__rating{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    padding: 10px 0px;
+}
+.ReviewCard__date{
+    margin: 0 auto;
+}
+.showMore{
+    margin: 0 auto;
+    border: none;
+    color:cadetblue;
    
 }

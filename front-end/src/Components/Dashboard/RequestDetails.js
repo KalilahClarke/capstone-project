@@ -80,7 +80,7 @@ const RequestDetails = ({
         />
       </div>
       <div className="cards">
-      <button>Left</button>
+  
         <h3>Request Details</h3>
         <div className="card-holder">
           <div className="card-wrap">
@@ -164,7 +164,7 @@ const RequestDetails = ({
             )}
           </div>
         </div>
-      <button>Right</button>
+
       </div>
     </div>
   );

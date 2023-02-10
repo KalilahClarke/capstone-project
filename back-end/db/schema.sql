@@ -25,7 +25,9 @@ CREATE TABLE users (
 CREATE TABLE requests (
     id SERIAL PRIMARY KEY,
     elder_id TEXT references users(uuid),
+    -- elder_img TEXT references users(uuid),
     volunteer_id TEXT references users(uuid) DEFAULT NULL,
+    -- volunteer_img TEXT references users(profilephoto) DEFAULT NULL,
     req_date TEXT NOT NULL,
     title TEXT,
     description TEXT NOT NULL,
@@ -47,6 +49,7 @@ CREATE TABLE ratings (
 CREATE TABLE reviews (
     id SERIAL PRIMARY KEY,
     reviewer_id TEXT references users(uuid),
+    -- reviewer_img TEXT references users(profilephoto),
     description TEXT NOT NULL,
     post_date DATE NOT NULL,
     request_id INT references requests(id)

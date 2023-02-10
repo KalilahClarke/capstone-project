@@ -1,4 +1,6 @@
 import React, {useState} from "react";
+import { SlArrowUp } from 'react-icons/sl'
+import { SlArrowDown } from 'react-icons/sl'
 
 import './ReviewCard.css'
 
@@ -21,15 +23,11 @@ const ReviewCard = (reviews) => {
 
     const truncateReviewText = () =>{
       if(reviewBody.length > 415){
-        let review = reviewBody.slice(0,415)+ '...'
-
-        return (
-          <div className = 'ellipsis'>
-            <p>{showMore ? reviewBody : review }</p>
-            <button onClick = {()=>{setShowMore(!showMore)}}>{showMore ? 'Show Less': 'Read More'}</button>
-          </div>
+        let review = reviewBody.slice(0,415)
+        return ( <div className="ellipsis"> 
+           {showMore ?  <p>{reviewBody}<button  className= 'showMore'onClick = {()=> {setShowMore(!showMore)}}><SlArrowUp/></button></p> : <p>{review}<button className= 'showMore' onClick = {()=>{setShowMore(!showMore)}}><SlArrowDown/></button></p> }
+        </div>
         )
-        //slice text and add ellipsis
       }else{
         return (
           <div className = 'ellipsis'>
@@ -70,13 +68,11 @@ const ReviewCard = (reviews) => {
         <h6>{reviews.reviewerName || "Reviewer Name"}</h6>
       </div>
       <div className="Reviews__review">
-        <div>
-          {reviews.rating_img || (
-            <img className="Reviews__img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7uXIpYlYAPiUlPddsz0lbl_qW-7PXzEKJFA&usqp=CAU" />
-          )}{" "}
-          Date: {reviews.date || "02/04/2023"}
+        <div className="ReviewCard__rating">
+          <div>{starRating(4)}</div>
+          <div className="ReviewCard__date">Date: {reviews.date || "02/04/2023"}</div>
         </div>
-            {truncateReviewText()}
+            {processText}
 
       </div>
     </div>
