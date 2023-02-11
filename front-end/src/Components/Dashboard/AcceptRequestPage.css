@@ -15,15 +15,17 @@
 }
 
 .acceptedRequestPage__filter{
-    min-height: 200px;
+    min-height: 10px;
     margin: 15px;
     display: grid;
     margin-top: 30px;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     column-gap: 2.5rem;
     gap: 2.5rem;
-    margin-bottom: 5% 
+    margin-bottom: 2% 
 }
+
+
 .top{
     margin-top: 20px;
 }

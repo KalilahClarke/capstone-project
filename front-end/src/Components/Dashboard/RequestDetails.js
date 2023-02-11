@@ -12,6 +12,7 @@ import Button from "react-bootstrap/Button";
 //Components
 import SidebarNav from "./SidebarNav";
 import ReviewForm from "./ReviewForm";
+import StarRating from "./StarRating";
 
 const RequestDetails = ({
   setDate,
@@ -23,8 +24,8 @@ const RequestDetails = ({
 }) => {
 
   const [request, setRequest] = useState([]);
-  // const [reviews, setReviews] = useState([]);
-  // const [reviewFormRevealed, setReviewFormRevealed] = useState(false);
+  const [reviews, setReviews] = useState([]);
+  const [reviewFormRevealed, setReviewFormRevealed] = useState(false);
   let { id } = useParams();
   let navigate = useNavigate();
 
@@ -34,7 +35,7 @@ const RequestDetails = ({
     axios.get(`${API}/requests/help_req/${id}`).then((response) => {
       setRequest(response.data);
     });
-    // axios.get(`${API}/reviews/${id}`).then((res) => setReviews(res.data));
+    axios.get(`${API}/reviews/${id}`).then((res) => setReviews(res.data));
   }, [id, navigate, API]);
 
   const missionAccepted = () => {
@@ -82,9 +83,9 @@ const RequestDetails = ({
       <div className="cards">
   
         <h3>Request Details</h3>
-        <div className="card-holder">
+        {!reviewFormRevealed ? <div className="card-holder">
           <div className="card-wrap">
-            <div className="card-items">
+            <div className="card-items-forward">
               <figure className="card-fig" data-category="GoldenSolutions">
                 <img
                   className="cardImg"
@@ -96,40 +97,45 @@ const RequestDetails = ({
                   }
                 />
               </figure>
-              <div className="card-info">
+               <div className="card-info">
                 <h5 className="card-text">
                   <strong>Job Description:</strong> {request.description}
                 </h5>
                 <h4 className="card-text">
                   <strong>Location:</strong> {request.location}
                 </h4>
-                {/* <h4 className="card-text">
-                  <strong>Requested:</strong> {}
-                </h4> */}
-               
-
                 <p className="warning">
                   <span className="red">*</span> Cancellations within 24 hours
                   or missing your appointment will result in a negative review &
                   rating.
                 </p>
-              </div>
+              </div> 
             </div>
           </div>
-        </div>
-        {/* <div className="reviews">
-          {reviewFormRevealed ? <h4>MY REVIEWS</h4> : null}
-          {reviewFormRevealed ? <p>You said : </p>: null}
-          {reviewFormRevealed ? (
-            <ReviewForm
-              request={request}
-              reviews={reviews}
-              setReviews={setReviews}
-              currentDate={currentDate}
-              applicationUser={applicationUser}
-            />
-          ) : null}
-        </div> */}
+        </div> : <div className="card-holder">
+          <div className="card-wrap">
+            <div className="card-items-backward">
+              <figure className="card-fig" data-category="GoldenSolutions">
+                <img
+                  className="cardImg"
+                  alt="vol"
+                  src={
+                    request.image
+                      ? request.image
+                      : "https://www.nbmchealth.com/wp-content/uploads/2018/04/default-placeholder.png"
+                  }
+                />
+              </figure>
+               <div className="card-review">
+               <h5 className="card-text">
+                  <strong>Rating:</strong><StarRating />
+                </h5>
+                <textarea rows='5' cols='48'placeholder={applicationUser.user_type === "Volunteer" ? 'Please Leave a Review: How Was Your Experience Working with Your Senior?': 'Please Leave a Review: How Was the Service with Your Volunteer Provided'}></textarea>
+                {/* <button className="submit">Submit</button> */}
+              </div> 
+            </div>
+          </div>
+        </div>}
         <div className="buttons">
           <div>
             <Link to="/user-dashboard">
@@ -144,21 +150,21 @@ const RequestDetails = ({
                 </Button>
               ) : request.complete && request.req_date < currentDate ? (
                 <Button
-                  className="reject"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    // setReviewFormRevealed(true);
-                  }}
+                className="reject"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setReviewFormRevealed(true);
+                }}
                 >
-                  REVIEW
+                  {reviewFormRevealed ? 'SUBMIT':'REVIEW'}
                 </Button>
               ) : (
                 <Button className="reject" onClick={missionFailed}>
                   REJECT
                 </Button>
               )
-            ) : (
-              <Link to={`/edit/${id}`}>
+              ) : (
+                <Link to={`/edit/${id}`}>
                 <Button className="edit">EDIT</Button>
               </Link>
             )}
@@ -171,5 +177,20 @@ const RequestDetails = ({
 };
 
 export default RequestDetails;
+{/* <div className="reviews">
+  {reviewFormRevealed ? <h4>MY REVIEWS</h4> : null}
+  {reviewFormRevealed ? <p>You said : </p>: null}
+  {reviewFormRevealed ? (
+    <ReviewForm
+      request={request}
+      reviews={reviews}
+      setReviews={setReviews}
+      currentDate={currentDate}
+      applicationUser={applicationUser}
+    />
+  ) : null}
+</div> */}
+
+
 
 

@@ -19,7 +19,10 @@
     max-width: 1120px;
     width: 50%;
     margin: 0 auto;
+    perspective: 1000px; 
+    /* Perspective was added ... testing */
   }
+  
   
   .card-wrap {
     position: relative;
@@ -28,6 +31,24 @@
     -webkit-filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
     filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
     border-radius: 10px;
+    /* Additional CSS */
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+  .card-holder:hover .card-wrap{
+    transform: rotateY(180deg);
+  }
+  .card-items-forward, .card-items-backward{
+  /* position: absolute; */
+  width: 100%;
+  height: 100%; 
+  -webkit-backface-visibility: hidden; 
+  /* Safari  */
+  backface-visibility: hidden;
+  }
+  .card-items-backward{
+    /* transform: rotateY(180deg); */
+    /* Jordan: Flip to change isn't working would like it to be an on-click  */
   }
   
   .cards-items {
@@ -109,6 +130,8 @@
     max-height: 100%;
     object-fit: cover;
     transition: all 0.2s linear;
+    min-width: 492.64px;
+
   }
   
   .cardImg:hover {
@@ -119,7 +142,10 @@
     padding: 20px 30px 30px;
     text-align: center;
   }
-  
+  .card-review {
+    padding: 2px 30px 30px 20px;
+    text-align: center;
+  }
   .card-text {
     color: #252e48;
     font-size: 18px;
@@ -130,6 +156,12 @@
     margin-top: 10px;
     text-align: center;
   }
+  .submit{
+    border-radius: 10px;
+    padding: 0 10px;
+
+  }
+
   
   /* media queries */
   @media only screen and (min-width: 1200px) {
