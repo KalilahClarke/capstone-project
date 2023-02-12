@@ -36,7 +36,6 @@ const OpenRequestPage = ({
   let currentDate = dateConverter(new Date());
   let selectedCalendarDate = dateConverter(date) 
   let search = requestSearch.toLowerCase()
-  console.log(search)
 
 
   // Location Needs to be changed per UseState of UsersProfile location

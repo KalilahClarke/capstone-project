@@ -4,7 +4,7 @@
 .review-img{
     width: 50px
 }
-review{
+.review{
     display: flex;
     flex-wrap: nowrap;
 }

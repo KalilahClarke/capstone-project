@@ -131,7 +131,7 @@ const RequestDetails = ({
                   <strong>Rating:</strong><StarRating />
                 </h5>
                 <textarea rows='5' cols='48'placeholder={applicationUser.user_type === "Volunteer" ? 'Please Leave a Review: How Was Your Experience Working with Your Senior?': 'Please Leave a Review: How Was the Service with Your Volunteer Provided'}></textarea>
-                {/* <button className="submit">Submit</button> */}
+                <button className="submit">Submit</button>
               </div> 
             </div>
           </div>

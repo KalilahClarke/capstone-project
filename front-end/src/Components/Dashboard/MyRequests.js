@@ -8,8 +8,10 @@ import RequestCard from "./RequestCard";
 import "./MyRequests.css";
 
 const MyRequests = ({ requests, date, requestSearch }) => {
+  const [requestDetailIds, setRequestDetailIds] = useState([])
+  
   const search = requestSearch.toLowerCase()
-  // requests.sort((a,b)=> b.req_date - a.req_date)
+  requests.sort((a,b)=> b.req_date - a.req_date)
  
 
   const dateConverter = (specifiedDate = '') => {
@@ -23,14 +25,19 @@ const MyRequests = ({ requests, date, requestSearch }) => {
     
     return formattedDate
   };
-
+  
   
   let currentDate = dateConverter(new Date());
   let selectedCalendarDate = dateConverter(date) 
 
-  let requestFilter = requests.filter((request)=> selectedCalendarDate === currentDate ? request.req_date >= currentDate && request.title.toLowerCase().includes(search): selectedCalendarDate === request.req_date && request.title.toLowerCase().includes(search)).map((request, index)=> index < 4 &&<RequestCard key={request.id} request={request} />)
+  let requestFilter = requests.filter((request)=> selectedCalendarDate === currentDate ? request.req_date >= currentDate && request.title.toLowerCase().includes(search): selectedCalendarDate === request.req_date && request.title.toLowerCase().includes(search)).map((request, index)=>{
+  if(index < 4){
+    //setRequestDetailIds({...requestDetailIds, request})
+    return <RequestCard key={request.id} request={request} />
+  }
+})
  
- 
+
   return (
     <>
       <div className="myRequest__title top"><h3>My Requests</h3></div>

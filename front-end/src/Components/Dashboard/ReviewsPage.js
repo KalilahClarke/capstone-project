@@ -3,9 +3,10 @@ import { UserContext } from '../../Providers/UserProviders';
 import { Link, useNavigate } from "react-router-dom";
 
 import SidebarNav from "./SidebarNav";
-import StarRating from './StarRating'
+
 import Reviews from "./ReviewCard";
 import "./ReviewsPage.css";
+import DynamicStarRating from "./DynamicStarRating";
 
 
 
@@ -39,7 +40,7 @@ const ReviewsPage = ({ date, setDate, applicationUser, setRequestSearch, request
         <img  className='ReviewPage__img'src={applicationUser.profilephoto || user.photoURL} />
         <br/>
         <h5 className= 'ReviewPage__stars'>Star Rating:</h5>
-        <StarRating  />
+        <DynamicStarRating/>
         <h5>Review Count: </h5>
         <p>{reviews.length || 'Review Count'}</p>
         </div>
