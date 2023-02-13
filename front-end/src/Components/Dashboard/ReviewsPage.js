@@ -16,10 +16,14 @@ const ReviewsPage = ({ date, setDate, applicationUser, setRequestSearch, request
   const [rating, setRating] = useState(0)
   //placeholder
   const [reviews, setReviews] = useState({})
+  const [rate, setRate] = useState({})
   let navigate = useNavigate();
   //presort based on review updated
   //create a filter pulling the reviews associated with the the users account. 
   //map through the reviews using the date and the requestSearch in the conditional
+  // let accumulator = 0
+  // rate.map((score)=> accumulator += score)
+  
  
   return (
     <div className="user-dashboard">
@@ -40,7 +44,7 @@ const ReviewsPage = ({ date, setDate, applicationUser, setRequestSearch, request
         <img  className='ReviewPage__img'src={applicationUser.profilephoto || user.photoURL} />
         <br/>
         <h5 className= 'ReviewPage__stars'>Star Rating:</h5>
-        <DynamicStarRating/>
+        {/* <DynamicStarRating/> */}
         <h5>Review Count: </h5>
         <p>{reviews.length || 'Review Count'}</p>
         </div>
