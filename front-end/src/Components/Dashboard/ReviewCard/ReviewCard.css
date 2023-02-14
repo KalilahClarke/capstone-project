@@ -29,10 +29,10 @@
     margin-right: 10px;
 } */
 .ellipsis{
-    width: 580px;
     white-space: wrap;
     overflow: hidden;
     display: flex;
+    padding-right: 5px;
 }
 
 

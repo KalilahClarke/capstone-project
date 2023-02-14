@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 
 //Components
-import RequestCard from "./RequestCard";
+import RequestCard from "../RequestCard/RequestCard";
 
 //CSS
 import "./MyRequests.css";

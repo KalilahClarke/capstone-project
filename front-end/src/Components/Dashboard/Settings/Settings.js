@@ -2,11 +2,11 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { UserContext } from '../../Providers/UserProviders';
+import { UserContext } from '../../../Providers/UserProviders';
 import { useContext } from "react";
 
 //Component
-import SidebarNav from "./SidebarNav";
+import SidebarNav from "../SideBarNav/SidebarNav.js"
 
 //Bootstrap
 import Form from "react-bootstrap/Form";

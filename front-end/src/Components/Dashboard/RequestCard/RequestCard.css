@@ -14,6 +14,7 @@
     -webkit-filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
     filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
     border-radius: 10px;
+  
 }
 .reqImg {
   width: 100%;
@@ -44,6 +45,7 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    margin-top: 20px;
   }
   /* .assignment {
 

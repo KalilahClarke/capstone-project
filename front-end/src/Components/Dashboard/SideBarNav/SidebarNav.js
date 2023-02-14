@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 //Component Import
-import CalendarView from "./CalendarView";
+import CalendarView from "../CalendarView/CalendarView";
 
 //CSS Import
 import "./SidebarNav.css";
@@ -22,7 +22,7 @@ const SidebarNav = ({ date, setDate, applicationUser, setRequestSearch, requestS
         <form onSubmit={(e)=>{e.preventDefault()}}>
           <label >
           <b className='bold'>Search </b>
-          <input type='text' onChange={(e)=> setRequestSearch(e.target.value)} value={requestSearch}/>
+          <input type='text' onChange={(e)=> setRequestSearch(e.target.value)} value={requestSearch} placeholder = {path === '/user-dashboard' || path.includes('request') ? 'Requests': 'Reviews'}/>
           </label>
 
         </form>

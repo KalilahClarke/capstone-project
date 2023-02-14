@@ -1,13 +1,13 @@
 //Component Imports
-import SidebarNav from "./SidebarNav";
-import MyRequests from "./MyRequests";
-import OpenRequests from "./OpenRequests";
-import MyFavorites from "./MyFavorites";
+import SidebarNav from "../SideBarNav/SidebarNav";
+import MyRequests from "../MyRequests/MyRequests";
+import OpenRequests from "../UserDashboard-OpenRequests/OpenRequests";
+import MyFavorites from "../UserDashboard-MyFavorites/MyFavorites";
 // import RequestCard from "./RequestCard";
 import { useEffect, useContext } from "react";
 import axios from "axios";
 
-import { UserContext } from "../../Providers/UserProviders";
+import { UserContext } from "../../../Providers/UserProviders";
 
 //CSS Imports
 import "./UserDashboard.css";

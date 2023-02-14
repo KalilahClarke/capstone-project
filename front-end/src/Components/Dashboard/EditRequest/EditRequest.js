@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 //Components
-import SidebarNav from "./SidebarNav";
+import SidebarNav from "../SideBarNav/SidebarNav";
 
 //CSS
 import "./EditRequest.css";

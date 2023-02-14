@@ -3,10 +3,10 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useContext } from "react";
-import { UserContext } from "../../Providers/UserProviders";
+import { UserContext } from "../../../Providers/UserProviders";
 
 //Components
-import SidebarNav from "./SidebarNav";
+import SidebarNav from "../SideBarNav/SidebarNav";
 
 //Bootstrap
 import Button from "react-bootstrap/Button";

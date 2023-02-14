@@ -5,9 +5,9 @@ import "./SignUpPage.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { UserContext } from '../../Providers/UserProviders';
+import { UserContext } from '../../../Providers/UserProviders';
 import { useContext } from "react";
-import { signUpWithGoogle } from "../../Services/Firebase";
+import { signUpWithGoogle } from "../../../Services/Firebase";
 
 //Bootstrap
 import Button from "react-bootstrap/Button";

@@ -1,12 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
-import { UserContext } from '../../Providers/UserProviders';
+import { UserContext } from '../../../Providers/UserProviders';
 import { Link, useNavigate } from "react-router-dom";
 
-import SidebarNav from "./SidebarNav";
+import SidebarNav from "../SideBarNav/SidebarNav";
 
-import Reviews from "./ReviewCard";
+import Reviews from "../ReviewCard/ReviewCard";
 import "./ReviewsPage.css";
-import DynamicStarRating from "./DynamicStarRating";
 
 
 
@@ -44,7 +43,6 @@ const ReviewsPage = ({ date, setDate, applicationUser, setRequestSearch, request
         <img  className='ReviewPage__img'src={applicationUser.profilephoto || user.photoURL} />
         <br/>
         <h5 className= 'ReviewPage__stars'>Star Rating:</h5>
-        {/* <DynamicStarRating/> */}
         <h5>Review Count: </h5>
         <p>{reviews.length || 'Review Count'}</p>
         </div>

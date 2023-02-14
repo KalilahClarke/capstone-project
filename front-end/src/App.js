@@ -5,24 +5,24 @@ import { UserProvider } from "./Providers/UserProviders";
 
 
 //COMPONENTS
-import SignUpPage from "./Components/Dashboard/SignUpPage";
+import SignUpPage from "./Components/Dashboard/SignUpPage/SignUpPage";
 import Home from "./Components/HomePage/Home";
 import NavBar from "./Components/NavBar/NavBar";
 import LoginModal from "./Components/LoginModal";
 import SeniorsPage from "./Components/HomePage/SeniorsPage";
 import VolunteerPage from "./Components/HomePage/VolunteerPage";
 import OurTeam from "./Components/HomePage/OurTeam";
-import UserDashboard from "./Components/Dashboard/UserDashboard";
-import OpenRequestPage from "./Components/Dashboard/OpenRequestPage";
-import RequestDetails from "./Components/Dashboard/RequestDetails";
-import Settings from "./Components/Dashboard/Settings";
-import NewRequestForm from "./Components/Dashboard/NewRequestForm";
+import UserDashboard from "./Components/Dashboard/UserDashboard/UserDashboard";
+import OpenRequestPage from "./Components/Dashboard/OpenRequestPage/OpenRequestPage";
+import RequestDetails from "./Components/Dashboard/RequestDetails/RequestDetails";
+import Settings from "./Components/Dashboard/Settings/Settings";
+import NewRequestForm from "./Components/Dashboard/NewRequestForm/NewRequestForm";
 import Protected from "./Components/Protected";
-import AcceptRequestPage from "./Components/Dashboard/AcceptRequestPage";
-import Achievements from "./Components/Dashboard/Achievements";
+import AcceptRequestPage from "./Components/Dashboard/AcceptRequestPage/AcceptRequestPage";
+import Achievements from "./Components/Dashboard/Achievements/Achievements";
 import Unprotected from "./Components/Unprotected";
-import EditRequest from "./Components/Dashboard/EditRequest";
-import ReviewsPage from "./Components/Dashboard/ReviewsPage";
+import EditRequest from "./Components/Dashboard/EditRequest/EditRequest";
+import ReviewsPage from "./Components/Dashboard/ReviewsPage/ReviewsPage";
 import Footer from "./Components/HomePage/Footer";
 import PersonalPage from "./Components/HomePage/PersonalPage";
 //CSS
@@ -193,12 +193,14 @@ const App = () => {
                       setDate={setDate}
                       applicationUser={applicationUser}
                       setRequestSearch = {setRequestSearch}
-                    requestSearch = {requestSearch}
+                      requestSearch = {requestSearch}
                       
                     />
                   </Protected>
                 }
               />
+
+
             <Route
               path="/requests/new"
               element={

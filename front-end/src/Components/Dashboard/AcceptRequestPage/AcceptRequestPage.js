@@ -2,8 +2,8 @@
 import React, { useState, useEffect } from "react";
 
 //Import Components
-import SidebarNav from "./SidebarNav";
-import RequestCard from "./RequestCard";
+import SidebarNav from "../SideBarNav/SidebarNav";
+import RequestCard from "../RequestCard/RequestCard";
 
 //Import CSS
 import "./AcceptRequestPage.css";
@@ -56,11 +56,11 @@ const AcceptRequestPage = ({
         <div className="acceptedRequestPage__filter">
           {acceptedRequestFilter}
         </div>
-        {applicationUser.user_type === "Senior" && <h3 className="acceptRequestPage__title">Pending Requests</h3>}
+        {(applicationUser.user_type === "Senior" && pendingRequestFilter.length !== 0) && <h3 className="acceptRequestPage__title">Pending Requests</h3>}
         <div className="acceptedRequestPage__filter">
         {pendingRequestFilter}
         </div>
-        <h3 className="acceptRequestPage__title">Completed Requests</h3>
+        {completedRequestFilter.length !== 0 && <h3 className="acceptRequestPage__title">Completed Requests</h3>}
         <div className="acceptedRequestPage__filter">
           {completedRequestFilter}
         </div>

@@ -3,8 +3,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 //Component Import
-import SidebarNav from "./SidebarNav";
-import RequestCard from "./RequestCard";
+import SidebarNav from "../SideBarNav/SidebarNav";
+import RequestCard from "../RequestCard/RequestCard";
 
 //CSS Imports
 import "./OpenRequestPage.css";
