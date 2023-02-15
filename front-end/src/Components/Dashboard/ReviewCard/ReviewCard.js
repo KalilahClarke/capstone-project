@@ -1,6 +1,6 @@
 import React, {useState} from "react";
-import { SlArrowUp } from 'react-icons/sl'
-import { SlArrowDown } from 'react-icons/sl'
+import { SlArrowUp, SlArrowDown } from 'react-icons/sl'
+
 
 import './ReviewCard.css'
 
