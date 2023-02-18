@@ -1,8 +1,8 @@
 DROP DATABASE IF EXISTS task_capstone;
+-- DROP TABLE IF EXISTS users, requests, ratings, reviews;
 CREATE DATABASE task_capstone;
 
 \c task_capstone;
-
 CREATE TABLE users (
     uuid TEXT PRIMARY KEY UNIQUE NOT NULL,
     firstname TEXT NOT NULL,
@@ -17,17 +17,18 @@ CREATE TABLE users (
     email TEXT NOT NULL,
     verified BOOLEAN default false,
     user_type TEXT NOT NULL,
-    profilephoto TEXT,
+    profilephoto TEXT UNIQUE,  
+    -- profile id needed in request
     languages TEXT,
     verification_type TEXT
 );
 
 CREATE TABLE requests (
-    id SERIAL PRIMARY KEY,
-    elder_id TEXT references users(uuid),
-    -- elder_img TEXT references users(uuid),
-    volunteer_id TEXT references users(uuid) DEFAULT NULL,
-    -- volunteer_img TEXT references users(profilephoto) DEFAULT NULL,
+    id SERIAL PRIMARY KEY UNIQUE,
+    elder_id TEXT REFERENCES users(uuid),
+    elder_img TEXT REFERENCES users(profilephoto),
+    volunteer_id TEXT REFERENCES users(uuid) DEFAULT NULL,
+    volunteer_img TEXT REFERENCES users(profilephoto) DEFAULT NULL,
     req_date TEXT NOT NULL,
     title TEXT,
     description TEXT NOT NULL,
@@ -38,19 +39,22 @@ CREATE TABLE requests (
     image TEXT
 );
 
-CREATE TABLE ratings (
-    id SERIAL PRIMARY KEY,
-    rating INT NOT NULL,
-    request_id INT references requests(id),
-    rating_user_id TEXT references users(uuid),
-    rated_user_id TEXT references users(uuid)
-);
+-- CREATE TABLE ratings (
+--     id SERIAL PRIMARY KEY,
+--     rating INT NOT NULL,
+--     request_id INT references requests(id),
+--     rating_user_id TEXT references users(uuid),
+--     rated_user_id TEXT references users(uuid) DEFAULT NULL
+-- );
 
-CREATE TABLE reviews (
-    id SERIAL PRIMARY KEY,
-    reviewer_id TEXT references users(uuid),
-    -- reviewer_img TEXT references users(profilephoto),
-    description TEXT NOT NULL,
-    post_date DATE NOT NULL,
-    request_id INT references requests(id)
-);
+-- CREATE TABLE reviews (
+--     id SERIAL PRIMARY KEY,
+--     reviewer_id TEXT references users(uuid) DEFAULT NULL,
+--     reviewer_img TEXT references users(profilephoto),
+--     -- reviewers_img
+--     reviewed_id  TEXT references users(uuid),
+--     -- reviewed_id
+--     description TEXT NOT NULL,
+--     post_date DATE NOT NULL,
+--     request_id INT references requests(id)
+-- );

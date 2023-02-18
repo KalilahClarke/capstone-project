@@ -59,7 +59,7 @@ const OpenRequestPage = ({
       </div>
       <div className="openRequestPage__main-page">
         <h3 className='openRequestPage__title top'>Open Request</h3>
-        <div className="openRequestPage__filter">
+        <div className= "openRequestPage__filter" >
           {currentDate === selectedCalendarDate ? neighborhood : currentNeighborhood}
         </div>
       </div>

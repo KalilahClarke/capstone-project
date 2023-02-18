@@ -27,9 +27,12 @@
 }
 
 .noFilter{
-    font-size: x-large;
-    text-align: center;
+    font-size: large;
+    text-align: left;
+    margin-left: 15px;
     margin-top: 45px;
+    
+    
 }
 /* .request{
     padding-top: 30px;

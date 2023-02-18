@@ -20,8 +20,16 @@ const RequestReviewForm = ({ applicationUser, request }) => {
 
   const { id } = useParams();
   const [edit, setEdit] = useState(false)
-  const [review, setReview] = useState([]);
-  
+  // const [reviews, setReviews] = useState([]); disgard
+  const [newReview, setNewReview] = useState({
+    reviewer_id: applicationUser.uuid,
+    reviewed_id:  applicationUser.user_type === 'Volunteer' ? request.elder_id : request.volunteer_id,
+    reviewer_photo: applicationUser.profilephoto,
+    description: "",
+    post_date: "",
+    request_id: id,
+  });
+
   //Date Converter
   const dateConverter = (specifiedDate) => {
 
@@ -38,17 +46,7 @@ const RequestReviewForm = ({ applicationUser, request }) => {
   //Variable Declared and new Date passed in to format for backend
   let currentDate = dateConverter(new Date());
 
-  const reviewed = applicationUser.verification_type === 'Volunteer' ? request.elder_id : request.volunteer_id
 
-  const [newReview, setNewReview] = useState({
-    reviewer_id: applicationUser.uuid,
-    //Added Element that need to be in Back-end
-    reviewed_id: reviewed,
-    reviewer_photo: applicationUser.profilephoto,
-    description: "",
-    post_date: currentDate,
-    request_id: id,
-  });
     //console.log(newReview)
 
   const [user, setUser] = useState({})
@@ -57,48 +55,52 @@ const RequestReviewForm = ({ applicationUser, request }) => {
   useEffect(() => {
     axios
       .get(`${API}/reviews/${id}`)
-      .then((res) => setReview(res.data))
+      .then((res) => {
+        const reviews = res.data
+        //find review with id and userId 
+        const currentReview = reviews.find(review => review.request_id ===  Number(id) && review.reviewer_id === applicationUser.uuid)
+        //if it exist 
+        // console.log(currentReview)
+        if(currentReview){
+          setNewReview(currentReview)
+          console.log(newReview)
+        }
+      })
 
-      if(applicationUser.user_type === 'Volunteer'){
-    axios
-      .get(`${API}/users/${request.elder_id}`)
-      .then((res)=>setUser(res.data.payload))
-      }else{
-    axios
-      .get(`${API}/users/${request.volunteer_id}`)
-      .then((res)=>setUser(res.data.payload))
-      }
+    //   if(applicationUser.user_type === 'Volunteer'){
+    // axios
+    //   .get(`${API}/users/${request.elder_id}`)
+    //   .then((res)=>setUser(res.data.payload))
+    //   }else{
+    // axios
+    //   .get(`${API}/users/${request.volunteer_id}`)
+    //   .then((res)=>setUser(res.data.payload))
+
+    //   }
   }, []);
-
-
+      
+//console.log(newReview)
 
 //   let filter =  review.find( specifiedReview => specifiedReview.reviewer_id === applicationUser.uuid)
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(review.description){
-      axios.put(`${API}/reviews`, newReview)
+    setNewReview({...newReview, post_date: currentDate})
+    
+    if(newReview.description){
+      console.log(newReview)
+      axios.put((`${API}/reviews/${id}`), newReview)
     }else{
-      axios.post(`${API}/reviews`, newReview);
-
+      axios.post((`${API}/reviews/${id}`), newReview);
     }
+    
   }
+
   const handleTextReview = (e) => {
     setNewReview({ ...newReview, description: e.target.value });
   };
-  const handleEdit = (e) =>{
 
-  }
-  
-  const find = review.find((user)=> {
-    if(user.reviewer_id === applicationUser){
+ 
 
-    }
-  
-  })
-  console.log(find)
-
-  console.log(review)
-  console.log(newReview)
   return (
     <div className='cards'>
         <h3>Request Review</h3>
@@ -117,7 +119,7 @@ const RequestReviewForm = ({ applicationUser, request }) => {
                 <div className='card-info'>
                     <h5 className='card-text'> Review Rating</h5>
                     <StarRating/>
-                    {review.description && !edit ? <div>{review.description}</div>:<textarea value= {review.find((user) => user.reviewer_id === applicationUser.uuid && <p>{user.reviewer_id}</p> || '')} rows={4} cols= {56} onChange={handleTextReview}></textarea>}
+                    <textarea rows={4} cols= {56} value = {newReview.description} onChange = {handleTextReview}/>
                 </div>
                 </div>
 
@@ -126,12 +128,12 @@ const RequestReviewForm = ({ applicationUser, request }) => {
         <div className="buttons">
         <div>
             
-              <Button className="back"onClick={()=>{navigate(`/requests/${request.id}`)}}>BACK</Button>
+              <Button className="back" onClick={()=>{navigate(`/requests/${request.id}`)}}>BACK</Button>
               
-              {review.description && !edit ? 
-              <Button className="back" onClick={handleEdit}>EDIT</Button>
-             : <Button className="back" onClick={handleSubmit}>SUBMIT</Button>
-}
+              {/* {reviews.description && !edit ?  */}
+              {/* <Button className="back" onClick={handleEdit}>EDIT</Button> */}
+              <Button className="back" onClick={handleSubmit}>SUBMIT</Button>
+
             </div>
         </div> 
     </div>
@@ -139,3 +141,5 @@ const RequestReviewForm = ({ applicationUser, request }) => {
 }
 
 export default RequestReviewForm
+
+// && !edit ? <div>{reviews}</div>:<textarea value= {reviews.find((user) => user.reviewer_id === applicationUser.uuid && <p>{user.reviewer_id}</p> || '')} rows={4} cols= {56} onChange={handleTextReview}></textarea>}

@@ -1,11 +1,15 @@
 import React, {useState} from "react";
 import { SlArrowUp, SlArrowDown } from 'react-icons/sl'
+import { Rating } from '@mui/material'
 
 
 import './ReviewCard.css'
 
 const ReviewCard = (reviews) => {
     const [showMore, setShowMore] = useState(false)
+    const [ratings, setRating] = useState({
+                      rating : 0
+    })
     const [reviewBody, setReviewBody] = useState(`Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
     eiusmod tempor incididunt ut labore et dolore magna aliqua. Dictum
     fusce ut placerat orci nulla pellentesque dignissim. Ultrices gravida
@@ -37,22 +41,6 @@ const ReviewCard = (reviews) => {
       }
     }
     const processText = truncateReviewText()
-    const starRating = (num) => {
-        switch (num) {
-          case 1:
-            return "⭐️";
-          case 2:
-            return "⭐️ ⭐️";
-          case 3:
-            return "⭐️ ⭐️ ⭐️";
-          case 4:
-            return "⭐️ ⭐️ ⭐️ ⭐️";
-          case 5:
-            return "⭐️ ⭐️ ⭐️ ⭐️ ⭐️";
-          default:
-            return null;
-        }
-      };
       
   return (
     <div className = 'Reviews'>
@@ -69,8 +57,8 @@ const ReviewCard = (reviews) => {
       <div className="Reviews__review">
         <h6>{reviews.reviewerName || "Reviewer Name"}</h6>
         <div className="ReviewCard__rating">
-          <div>{starRating(4)}</div>
-          <div className="ReviewCard__date">Date: {reviews.date || "02/04/2023"}</div>
+        <Rating name="half-rating-read" defaultValue={ratings.rating || 2.5} precision={0.5} size='small' readOnly />
+        <div className="ReviewCard__date">Date: {reviews.date || "02/04/2023"}</div>
         </div>
             {processText}
 

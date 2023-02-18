@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { UserContext } from '../../../Providers/UserProviders';
 import { Link, useNavigate } from "react-router-dom";
+import DynamicStar from "../StarRating/DynamicStar";
 
 import SidebarNav from "../SideBarNav/SidebarNav";
 
@@ -16,11 +17,12 @@ const ReviewsPage = ({ date, setDate, applicationUser, setRequestSearch, request
   //placeholder
   const [reviews, setReviews] = useState({})
   const [rate, setRate] = useState({})
+  const [reviewCount, setReviewCount] = useState(0)
   let navigate = useNavigate();
   //presort based on review updated
   //create a filter pulling the reviews associated with the the users account. 
   //map through the reviews using the date and the requestSearch in the conditional
-  // let accumulator = 0
+  let accumulator = 0
   // rate.map((score)=> accumulator += score)
   
  
@@ -42,9 +44,10 @@ const ReviewsPage = ({ date, setDate, applicationUser, setRequestSearch, request
         <div className= 'ReviewPage__personalInfo'>
         <img  className='ReviewPage__img'src={applicationUser.profilephoto || user.photoURL} />
         <br/>
-        <h5 className= 'ReviewPage__stars'>Star Rating:</h5>
-        <h5>Review Count: </h5>
-        <p>{reviews.length || 'Review Count'}</p>
+        <div className= 'ReviewPage__stars'>Star Rating:</div>
+        <DynamicStar setReviewCount={setReviewCount}/>
+        <div className= 'ReviewPage__count'>Review Count: </div>
+        <div className='count__result'>{reviewCount > 1 ?(`${reviewCount} reviews`): `${reviewCount} review` || 'No Current Reviews'}</div>
         </div>
         <div className='ReviewPage__reviews-list'>
           <Reviews reviews= {reviews}/>

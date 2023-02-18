@@ -22,6 +22,15 @@
 .ReviewPage__personalInfo{
     position: sticky;
 }
+.ReviewPage__stars{
+    margin-top: 20px;
+}
+.ReviewPage__count{
+    margin-top: 15px;
+}
+.count__result{
+    font-size: 15px;
+}
 
 .sidebar-nav{
     width: 23%;
@@ -29,6 +38,7 @@
     position: sticky;
     top: 0;
 }
-.ReviewPage__personalInfo h5{
+.ReviewPage__personalInfo {
     margin: 15px 0px;
+    font-size: 20px;
 }
