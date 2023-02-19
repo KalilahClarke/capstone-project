@@ -5,14 +5,14 @@ import './DynamicStar.css'
 
 const DynamicStar = ({ratings}) => {
 
-    const ratingLength = ratings.length
+    const ratingLength = ratings.length || 0
     
-    let accumulator = ratings.reduce((accumulator,rating)=> (accumulator += rating))
+    let accumulator = ratings.length !== 0 ? ratings.reduce((accumulator,rating)=> (accumulator += rating)) : 0 
     
   return (
     <div className='DynamicStar'>
      <Rating name="half-rating-read" defaultValue={Number((accumulator/ratingLength).toPrecision(2))} precision={0.1} readOnly />
-     <div> { (accumulator/ratingLength).toFixed(1) }</div>
+     <div> { ((accumulator/ratingLength) || 0).toFixed(1) }</div>
     </div>
   )
 }

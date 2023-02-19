@@ -15,7 +15,7 @@ const ReviewsPage = ({ date, setDate, applicationUser, setRequestSearch, request
   //placeholder
   const [reviews, setReviews] = useState({})
   const [rate, setRate] = useState({})
-  const [ratings, setRatings] = useState ([5,2,3,4,5,3.5,4,4,5])
+  const [ratings, setRatings] = useState ([])
 
   const [reviewCount, setReviewCount] = useState(0)
   let navigate = useNavigate();
@@ -25,7 +25,7 @@ const ReviewsPage = ({ date, setDate, applicationUser, setRequestSearch, request
   let accumulator = 0
   // rate.map((score)=> accumulator += score)
   
- 
+  console.log(!ratings)
   return (
     <div className="user-dashboard">
       <div className="sidebar-nav">
@@ -47,7 +47,7 @@ const ReviewsPage = ({ date, setDate, applicationUser, setRequestSearch, request
         <div className= 'ReviewPage__stars'>Star Rating:</div>
         <DynamicStar ratings = {ratings} setReviewCount={setReviewCount}/>
         <div className= 'ReviewPage__count'>Review Count: </div>   
-        <div className='count__result'>{ratings.length > 1 ? (`${ratings.length} reviews`): `${ratings.length} review` || 'No Current Reviews'}</div>
+        <div className='count__result'>{( !ratings  ? ratings.length > 1 ? (`${ratings.length} reviews`) : `${ratings.length} review`: 'No Current Reviews') }</div>
         </div>
         <div className='ReviewPage__reviews-list'>
           <Reviews reviews= {reviews}/>
