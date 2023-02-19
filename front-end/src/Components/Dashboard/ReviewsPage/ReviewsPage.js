@@ -15,6 +15,8 @@ const ReviewsPage = ({ date, setDate, applicationUser, setRequestSearch, request
   //placeholder
   const [reviews, setReviews] = useState({})
   const [rate, setRate] = useState({})
+  const [ratings, setRatings] = useState ([5,2,3,4,5,3.5,4,4,5])
+
   const [reviewCount, setReviewCount] = useState(0)
   let navigate = useNavigate();
   //presort based on review updated
@@ -43,9 +45,9 @@ const ReviewsPage = ({ date, setDate, applicationUser, setRequestSearch, request
         <img  className='ReviewPage__img'src={applicationUser.profilephoto || user.photoURL} />
         <br/>
         <div className= 'ReviewPage__stars'>Star Rating:</div>
-        <DynamicStar setReviewCount={setReviewCount}/>
+        <DynamicStar ratings = {ratings} setReviewCount={setReviewCount}/>
         <div className= 'ReviewPage__count'>Review Count: </div>   
-        <div className='count__result'>{reviewCount > 1 ?(`${reviewCount} reviews`): `${reviewCount} review` || 'No Current Reviews'}</div>
+        <div className='count__result'>{ratings.length > 1 ? (`${ratings.length} reviews`): `${ratings.length} review` || 'No Current Reviews'}</div>
         </div>
         <div className='ReviewPage__reviews-list'>
           <Reviews reviews= {reviews}/>

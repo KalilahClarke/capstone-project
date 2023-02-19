@@ -50,7 +50,7 @@ const OpenRequestPage = ({
       <RequestCard key={request.id} request={request} />
     ) : null
   );
-
+      console.log(currentNeighborhood.length, neighborhood.length)
   return (
     <div className="user-dashboard">
       <div className='sidebar-nav'>
@@ -59,9 +59,9 @@ const OpenRequestPage = ({
       </div>
       <div className="openRequestPage__main-page">
         <h3 className='openRequestPage__title top'>Open Request</h3>
-        <div className= "openRequestPage__filter" >
+        {(neighborhood || currentNeighborhood) && <div className= "openRequestPage__filter" >
           {currentDate === selectedCalendarDate ? neighborhood : currentNeighborhood}
-        </div>
+        </div>}
       </div>
     </div>
   );
