@@ -1,229 +1,229 @@
 .details {
-    display: grid;
-    grid-template-columns: 7fr 25fr;
+  display: grid;
+  grid-template-columns: 7fr 25fr;
 }
 
 .cards {
-    padding: 4rem;
-    padding-top: 2rem;
-    background: #fff;
-  }
-  
-  .details h3 {
-    text-align: center;
-  }
-  
-  .card-holder {
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    max-width: 1120px;
-    width: 50%;
-    margin: 0 auto;
-  }
-  /* Perspective was added ... testing */
-  /* perspective: 1000px;  */
-  
-  
-  .card-wrap {
-    position: relative;
-    margin: 25px 0 25px;
-    box-shadow: 0 6px 20px rgba(56, 125, 255, 0.17);
-    -webkit-filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
-    filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
-    border-radius: 10px;
-    /* Additional CSS */
-    /* transition: transform 0.8s;
-    transform-style: preserve-3d; */
-  }
-  .flip-card-wrap{
-    position: relative;
-    margin: 25px 0 25px;
-    box-shadow: 0 6px 20px rgba(56, 125, 255, 0.17);
-    -webkit-filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
-    filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
-    border-radius: 10px;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-  }
+  padding: 4rem;
+  padding-top: 2rem;
+  background: #fff;
+}
 
-  
-  /* .card-holder:hover .card-wrap{
-    transform: rotateY(180deg);
-  } */
-  /* .card-items-forward, .card-items-backward{
-  
+.details h3 {
+  text-align: center;
+}
+
+.card-holder {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  max-width: 1120px;
+  width: 50%;
+  margin: 0 auto;
+}
+/* Perspective was added ... testing */
+/* perspective: 1000px;  */
+
+
+.card-wrap {
+  position: relative;
+  margin: 25px 0 25px;
+  box-shadow: 0 6px 20px rgba(56, 125, 255, 0.17);
+  -webkit-filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
+  filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
+  border-radius: 10px;
+  /* Additional CSS */
+  /* transition: transform 0.8s;
+  transform-style: preserve-3d; */
+}
+.flip-card-wrap{
+  position: relative;
+  margin: 25px 0 25px;
+  box-shadow: 0 6px 20px rgba(56, 125, 255, 0.17);
+  -webkit-filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
+  filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
+  border-radius: 10px;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+
+/* .card-holder:hover .card-wrap{
+  transform: rotateY(180deg);
+} */
+/* .card-items-forward, .card-items-backward{
+
+width: 100%;
+height: 100%; 
+-webkit-backface-visibility: hidden; 
+backface-visibility: hidden;
+} */
+/* .card-items-backward{
+  transform: rotateY(180deg); 
+  Jordan: Flip to change isn't working would like it to be an on-click 
+} */
+
+.cards-items {
+  margin-bottom: 24px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+.back,
+.accept,
+.reject,
+.edit {
+    margin-right: 15px;
+    padding-left: 80px;
+    border: none;
+    padding-right: 80px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background: #42999B;
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+    letter-spacing: .2em;
+}
+.warning{
+  font-size: 12px;
+}
+.red{
+  color: red;
+}
+
+.back:hover,
+.accept:hover,
+.reject:hover,
+.edit:hover{
+  background-color: #B8DEDC;
+}
+
+.card-fig {
+  position: relative;
   width: 100%;
-  height: 100%; 
-  -webkit-backface-visibility: hidden; 
-  backface-visibility: hidden;
-  } */
-  /* .card-items-backward{
-    transform: rotateY(180deg); 
-    Jordan: Flip to change isn't working would like it to be an on-click 
-  } */
-  
-  .cards-items {
-    margin-bottom: 24px;
+  padding-top: 67%;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.fade-img {
+  animation-name: fade-img;
+  animation-duration: 2s;
+}
+
+.card-fig::after {
+  content: attr(data-category);
+  position: absolute;
+  bottom: 0;
+  margin-left: 10px;
+  padding: 6px 8px;
+  max-width: calc((100%) - 60px);
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  background-color: #42999b;
+  box-sizing: border-box;
+}
+
+.cardImg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  transition: all 0.2s linear;
+  min-width: 492.64px;
+
+}
+
+.cardImg:hover {
+  transform: scale(1.1);
+}
+
+.card-info {
+  padding: 20px 30px 30px;
+  text-align: center;
+}
+.card-review {
+  padding: 2px 30px 30px 20px;
+  text-align: center;
+}
+.card-text {
+  color: #252e48;
+  font-size: 18px;
+  line-height: 24px;
+}
+.reviews{
+  justify-content: center;
+  margin-top: 10px;
+  text-align: center;
+}
+.submit{
+  border-radius: 10px;
+  padding: 0 10px;
+
+}
+
+
+/* media queries */
+@media only screen and (min-width: 1200px) {
+  .content__blog__container {
+    width: 84%;
   }
-  
+}
+
+@media only screen and (min-width: 1024px) {
+  .cards-items {
+    display: flex;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .carditem {
+    margin-bottom: 2rem;
+  }
+}
+@media only screen and (max-width: 1024px) {
   .buttons {
     display: flex;
+    /* flex-flow: column; */
     justify-content: center;
-    cursor: pointer;
   }
-  .back,
-  .accept,
-  .reject,
-  .edit {
-      margin-right: 15px;
-      padding-left: 80px;
-      border: none;
-      padding-right: 80px;
-      padding-top: 5px;
-      padding-bottom: 5px;
-      background: #42999B;
-      font-size: 18px;
-      font-weight: 700;
-      color: white;
-      letter-spacing: .2em;
-  }
-  .warning{
-    font-size: 12px;
-  }
-  .red{
-    color: red;
-  }
-
-  .back:hover,
-  .accept:hover,
-  .reject:hover,
-  .edit:hover{
-    background-color: #B8DEDC;
-  }
-  
-  .card-fig {
-    position: relative;
-    width: 100%;
-    padding-top: 67%;
-    overflow: hidden;
-    border-radius: 10px;
-  }
-  
-  .fade-img {
-    animation-name: fade-img;
-    animation-duration: 2s;
-  }
-  
-  .card-fig::after {
-    content: attr(data-category);
-    position: absolute;
-    bottom: 0;
-    margin-left: 10px;
-    padding: 6px 8px;
-    max-width: calc((100%) - 60px);
-    font-size: 12px;
-    font-weight: 700;
-    color: #fff;
-    background-color: #42999b;
-    box-sizing: border-box;
-  }
-  
-  .cardImg {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    height: 100%;
-    max-height: 100%;
-    object-fit: cover;
-    transition: all 0.2s linear;
-    min-width: 492.64px;
-
-  }
-  
-  .cardImg:hover {
-    transform: scale(1.1);
-  }
-  
-  .card-info {
-    padding: 20px 30px 30px;
-    text-align: center;
-  }
-  .card-review {
-    padding: 2px 30px 30px 20px;
-    text-align: center;
-  }
-  .card-text {
-    color: #252e48;
-    font-size: 18px;
-    line-height: 24px;
-  }
-  .reviews{
+  .back {
     justify-content: center;
-    margin-top: 10px;
+    margin-bottom: 2rem;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 7px;
+  }
+  .accept {
+    justify-content: center;
+    padding-left: 15px;
+    padding-right: 15px;
     text-align: center;
-  }
-  .submit{
-    border-radius: 10px;
-    padding: 0 10px;
-
-  }
-
-  
-  /* media queries */
-  @media only screen and (min-width: 1200px) {
-    .content__blog__container {
-      width: 84%;
-    }
+    border-radius: 7px;
   }
   
-  @media only screen and (min-width: 1024px) {
-    .cards-items {
-      display: flex;
-    }
+  .details h3{
+    margin-top: -5px;
   }
-  
-  @media only screen and (max-width: 1024px) {
-    .carditem {
-      margin-bottom: 2rem;
-    }
-  }
-  @media only screen and (max-width: 1024px) {
-    .buttons {
-      display: flex;
-      /* flex-flow: column; */
-      justify-content: center;
-    }
-    .back {
-      justify-content: center;
-      margin-bottom: 2rem;
-      padding-left: 15px;
-      padding-right: 15px;
-      border-radius: 7px;
-    }
-    .accept {
-      justify-content: center;
-      padding-left: 15px;
-      padding-right: 15px;
-      text-align: center;
-      border-radius: 7px;
-    }
-    
-    .details h3{
-      margin-top: -5px;
-    }
-  }
- 
+}
 
 
-  @media only screen and (max-width: 1024px) {
-    .sidebar-nav {
-        display: none;
-    }
+
+@media only screen and (max-width: 1024px) {
+  .sidebar-nav {
+      display: none;
   }
+}
   

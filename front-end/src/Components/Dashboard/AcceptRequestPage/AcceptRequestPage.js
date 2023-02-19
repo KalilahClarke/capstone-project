@@ -43,7 +43,6 @@ const AcceptRequestPage = ({
 
   let pendingRequestFilter = requests.filter((request)=> selectedCalendarDate === currentDate && request.title.toLowerCase().includes(search) ? request.req_date >= currentDate : selectedCalendarDate === request.req_date ).map((request)=> !request.assigned  && <RequestCard key={request.id} request={request} />)
 
-  
   return (
     <div className="user-dashboard">
       
@@ -52,18 +51,18 @@ const AcceptRequestPage = ({
       </div>
       
       <div className="acceptRequestPage__main-page">
-        <h3 className="acceptRequestPage__title top">Accepted Requests</h3>
-        <div className="acceptedRequestPage__filter">
+        {acceptedRequestFilter.length !== 0 && <h3 className="acceptRequestPage__title top">Accepted Requests</h3>}
+        {acceptedRequestFilter.length !== 0 && <div className="acceptedRequestPage__filter">
           {acceptedRequestFilter}
-        </div>
-        {(applicationUser.user_type === "Senior" && pendingRequestFilter.length !== 0) && <h3 className="acceptRequestPage__title">Pending Requests</h3>}
-        <div className="acceptedRequestPage__filter">
+        </div>}
+        {( applicationUser.user_type !== 'Volunteer' && pendingRequestFilter.length !== 0) &&<h3 className="acceptRequestPage__title">Pending Requests</h3>}
+        {( applicationUser.user_type !== 'Volunteer' && pendingRequestFilter.length !== 0) &&<div className="acceptedRequestPage__filter">
         {pendingRequestFilter}
-        </div>
+        </div>}
         {completedRequestFilter.length !== 0 && <h3 className="acceptRequestPage__title">Completed Requests</h3>}
-        <div className="acceptedRequestPage__filter">
+        {completedRequestFilter.length !== 0 &&<div className="acceptedRequestPage__filter">
           {completedRequestFilter}
-        </div>
+        </div>}
       </div>
     </div>
   );

@@ -29,22 +29,22 @@ const RequestReviewForm = ({ applicationUser, request }) => {
     post_date: "",
     request_id: id,
   });
-
+  
   //Date Converter
   const dateConverter = (specifiedDate) => {
-
+    
     const fullYear = specifiedDate?.getFullYear();
     const month = specifiedDate?.getMonth() + 1;
     const paddedMonth = month.toString().padStart(2,'0');
     const currentDate = specifiedDate?.getDate()
     const paddedDate = currentDate.toString().padStart(2,'0')
-
+    
     const formattedDate = `${fullYear}-${paddedMonth}-${paddedDate}`
     
     return formattedDate
   };
-  //Variable Declared and new Date passed in to format for backend
   let currentDate = dateConverter(new Date());
+  //Variable Declared and new Date passed in to format for backend
 
 
     //console.log(newReview)
@@ -98,7 +98,7 @@ const RequestReviewForm = ({ applicationUser, request }) => {
   const handleTextReview = (e) => {
     setNewReview({ ...newReview, description: e.target.value });
   };
-
+ console.log(newReview)
  
 
   return (

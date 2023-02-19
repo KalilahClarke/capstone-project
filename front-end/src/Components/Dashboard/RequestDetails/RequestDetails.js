@@ -40,6 +40,7 @@ const RequestDetails = ({
     axios
       .put(`${API}/requests/accept_request`, {
         volunteer: applicationUser.uuid,
+        volunteer_img: applicationUser.profilephoto,
         req_id: id,
       })
       .then(navigate("/user-dashboard"));
@@ -47,6 +48,8 @@ const RequestDetails = ({
   const missionFailed = () => {
     axios
       .put(`${API}/requests/reject_request`, {
+        volunteer: "",
+        volunteer_img: "",
         req_id: id,
       })
       .then(navigate("/user-dashboard"));

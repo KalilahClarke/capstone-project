@@ -47,14 +47,14 @@ CREATE TABLE requests (
 --     rated_user_id TEXT references users(uuid) DEFAULT NULL
 -- );
 
--- CREATE TABLE reviews (
---     id SERIAL PRIMARY KEY,
---     reviewer_id TEXT references users(uuid) DEFAULT NULL,
---     reviewer_img TEXT references users(profilephoto),
---     -- reviewers_img
---     reviewed_id  TEXT references users(uuid),
---     -- reviewed_id
---     description TEXT NOT NULL,
---     post_date DATE NOT NULL,
---     request_id INT references requests(id)
--- );
+CREATE TABLE reviews (
+    id SERIAL PRIMARY KEY,
+    reviewer_id TEXT references users(uuid) DEFAULT NULL,
+    reviewer_img TEXT references users(profilephoto),
+    -- reviewers_img
+    reviewed_id  TEXT references users(uuid),
+    -- reviewed_id
+    description TEXT NOT NULL,
+    post_date DATE NOT NULL,
+    request_id INT references requests(id)
+);

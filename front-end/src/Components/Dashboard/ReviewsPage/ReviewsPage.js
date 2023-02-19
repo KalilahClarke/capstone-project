@@ -2,9 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { UserContext } from '../../../Providers/UserProviders';
 import { Link, useNavigate } from "react-router-dom";
 import DynamicStar from "../StarRating/DynamicStar";
-
 import SidebarNav from "../SideBarNav/SidebarNav";
-
 import Reviews from "../ReviewCard/ReviewCard";
 import "./ReviewsPage.css";
 
@@ -46,7 +44,7 @@ const ReviewsPage = ({ date, setDate, applicationUser, setRequestSearch, request
         <br/>
         <div className= 'ReviewPage__stars'>Star Rating:</div>
         <DynamicStar setReviewCount={setReviewCount}/>
-        <div className= 'ReviewPage__count'>Review Count: </div>
+        <div className= 'ReviewPage__count'>Review Count: </div>   
         <div className='count__result'>{reviewCount > 1 ?(`${reviewCount} reviews`): `${reviewCount} review` || 'No Current Reviews'}</div>
         </div>
         <div className='ReviewPage__reviews-list'>
