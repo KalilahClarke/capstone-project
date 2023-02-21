@@ -58,3 +58,10 @@ CREATE TABLE reviews (
     post_date DATE NOT NULL,
     request_id INT references requests(id)
 );
+
+-- CREATE TABLE favorites{
+--     id SERIAL PRIMARY KEY,
+--     user_favorite  TEXT references users(uuid),
+
+
+-- }

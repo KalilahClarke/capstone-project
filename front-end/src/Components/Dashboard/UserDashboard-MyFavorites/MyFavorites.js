@@ -6,11 +6,11 @@ import React from "react";
 //CSS
 import "./MyFavorites.css";
 
-const MyFavorites = () => {
+const MyFavorites = ({setLocation}) => {
   return (
     <>
       <h3 className="head">Favorites</h3>
-      <div className="favorites">
+      <div className="favorites" onClick={()=>setLocation('myFavorites')}>
         <p className="no-requests"> Coming soon...</p>
       </div>
     </>

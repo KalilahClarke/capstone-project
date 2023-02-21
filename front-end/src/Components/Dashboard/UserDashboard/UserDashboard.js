@@ -1,6 +1,6 @@
 //Component Imports
 import SidebarNav from "../SideBarNav/SidebarNav";
-import MyRequests from "../MyRequests/MyRequests";
+import MyRequests from "../UserDashboard-MyRequests/MyRequests.js";
 import OpenRequests from "../UserDashboard-OpenRequests/OpenRequests";
 import MyFavorites from "../UserDashboard-MyFavorites/MyFavorites";
 // import RequestCard from "./RequestCard";
@@ -18,6 +18,10 @@ const API = process.env.REACT_APP_BACKEND_API_KEY;
 const UserDashboard = ({
   date,
   setDate,
+  location,
+  setLocation,
+  setPagination,
+  pagination,
   applicationUser,
   requests,
   setRequests,
@@ -67,23 +71,30 @@ const UserDashboard = ({
       <div className = 'user-dashboard__main-page'>
       <>
         <div className="my-list">
-          <MyRequests
-            requests={requests}
-            date={date}
+           <MyRequests
+            setLocation = {setLocation}
+            date = {date}
+            setPagination={setPagination}
+            pagination={pagination}
+            requests = {requests}
             requestSearch = {requestSearch}
+            applicationUser = {applicationUser}
            
           />
         </div>
         <div className = 'requests'>
           {applicationUser.user_type === "Volunteer" ? (
             <OpenRequests
+              setLocation = {setLocation}
               date={date}
+              setPagination={setPagination}
+              pagination={pagination}
               openRequests={openRequests}
               requestSearch = {requestSearch}
-             
+              applicationUser = {applicationUser}
             />
           ) : (
-            <MyFavorites users={users} />
+            <MyFavorites setLocation = {setLocation} users={users} />
           )}
         </div>
       </>

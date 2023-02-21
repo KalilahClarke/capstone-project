@@ -38,18 +38,12 @@ const DashboardNav = ({ applicationUser }) => {
               {displayName.split(" ").shift()}
             </Dropdown.Toggle>
             <Dropdown.Menu>
-
-            
                <Dropdown.Item onClick={()=>{navigate('/user/settings')}}>
                 Settings <i className="fa-sharp fa-solid fa-gear"></i>
                 </Dropdown.Item>
           
               <Dropdown.Item onClick={signOut}>Sign-Out </Dropdown.Item>
-              {/* Visual Support */}
-              <Dropdown.Item onClick={()=>{navigate('/template')}}>
-                Review Template 
-                </Dropdown.Item>
-              {/* Visual Support */}
+             
             </Dropdown.Menu>
           </Dropdown>
           {/* <i className="fa-regular fa-envelope" id="envelope"></i>

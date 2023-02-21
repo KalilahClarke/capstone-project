@@ -1,9 +1,24 @@
-/* .req-card-details {
-  display: grid;
+
+.req-card-img {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  left: 220px;
+  position: absolute;
+  top:-30px;
+  z-index: 1;
+  border: whitesmoke solid 1px;
+  
+}
+
+
+.req-card-details{
+  /* display: grid;
   margin-top: 2rem;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  column-gap: 2.5rem;
-} */
+  column-gap: 2.5rem; */
+  position: relative;
+}
 .req-card {
   background-color: white;
   border-radius: 4px;
@@ -66,8 +81,6 @@
     margin-top: 8px;
     color: white;
   }
-
-
 
 
 

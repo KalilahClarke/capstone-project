@@ -3,6 +3,7 @@
 import axios from "axios";
 import React,{ useEffect, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
+import {  IoIosArrowForward, IoIosArrowBack } from 'react-icons/io'
 
 //CSS
 import './RequestDetails.css'
@@ -47,8 +48,6 @@ const RequestReviewForm = ({ applicationUser, request }) => {
   //Variable Declared and new Date passed in to format for backend
 
 
-    //console.log(newReview)
-
   const [user, setUser] = useState({})
 
   //Need Explanation ?
@@ -78,8 +77,6 @@ const RequestReviewForm = ({ applicationUser, request }) => {
 
     //   }
   }, []);
-      
-//console.log(newReview)
 
 //   let filter =  review.find( specifiedReview => specifiedReview.reviewer_id === applicationUser.uuid)
   const handleSubmit = (e) => {
@@ -98,11 +95,13 @@ const RequestReviewForm = ({ applicationUser, request }) => {
   const handleTextReview = (e) => {
     setNewReview({ ...newReview, description: e.target.value });
   };
- console.log(newReview)
- 
 
   return (
     <div className='cards'>
+      <div className="left">
+       <IoIosArrowBack  className ='center' size={ 40 }/>
+      </div>
+      <div>
         <h3>Request Review</h3>
         <div className='card-holder'>
             <div className='card-wrap'>
@@ -119,7 +118,7 @@ const RequestReviewForm = ({ applicationUser, request }) => {
                 <div className='card-info'>
                     <h5 className='card-text'> Review Rating</h5>
                     <StarRating/>
-                    <textarea rows={4} cols= {56} value = {newReview.description} onChange = {handleTextReview}/>
+                    <textarea rows={4} cols= {48} value = {newReview.description} onChange = {handleTextReview}/>
                 </div>
                 </div>
 
@@ -136,6 +135,10 @@ const RequestReviewForm = ({ applicationUser, request }) => {
 
             </div>
         </div> 
+      </div>
+      <div className="right">
+        <IoIosArrowForward  className='center' size={ 40 }/>
+      </div>
     </div>
   )
 }

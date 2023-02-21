@@ -7,8 +7,17 @@ import RequestCard from '../RequestCard/RequestCard.js';
 //CSS
 import "./OpenRequests.css";
 
-const OpenRequests = ({ openRequests, date, requestSearch}) => {
+const OpenRequests = ({ openRequests, date, requestSearch, setLocation, setPagination, pagination, applicationUser}) => {
   const search = requestSearch.toLowerCase()
+
+  useEffect(() => {
+    
+    setPagination({
+      ...pagination,
+      openRequests: openRequestIds,
+    });
+    
+  }, [requestSearch]);
 
   const dateConverter = (specifiedDate = '') => {
 
@@ -24,32 +33,24 @@ const OpenRequests = ({ openRequests, date, requestSearch}) => {
   };
  
 
-  let currentDate = dateConverter(new Date());
-  let selectedCalendarDate = dateConverter(date) 
+  const currentDate = dateConverter(new Date());
+  const selectedCalendarDate = dateConverter(date) 
 
-  let requestFilter = openRequests.filter((request)=> selectedCalendarDate === currentDate && request.title.toLowerCase().includes(search) ? request.req_date >= currentDate : selectedCalendarDate === request.req_date).map((request, index)=> index < 4 && <RequestCard key={request.id} request={request} />)
+  let openRequestIds = []
+  const requestFilter = openRequests.filter((request)=> selectedCalendarDate === currentDate && request.title.toLowerCase().includes(search) ? request.req_date >= currentDate  && request.title.toLowerCase().includes(search): selectedCalendarDate === request.req_date && request.title.toLowerCase().includes(search)).map((request, index)=> {
+    if(index < 4){
+    openRequestIds.push(request.id)
+    return <RequestCard key={request.id} request={request}  applicationUser={applicationUser}/>
+  } 
+})
  
- 
-  // const specifiedrequests = openRequests.map((openRequest, index) => {
-  //   if (openRequest.req_date === value && index <= 4) {
-  //     return <RequestCard key={openRequest.id} request={openRequest} />;
-  //   }
-  // });
-
-  // const requests = openRequests.map((openRequest, index) => {
-  //   if (openRequest.req_date >= value && index <= 4) {
-  //     return <RequestCard key={openRequest.id} request={openRequest} />;
-  //   }
-  // });
 
   return (
     <>
     <h3 className="head">Open Requests</h3>
-    <div className="open-requests">
-      
-      {/* <div className="open-list"> */}
+    <div className="open-requests" onClick={()=>setLocation('openRequests')}>
       {requestFilter.length > 0 ? requestFilter : <div>No Accepted Request</div>}
-      {/* </div> */}
+    
     </div>
     </>
   );

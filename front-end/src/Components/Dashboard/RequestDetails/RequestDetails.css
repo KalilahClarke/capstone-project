@@ -4,15 +4,27 @@
 }
 
 .cards {
-  padding: 4rem;
+  padding: 0rem 4rem;
+  /* margin-top: 0; */
   padding-top: 2rem;
   background: #fff;
+  display: grid;
+  grid-template-columns: 1fr 5fr 1fr;
+  /* align-items: center; */
+  
 }
-
+.center{
+  margin-top: 350px;
+}
 .details h3 {
   text-align: center;
 }
 
+.left{
+  justify-content:center ;
+  text-align: right;
+  align-items: center;
+}
 .card-holder {
   display: flex;
   flex-flow: column;
