@@ -40,7 +40,7 @@ const App = () => {
   const [users, setUsers] = useState([]);
   const [location, setLocation] = useState("");
   const [pagination, setPagination] = useState({});
-  console.log(pagination)
+  console.log(location)
 
   const [applicationUser, setApplicationUser] = useState({
     uuid: "",
@@ -220,6 +220,7 @@ const App = () => {
                     applicationUser={applicationUser}
                     setRequestSearch={setRequestSearch}
                     requestSearch={requestSearch}
+                    
                   />
                 </Protected>
               }
@@ -250,6 +251,8 @@ const App = () => {
                     applicationUser={applicationUser}
                     setRequestSearch={setRequestSearch}
                     requestSearch={requestSearch}
+                    pagination={pagination}
+                    location={location}
                   />
                 </Protected>
               }

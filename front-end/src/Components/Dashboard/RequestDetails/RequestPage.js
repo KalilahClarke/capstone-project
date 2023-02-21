@@ -23,6 +23,8 @@ const RequestPage = ({
   date,
   requestSearch,
   setRequestSearch,
+  pagination,
+  location
 }) => {
   const [request, setRequest] = useState([]);
   const [reviews, setReviews] = useState([]);
@@ -81,6 +83,7 @@ const RequestPage = ({
         applicationUser={applicationUser}
         requestSearch={requestSearch}
         setRequestSearch={setRequestSearch}
+       
         />
       </div>
     <div>
@@ -91,6 +94,8 @@ const RequestPage = ({
       setReviewFormRevealed={setReviewFormRevealed}
       requestSearch={requestSearch}
       setRequestSearch={setRequestSearch}
+      pagination={pagination}
+      location={location}
       request={request}
       />
       : <ReviewForm 

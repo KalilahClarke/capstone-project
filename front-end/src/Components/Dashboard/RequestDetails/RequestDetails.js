@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import {  IoIosArrowForward, IoIosArrowBack } from 'react-icons/io'
-
+import { SlArrowUp, SlArrowDown } from 'react-icons/sl'
 
 import axios from "axios";
 
@@ -23,13 +23,36 @@ const RequestDetails = ({
   setReviewFormRevealed,
   requestSearch,
   setRequestSearch,
+  location,
+  pagination,
   request
 }) => {
-  
+  const [showMore, setShowMore] = useState(false)
   let { id } = useParams();
   let navigate = useNavigate();
-
+  const index = pagination[location].indexOf(Number(id))
   const API = process.env.REACT_APP_BACKEND_API_KEY;
+  //  <h5 className='card-text'>
+  // <strong>Job Description:</strong>
+  // {description}
+  // </h5>
+
+  const truncateDescriptionText = () =>{
+    if(request.description?.length > 100){
+      let description = request.description.slice(0,100)
+      return ( <div className="ellipsis"> 
+         {!showMore ?  <p className='expand'>{description}<button  className= 'showDetails'onClick = {()=> {setShowMore(!showMore)}}><SlArrowDown/></button></p> : <p>{request.description}<button className= 'showDetails' onClick = {()=>{setShowMore(!showMore)}}><SlArrowUp/></button></p> }
+      </div>
+      )
+    }else{
+      return (
+        <div className = 'ellipsis'>
+          <p>{request.description}</p>
+        </div>
+      )
+    }
+  }
+  let description = truncateDescriptionText()
   // GET A USER DETAILS VOLUNTEER OR ELDER REQUEST
   // useEffect(() => {
   //   axios.get(`${API}/requests/help_req/${id}`).then((response) => {
@@ -69,14 +92,17 @@ const RequestDetails = ({
     return formattedDate;
   };
   let currentDate = dateConverter(new Date());
+  console.log(typeof id)
+  console.log(index)
+  console.log(pagination[location][index-1])
   
   return (
   
  
       <div className="cards">
-      <div className="left">
-       <IoIosArrowBack  className ='center' size={ 40 }/>
-      </div>
+    {index !== 0 ? <div className="left">
+       <IoIosArrowBack  className ='center' size={ 40 } onClick={()=>{navigate(`/requests/${pagination[location][index-1]}`)}}/>
+      </div> : <div></div>}
       <div>
         <h3>Request Details</h3>
         <div className='card-holder'>
@@ -92,7 +118,7 @@ const RequestDetails = ({
             <div className='card-info'>
               <h5 className='card-text'>
                 <strong>Job Description:</strong>
-                {request.description}
+                {description}
               </h5>
               <h4 className="card-text">
                 <strong>Location: </strong>
@@ -146,9 +172,9 @@ const RequestDetails = ({
           </div>
         </div>
       </div>
-      <div className="right">
-        <IoIosArrowForward  className='center' size={ 40 }/>
-      </div>
+      {pagination[location].length-1 !== index &&<div className="right">
+        <IoIosArrowForward  className='center' size={ 40 } onClick={()=>{navigate(`/requests/${pagination[location][index+1]}`)}}/>
+      </div>}
       </div>
    
   );

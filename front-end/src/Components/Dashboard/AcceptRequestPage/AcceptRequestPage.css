@@ -21,7 +21,7 @@
     margin-top: 30px;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     column-gap: 2.5rem;
-    gap: 2.5rem;
+    gap: 4vh;
     margin-bottom: 2% 
 }
 

@@ -56,13 +56,16 @@ a:hover{
   
 .SideBar__searchbar input{
   margin-bottom: 20px;
-  width: 190px;
+  width: 70%;
 }
 
 .text p{
   font-size: 16px;
 }
 
+.SideBar__searchbar label{
+  width: 100%;
+}
 
 
 

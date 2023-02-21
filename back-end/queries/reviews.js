@@ -27,7 +27,7 @@ const leaveReview = async (review) => {
   try {
     console.log("Adding review to request");
     review = await db.one(
-      "INSERT INTO reviews (reviewer_id, description, post_date, request_id) VALUES ($1, $2, $3, $4) RETURNING *",
+      "INSERT INTO reviews (reviewer_id, reviewer_img, reviewed_id, description, post_date, request_id) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
       [
         review.reviewer_id,
         review.reviewer_img,

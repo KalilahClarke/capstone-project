@@ -5,7 +5,7 @@
 
 .cards {
   padding: 0rem 4rem;
-  /* margin-top: 0; */
+  margin-top: 0;
   padding-top: 2rem;
   background: #fff;
   display: grid;
@@ -16,6 +16,22 @@
 .center{
   margin-top: 350px;
 }
+
+.showDetails{
+  border: none;
+  background-color: white;
+  color:  rgba(90, 24, 49, 0.736);
+
+}
+
+.center :hover{
+  color: cadetblue;
+  filter: drop-shadow(30px 10px 4px #545475);; 
+}
+.expand{
+  min-height: 30px;
+}
+
 .details h3 {
   text-align: center;
 }
@@ -25,6 +41,7 @@
   text-align: right;
   align-items: center;
 }
+
 .card-holder {
   display: flex;
   flex-flow: column;
@@ -57,6 +74,9 @@
   border-radius: 10px;
   transition: transform 0.8s;
   transform-style: preserve-3d;
+}
+.ellipsis p{
+  min-height: 100px;
 }
 
 
@@ -131,14 +151,17 @@ backface-visibility: hidden;
   content: attr(data-category);
   position: absolute;
   bottom: 0;
-  margin-left: 10px;
+  margin-left: 0px;
   padding: 6px 8px;
   max-width: calc((100%) - 60px);
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
   color: #fff;
   background-color: #42999b;
   box-sizing: border-box;
+  min-width: 40%;
+  border-radius: 3px;
+  text-align: center;
 }
 
 .cardImg {
@@ -185,6 +208,7 @@ backface-visibility: hidden;
   padding: 0 10px;
 
 }
+
 
 
 /* media queries */
