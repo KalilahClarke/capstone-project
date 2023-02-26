@@ -28,7 +28,7 @@ const MyRequests = ({
   };
 
   //sort requests by date
-  requests.sort((a, b) => b.req_date - a.req_date);
+  // requests.sort((a, b) => b.req_date - a.req_date);
 
 
   const currentDate = dateConverter(new Date());
