@@ -1,5 +1,5 @@
 DROP DATABASE IF EXISTS task_capstone;
--- DROP TABLE IF EXISTS users, requests, ratings, reviews;
+DROP TABLE IF EXISTS users, requests, ratings, reviews;
 CREATE DATABASE task_capstone;
 
 \c task_capstone;
@@ -18,7 +18,6 @@ CREATE TABLE users (
     verified BOOLEAN default false,
     user_type TEXT NOT NULL,
     profilephoto TEXT UNIQUE,  
-    -- profile id needed in request
     languages TEXT,
     verification_type TEXT
 );
@@ -39,21 +38,12 @@ CREATE TABLE requests (
     image TEXT
 );
 
--- CREATE TABLE ratings (
---     id SERIAL PRIMARY KEY,
---     rating INT NOT NULL,
---     request_id INT references requests(id),
---     rating_user_id TEXT references users(uuid),
---     rated_user_id TEXT references users(uuid) DEFAULT NULL
--- );
 
 CREATE TABLE reviews (
     id SERIAL PRIMARY KEY,
     reviewer_id TEXT references users(uuid) DEFAULT NULL,
     reviewer_img TEXT references users(profilephoto),
-    -- reviewers_img
     reviewed_id  TEXT references users(uuid),
-    -- reviewed_id
     description TEXT NOT NULL,
     post_date DATE NOT NULL,
     request_id INT references requests(id)
@@ -65,3 +55,10 @@ CREATE TABLE reviews (
 
 
 -- }
+-- CREATE TABLE ratings (
+--     id SERIAL PRIMARY KEY,
+--     rating INT NOT NULL,
+--     request_id INT references requests(id),
+--     rating_user_id TEXT references users(uuid),
+--     rated_user_id TEXT references users(uuid) DEFAULT NULL
+-- );

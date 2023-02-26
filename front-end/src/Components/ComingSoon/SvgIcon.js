@@ -1,5 +1,5 @@
 import React from "react";
-import "../Dashboard/Achievements/Achievements.css"
+import "../Dashboard/Filter/Achievements/Achievements.css"
 
 const SvgIcon = () => {
   return (

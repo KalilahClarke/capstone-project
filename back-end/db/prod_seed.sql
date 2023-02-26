@@ -2,20 +2,20 @@
 
 
 -- Volunteers
+-- Seniors
+-- Requests
+-- INSERT INTO requests ("elder_id", "elder_img", "volunteer_id", "volunteer_img", "req_date", "title", "description", "location", "time", "assigned", "complete") VALUES
 
 INSERT INTO users ("uuid", "firstname", "lastname", "dob", "address", "unit", "city", "zipcode", "phonenumber", "email", "profilephoto", "user_type","languages", "state","verified") VALUES
 ('5XGYcMFPtnPjx2EeG0e7Rw8N2v83','Emilee','Jackson','1989-10-21','105 W. 150 St.','3B','New York','10039','3478826252','emilee.jackson89@gmail.com','https://images.unsplash.com/photo-1597223557154-721c1cecc4b0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGZhY2V8ZW58MHx8MHx8&w=1000&q=80','Volunteer','English','NY','TRUE') ;
 
 
--- Seniors
 INSERT INTO users ("uuid", "firstname", "lastname", "dob", "address", "unit", "city", "zipcode", "phonenumber", "email", "profilephoto","languages", "user_type", "state","verified") VALUES
 ('XIqDn8IRYUWLg79g7fY62Yuz7v92', 'Cassandra', 'Oliver', '2022-10-01', '123 Fake Ave','','Bronx','10220','2028703049', 'cassandraoliver91@gmail.com', 'https://images.pexels.com/photos/1729931/pexels-photo-1729931.jpeg?cs=srgb&dl=pexels-nashua-volquezyoung-1729931.jpg&fm=jpg','Spanish', 'Senior','NY','TRUE' ) ;
 
 
 
 
--- Requests
--- INSERT INTO requests ("elder_id", "elder_img", "volunteer_id", "volunteer_img", "req_date", "title", "description", "location", "time", "assigned", "complete") VALUES
 
 INSERT INTO requests ("elder_id", "elder_img", "req_date", "title", "description", "location", "time", "assigned", "complete", "image") VALUES
 ('XIqDn8IRYUWLg79g7fY62Yuz7v92','https://images.pexels.com/photos/1729931/pexels-photo-1729931.jpeg?cs=srgb&dl=pexels-nashua-volquezyoung-1729931.jpg&fm=jpg', '2023-12-20','Holiday Prep','Since I cant be with family this year, I decided to do plan a last minute Holiday Party for my friends. I may have honestly biten off more that I can chew. Asking for some support during the Holiday Season. Tree setup and decorations.','Bronx','16:00','FALSE','FALSE','https://www.bhg.com/thmb/glsNjIgdF3SUW8L0g7TV74EXJQ8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/christmastablesettings_walmartproduct_inlinetreatment_1-035fce97ba384000859ed220d11806ac.jpg');

@@ -1,3 +1,4 @@
+
 .dash-navbar img {
   width: 300px;
 }
@@ -10,8 +11,11 @@
   justify-content: space-between;
   align-items: center;
   font-size: 1.2rem;
+  /* added */
+  top: 0px;
+  position: sticky;
+  z-index: 5;
 }
-
 .dash-navbar Button {
   background-color: white;
   color: black;

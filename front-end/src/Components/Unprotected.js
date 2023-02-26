@@ -7,7 +7,7 @@ const Unprotected = ({ children }) => {
   const user = useContext(UserContext);
 
   if (user) {
-    return <Navigate to="/user-dashboard" />;
+    return <Navigate to="/dashboard"  />;
   }
 
   return children;

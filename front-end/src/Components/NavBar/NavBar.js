@@ -13,7 +13,7 @@ import Button from "react-bootstrap/Button";
 //COMPONENTS
 import DashboardNav from "./DashboardNav";
 
-const NavBar = ({ setModalOpen, applicationUser }) => {
+const NavBar = ({ setModalOpen, applicationUser, setDashboardFilter }) => {
   const user = useContext(UserContext);
   const [click, setClick] = useState(false);
 
@@ -21,7 +21,7 @@ const NavBar = ({ setModalOpen, applicationUser }) => {
   const closeMobileMenu = () => setClick(false);
 
   return user ? (
-    <DashboardNav applicationUser={applicationUser} />
+    <DashboardNav applicationUser={applicationUser} setDashboardFilter={setDashboardFilter}/>
   ) : (
     <div className="Navbar">
       <Link to="/" className="nav-logo" onClick={closeMobileMenu}>

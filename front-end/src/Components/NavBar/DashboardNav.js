@@ -14,7 +14,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 //CSS Import
 import "./DashboardNav.css";
 
-const DashboardNav = ({ applicationUser }) => {
+const DashboardNav = ({ applicationUser, setDashboardFilter }) => {
   const user = useContext(UserContext);
   const navigate = useNavigate();
   const { displayName, photoURL } = user;
@@ -23,7 +23,7 @@ const DashboardNav = ({ applicationUser }) => {
   return (
     <Navbar className="dash-navbar">
       <Navbar.Brand className="nav-logo">
-        <Link to='/user-dashboard'>
+        <Link to='/dashboard'>
         <img src="/images/logoGS.png" alt="logo" />
         </Link>
       </Navbar.Brand>
@@ -38,7 +38,7 @@ const DashboardNav = ({ applicationUser }) => {
               {displayName.split(" ").shift()}
             </Dropdown.Toggle>
             <Dropdown.Menu>
-               <Dropdown.Item onClick={()=>{navigate('/user/settings')}}>
+               <Dropdown.Item onClick={()=>{setDashboardFilter('settings')}}>
                 Settings <i className="fa-sharp fa-solid fa-gear"></i>
                 </Dropdown.Item>
           

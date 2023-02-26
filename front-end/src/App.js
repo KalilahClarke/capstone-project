@@ -4,26 +4,19 @@ import { useState } from "react";
 import { UserProvider } from "./Providers/UserProviders";
 
 //COMPONENTS
-import SignUpPage from "./Components/Dashboard/SignUpPage/SignUpPage";
-import Home from "./Components/HomePage/Home";
+import SignUpPage from "./Components/HomePage/SignUpPage/SignUpPage";
+import Home from "./Components/HomePage/Home/Home";
 import NavBar from "./Components/NavBar/NavBar";
 import LoginModal from "./Components/LoginModal";
-import SeniorsPage from "./Components/HomePage/SeniorsPage";
-import VolunteerPage from "./Components/HomePage/VolunteerPage";
-import OurTeam from "./Components/HomePage/OurTeam";
-import UserDashboard from "./Components/Dashboard/UserDashboard/UserDashboard";
-import BrowseRequestPage from "./Components/Dashboard/BrowseRequestPage/BrowseRequestPage";
-import RequestPage from "./Components/Dashboard/RequestDetails/RequestPage";
-import Settings from "./Components/Dashboard/Settings/Settings";
-import NewRequestForm from "./Components/Dashboard/NewRequestForm/NewRequestForm";
+import SeniorsPage from "./Components/HomePage/Pages/SeniorsPage";
+import VolunteerPage from "./Components/HomePage/Pages/VolunteerPage";
+import OurTeam from "./Components/HomePage/Pages/OurTeam";
 import Protected from "./Components/Protected";
-import AcceptRequestPage from "./Components/Dashboard/AcceptRequestPage/AcceptRequestPage";
-import Achievements from "./Components/Dashboard/Achievements/Achievements";
 import Unprotected from "./Components/Unprotected";
-import EditRequest from "./Components/Dashboard/EditRequest/EditRequest";
-import ReviewsPage from "./Components/Dashboard/ReviewsPage/ReviewsPage";
-import Footer from "./Components/HomePage/Footer";
-import PersonalPage from "./Components/HomePage/PersonalPage";
+import Footer from "./Components/HomePage/Footer/Footer";
+import PersonalPage from "./Components/HomePage/Pages/PersonalPage";
+import Dashboard from "./Components/Dashboard/Dashboard";
+import RequestPage from "./Components/Dashboard/Pages/RequestDetails/RequestPage";
 //CSS
 import "./App.css";
 
@@ -32,16 +25,7 @@ const API = process.env.REACT_APP_BACKEND_API_KEY;
 
 const App = () => {
   const [modalOpen, setModalOpen] = useState(false);
-  const [date, setDate] = useState(new Date());
-  const [requestSearch, setRequestSearch] = useState("");
-  //Specific to person
-  const [requests, setRequests] = useState([]);
-  const [openRequests, setOpenRequests] = useState([]);
-  const [users, setUsers] = useState([]);
-  const [location, setLocation] = useState("");
-  const [pagination, setPagination] = useState({});
-  console.log(location)
-
+  const [dashboardFilter, setDashboardFilter] = useState("main");
   const [applicationUser, setApplicationUser] = useState({
     uuid: "",
     firstname: "",
@@ -68,12 +52,14 @@ const App = () => {
           <NavBar
             setModalOpen={setModalOpen}
             applicationUser={applicationUser}
+            setDashboardFilter={setDashboardFilter}
           />
           <LoginModal
             modalOpen={modalOpen}
             setModalOpen={setModalOpen}
             setApplicationUser={setApplicationUser}
           />
+
           <Routes>
             <Route
               path="/"
@@ -141,7 +127,29 @@ const App = () => {
                 </Unprotected>
               }
             />
+
             <Route
+              path="/dashboard"
+              element={
+                <Protected>
+                  <Dashboard
+                    applicationUser={applicationUser}
+                    dashboardFilter={dashboardFilter}
+                    setDashboardFilter={setDashboardFilter}
+                  />
+                </Protected>
+              }
+            />
+            <Route
+              path="/requests/:id"
+              element={
+                <Protected>
+                  <RequestPage applicationUser={applicationUser} />
+                </Protected>
+              }
+            />
+
+            {/* <Route
               path="/achievements"
               element={
                 <Protected>
@@ -210,21 +218,6 @@ const App = () => {
                 </Protected>
               }
             />
-            <Route
-              path="/reviews/id"
-              element={
-                <Protected>
-                  <ReviewsPage
-                    date={date}
-                    setDate={setDate}
-                    applicationUser={applicationUser}
-                    setRequestSearch={setRequestSearch}
-                    requestSearch={requestSearch}
-                    
-                  />
-                </Protected>
-              }
-            />
 
             <Route
               path="/requests/new"
@@ -237,22 +230,6 @@ const App = () => {
                     setLocation={setLocation}
                     setRequestSearch={setRequestSearch}
                     requestSearch={requestSearch}
-                  />
-                </Protected>
-              }
-            />
-            <Route
-              path="/requests/:id"
-              element={
-                <Protected>
-                  <RequestPage
-                    setDate={setDate}
-                    date={date}
-                    applicationUser={applicationUser}
-                    setRequestSearch={setRequestSearch}
-                    requestSearch={requestSearch}
-                    pagination={pagination}
-                    location={location}
                   />
                 </Protected>
               }
@@ -320,9 +297,9 @@ const App = () => {
                   />
                 </Protected>
               }
-            />
+            /> */}
           </Routes>
-          <Footer />
+          <Footer applicationUser={applicationUser} />
         </Router>
       </UserProvider>
     </div>

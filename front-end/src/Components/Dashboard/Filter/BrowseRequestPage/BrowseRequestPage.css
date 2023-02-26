@@ -1,0 +1,36 @@
+.main-page{
+    display:grid;
+    grid-template-columns: repeat(1,1fr);
+    margin-top: 50px;
+    margin-bottom: auto;
+}
+
+.openRequestPage__main-page{
+    display:grid;
+    grid-template-columns: repeat(1,1fr);
+    margin-top: 30px;
+    margin-bottom: auto;
+    /* margin-left: 38vh; */
+}
+.sidebar-nav{
+    position: sticky;
+}
+.openRequestPage__title{
+    margin: 0px;
+    margin-top: -25px;
+    margin-left: 10px; 
+} 
+.top{
+    margin-top: 20px;
+}
+.openRequestPage__filter{
+    min-height: 200px;
+    margin: 15px;
+    display: grid;
+    margin-top: 30px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    column-gap: 2.5rem;
+    gap: 4vh;
+    margin-bottom: 5% 
+}
+

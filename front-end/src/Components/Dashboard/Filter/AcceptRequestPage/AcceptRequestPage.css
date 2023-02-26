@@ -1,0 +1,39 @@
+.acceptRequestPage__main-page{
+    display:grid;
+    grid-template-columns: repeat(1,1fr);
+    margin-top: 30px;
+    /* margin-bottom: auto; */
+    /* margin-left: 38vh; */
+   
+    /* background-attachment: scroll, local; */
+    /* scroll-behavior:unset; */
+    overflow-y: auto;
+   
+}
+.sidebar-nav{
+    position: sticky;
+}
+
+.acceptRequestPage__title{
+    margin: 0px;
+    /* margin-top: -25px; */
+    margin-left: 10px;  
+}
+
+.acceptedRequestPage__filter{
+    min-height: 10px;
+    margin: 15px;
+    display: grid;
+    margin-top: 30px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    column-gap: 2.5rem;
+    gap: 3vh;
+    margin-bottom: 2% 
+}
+
+
+.top{
+    margin-top: 20px;
+}
+
+
