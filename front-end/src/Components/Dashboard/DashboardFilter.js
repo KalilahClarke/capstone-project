@@ -56,8 +56,8 @@ const DashboardFilter = ({applicationUser, dashboardFilter, requestSearch, setLo
      console.log(number)
      return number
   }
-  requests.sort((a,b)=> a.req_date - b.req_date)
-  openRequests.sort((a,b)=> dateFormatter(a.req_date) - dateFormatter(b.req_date))
+  requests?.sort((a,b)=> a.req_date - b.req_date)
+  openRequests?.sort((a,b)=> dateFormatter(a.req_date) - dateFormatter(b.req_date))
   return (
     <div className='userdashboard'>
      {dashboardFilter === 'main'&& <MyRequests requests={requests} requestSearch={requestSearch} location={location} setLocation={setLocation} date={date} applicationUser={applicationUser}/>}
