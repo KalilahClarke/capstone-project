@@ -38,17 +38,17 @@ const MyRequests = ({
   //filter by date
   let requestsByDate =
     selectedCalendarDate !== currentDate
-      ? requests.filter((request) => selectedCalendarDate === request.req_date)
-      : requests.filter((request) => selectedCalendarDate <= request.req_date && !request.complete);
+      ? requests?.filter((request) => selectedCalendarDate === request.req_date)
+      : requests?.filter((request) => selectedCalendarDate <= request.req_date && !request.complete);
 
   // filter by search
   let requestsBySearch = search
-    ? requestsByDate.filter((request) =>
+    ? requestsByDate?.filter((request) =>
         request.title.toLowerCase().includes(search)
       )
     : requestsByDate;
 
-  const requestCards = requestsBySearch.map((request, index) => {
+  const requestCards = requestsBySearch?.map((request, index) => {
     if (index < 4) {
       return (
         <RequestCard
@@ -66,9 +66,9 @@ const MyRequests = ({
         <h3 className='top'>My Requests</h3>
       </div>
       <div
-        className={requestCards.length > 0 ? "myRequest__filter" : "noFilter"}
+        className={requestCards?.length > 0 ? "myRequest__filter" : "noFilter"}
       >
-        {requestCards.length > 0 ? (
+        {requestCards?.length > 0 ? (
           requestCards
         ) : (
           <div>No Accepted Request</div>
