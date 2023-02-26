@@ -39,7 +39,7 @@ const MyRequests = ({
   let requestsByDate =
     selectedCalendarDate !== currentDate
       ? requests?.filter((request) => selectedCalendarDate === request.req_date)
-      : requests?.filter((request) => selectedCalendarDate <= request.req_date && !request.complete);
+      : requests?.filter((request) => selectedCalendarDate <= request?.req_date && !request?.complete);
 
   // filter by search
   let requestsBySearch = search
