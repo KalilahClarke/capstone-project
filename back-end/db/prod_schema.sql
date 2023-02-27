@@ -1,8 +1,8 @@
-DROP DATABASE IF EXISTS task_capstone;
-DROP TABLE IF EXISTS users, requests, ratings, reviews;
-CREATE DATABASE task_capstone;
+-- DROP DATABASE IF EXISTS task_capstone;
+-- DROP TABLE IF EXISTS users, requests, ratings, reviews;
+-- CREATE DATABASE task_capstone;
 
-\c task_capstone;
+-- \c task_capstone;
 CREATE TABLE users (
     uuid TEXT PRIMARY KEY UNIQUE NOT NULL,
     firstname TEXT NOT NULL,

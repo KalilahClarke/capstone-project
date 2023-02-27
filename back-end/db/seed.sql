@@ -1,4 +1,4 @@
-\c task_capstone
+\c goldensolutionscapstone;
 
 
 -- Volunteers
