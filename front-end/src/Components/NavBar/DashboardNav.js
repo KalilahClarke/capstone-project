@@ -3,7 +3,8 @@ import { useNavigate, Link } from "react-router-dom";
 import { signOut } from "../../Services/Firebase";
 import { UserContext } from "../../Providers/UserProviders";
 import { useContext } from "react";
-
+import { IoMdSettings } from 'react-icons/io'
+import { CgProfile } from 'react-icons/cg'
 
 //Bootstrap
 import Container from "react-bootstrap/esm/Container";
@@ -38,8 +39,11 @@ const DashboardNav = ({ applicationUser, setDashboardFilter }) => {
               {displayName.split(" ").shift()}
             </Dropdown.Toggle>
             <Dropdown.Menu>
+            <Dropdown.Item onClick={()=>{setDashboardFilter('profile')}}>
+                Profile <CgProfile size={20}/>
+                </Dropdown.Item>
                <Dropdown.Item onClick={()=>{setDashboardFilter('settings')}}>
-                Settings <i className="fa-sharp fa-solid fa-gear"></i>
+                Settings <IoMdSettings size={20}/>
                 </Dropdown.Item>
           
               <Dropdown.Item onClick={signOut}>Sign-Out </Dropdown.Item>

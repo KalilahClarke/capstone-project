@@ -9,13 +9,14 @@ import OpenRequests from './Filter/OpenRequests/OpenRequests'
 import ReviewsPage from './Filter/ReviewsPage/ReviewsPage'
 import MyFavorites from "./Filter/MyFavorites/MyFavorites";
 import NewRequestForm from './Filter/NewRequestForm/NewRequestForm'
-import Settings from './Filter/Settings/Settings'
+import Settings from './Filter/Profile/Profile'
+import EditRequest from './Pages/EditRequest/EditRequest'
 
 
 // Function to query the database with the users uid, and return their posted / assigned requests
 const API = process.env.REACT_APP_BACKEND_API_KEY;
 
-const DashboardFilter = ({applicationUser, dashboardFilter, requestSearch, setLocation, location, date}) => {
+const DashboardFilter = ({applicationUser, dashboardFilter, setDashboardFilter, requestSearch, setLocation, location, date}) => {
   const [requests, setRequests] = useState([]);
   const [openRequests, setOpenRequests] = useState([]);
   const user = useContext(UserContext);
@@ -50,13 +51,7 @@ const DashboardFilter = ({applicationUser, dashboardFilter, requestSearch, setLo
     }
   }, [user, applicationUser]);
   
-  const dateFormatter = (string) => {
-     const array = string.split('-')
-     const number = Number(array.join(''))
-     console.log(number)
-     return number
-  }
-
+    
   return (
     <div className='userdashboard'>
      {dashboardFilter === 'main'&& <MyRequests requests={requests} requestSearch={requestSearch} location={location} setLocation={setLocation} date={date} applicationUser={applicationUser}/>}
@@ -67,7 +62,8 @@ const DashboardFilter = ({applicationUser, dashboardFilter, requestSearch, setLo
      {dashboardFilter === 'acceptedRequest' && <AcceptRequestPage  requests={requests} requestSearch={requestSearch} location={location} setLocation={setLocation} date={date} applicationUser={applicationUser}/>}
      {dashboardFilter === 'reviews' && <ReviewsPage applicationUser={applicationUser}/>}
      {(dashboardFilter === 'newRequest' && applicationUser.user_type !== 'Volunteer') && <NewRequestForm applicationUser={applicationUser}  date={date} requestSearch={requestSearch} />}
-     {dashboardFilter === 'settings' && <Settings applicationUser={applicationUser}/>}
+     {dashboardFilter === 'profile' && <Settings applicationUser={applicationUser} setDashboardFilter = {setDashboardFilter}/>}
+     {/* {(dashboardFilter === 'edit' && applicationUser.user_type !== 'Volunteer') && <EditRequest/>} */}
     </div>
   );
 };

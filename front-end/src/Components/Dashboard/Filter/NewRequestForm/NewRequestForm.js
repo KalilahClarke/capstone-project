@@ -41,7 +41,6 @@ const NewRequestForm = ({ applicationUser, setDate, date, requestSearch, setRequ
       .catch((c) => console.warn("catch", c));
   };
 
-  console.log(applicationUser.profilephoto)
   const [request, setRequest] = useState({
     elder_id: "",
     elder_img: applicationUser.profilephoto,
@@ -52,7 +51,6 @@ const NewRequestForm = ({ applicationUser, setDate, date, requestSearch, setRequ
     time: "",
     image: "",
   });
-  console.log(request)
   // text change method
   const textChange = (e) => {
     setRequest({ ...request, [e.target.id]: e.target.value });

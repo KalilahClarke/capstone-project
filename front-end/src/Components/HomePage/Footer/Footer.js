@@ -8,8 +8,10 @@ const Footer = () => {
     <>
       {user ? (
         <div className="footer-userdashboard">
-          <div className="brand-culture">
-            <div className="brand-box">
+          <div></div>
+          <div></div>
+          <div className="brand-culture-userdashboard">
+            <div className="brand-box-userdasboard">
               <img
                 className="brand-userdasboard"
                 src="/images/logoGS.png"

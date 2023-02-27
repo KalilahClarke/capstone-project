@@ -24,13 +24,14 @@ const ReviewsPage = ({ applicationUser }) => {
   let accumulator = 0
   // rate.map((score)=> accumulator += score)
   
-  console.log(!ratings)
   return (
         
       <div className="ReviewPage">
         <div className= 'ReviewPage__personalInfo'>
-        <img  className='ReviewPage__img'src={applicationUser.profilephoto || user.photoURL} />
+           <img  className='ReviewPage__img'src={applicationUser.profilephoto || user.photoURL} />
+          
         <br/>
+       
         <div className= 'ReviewPage__stars'>Star Rating:</div>
         <DynamicStar ratings = {ratings} setReviewCount={setReviewCount}/>
         <div className= 'ReviewPage__count'>Review Count: </div>   

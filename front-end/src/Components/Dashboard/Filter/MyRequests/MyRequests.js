@@ -5,7 +5,7 @@ import React, { useState, useEffect } from "react";
 import RequestCard from "../RequestCard/RequestCard.js";
 
 //CSS
-import "./MyRequests.css";
+import '../BrowseRequestPage/BrowseRequestPage.css'
 
 const MyRequests = ({
   requests,
@@ -62,11 +62,11 @@ const MyRequests = ({
 
   return (
     <>
-      <div className="head">
-        <h3 className='top'>My Requests</h3>
+      <div className="openRequestPage__main-page">
+        <h3 className='openRequestPage__title top'>My Requests</h3>
       </div>
       <div
-        className={requestCards?.length > 0 ? "myRequest__filter" : "noFilter"}
+        className={requestCards?.length > 0 ? "openRequestPage__filter" : "noFilter"}
       >
         {requestCards?.length > 0 ? (
           requestCards

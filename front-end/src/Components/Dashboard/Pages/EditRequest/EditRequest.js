@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 //Components
-import SidebarNav from "../SideBarNav/SidebarNav";
+
 
 //CSS
 import "./EditRequest.css";
@@ -64,7 +64,7 @@ const EditRequest = ({ applicationUser, setDate, date, setRequestSearch, request
 
   return (
     <div className="edit-request">
-      <SidebarNav applicationUser={applicationUser} setDate={setDate} date ={date} setRequestSearch = {setRequestSearch} requestSearch={requestSearch} />
+      <div></div>
       <Container className="edit-form">
         <h3>Edit Request</h3>
         <div className="edit-image">
@@ -141,8 +141,9 @@ const EditRequest = ({ applicationUser, setDate, date, setRequestSearch, request
           </div>
         </Form>
       </Container>
+      <div></div>
     </div>
-  );
+  )
 };
 
 export default EditRequest;

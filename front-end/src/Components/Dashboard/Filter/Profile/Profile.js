@@ -15,7 +15,7 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 
 //CSS
-import "./Settings.css";
+import "./Profile.css";
 
 //API
 const API = process.env.REACT_APP_BACKEND_API_KEY;
@@ -23,7 +23,7 @@ const API = process.env.REACT_APP_BACKEND_API_KEY;
 //STATES PACKAGE --> https://www.npmjs.com/package/usa-states
 const UsaStates = require("usa-states").UsaStates;
 
-function Settings({ applicationUser}) {
+function Profile({ applicationUser, setDashboardFilter}) {
   let navigate = useNavigate();
   const usStates = new UsaStates();
   const user = useContext(UserContext);
@@ -215,9 +215,9 @@ function Settings({ applicationUser}) {
             </Form.Group>
             <div className="buttons-container">
             <Button type="submit">Submit</Button>
-            <Link to={`/users/${editedUser.uuid}`}>
-              <Button>Nevermind</Button>
-            </Link>
+          
+              <Button onClick={()=>setDashboardFilter('main')}>Nevermind</Button>
+           
             </div>
           </Form>
         </div>
@@ -226,4 +226,4 @@ function Settings({ applicationUser}) {
   );
 }
 
-export default Settings;
+export default Profile;

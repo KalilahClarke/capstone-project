@@ -2,8 +2,9 @@
 
 .cards {
   padding: 0rem 4rem;
-  margin-top: 0;
-  padding-top: 2rem;
+ 
+  padding-top: 1rem;
+  padding-bottom: 2rem;
   background: #fff;
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;

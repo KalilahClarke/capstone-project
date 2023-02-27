@@ -17,6 +17,7 @@ import Footer from "./Components/HomePage/Footer/Footer";
 import PersonalPage from "./Components/HomePage/Pages/PersonalPage";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import RequestPage from "./Components/Dashboard/Pages/RequestDetails/RequestPage";
+import EditRequest from "./Components/Dashboard/Pages/EditRequest/EditRequest";
 //CSS
 import "./App.css";
 
@@ -44,6 +45,7 @@ const App = () => {
     languages: "",
     verification_type: "",
   });
+
 
   return (
     <div className="App">
@@ -144,7 +146,22 @@ const App = () => {
               path="/requests/:id"
               element={
                 <Protected>
-                  <RequestPage applicationUser={applicationUser} />
+                  <RequestPage
+                    applicationUser={applicationUser}
+                    dashboardFilter={dashboardFilter}
+                    setDashboardFilter={setDashboardFilter}
+                  />
+                </Protected>
+              }
+            />
+
+            <Route
+              path="/edit/:id"
+              element={
+                <Protected>
+                  <EditRequest
+                    applicationUser={applicationUser}
+                  />
                 </Protected>
               }
             />
@@ -228,20 +245,6 @@ const App = () => {
                     setDate={setDate}
                     date={date}
                     setLocation={setLocation}
-                    setRequestSearch={setRequestSearch}
-                    requestSearch={requestSearch}
-                  />
-                </Protected>
-              }
-            />
-            <Route
-              path="/edit/:id"
-              element={
-                <Protected>
-                  <EditRequest
-                    applicationUser={applicationUser}
-                    setDate={setDate}
-                    date={date}
                     setRequestSearch={setRequestSearch}
                     requestSearch={requestSearch}
                   />

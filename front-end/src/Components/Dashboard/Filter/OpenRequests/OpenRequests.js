@@ -39,7 +39,7 @@ const OpenRequests = ({ openRequests, date, requestSearch, applicationUser}) => 
   return (
     <>
     <h3 className="head">Open Requests</h3>
-    <div className="open-requests" >
+    <div className="openRequestPage__filter" >
       {requestFilter.length > 0 ? requestFilter : <div>No Accepted Request</div>}
     
     </div>

@@ -30,6 +30,7 @@ const Dashboard = ({applicationUser, dashboardFilter, setDashboardFilter}) => {
       date={date}
       requestSearch = {requestSearch}
       dashboardFilter={dashboardFilter}
+      setDashboardFilter ={setDashboardFilter}
       setLocation={setLocation}
       location={location}
       />

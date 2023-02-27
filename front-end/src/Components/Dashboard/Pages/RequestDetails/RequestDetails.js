@@ -98,9 +98,7 @@ const RequestDetails = ({
   
  
       <div className="cards">
-   <div className="left">
        <IoIosArrowBack  className ='center' size={ 40 } />
-      </div> 
       <div>
         <h3>Request Details</h3>
         <div className='card-holder'>
@@ -170,9 +168,7 @@ const RequestDetails = ({
           </div>
         </div>
       </div>
-      <div className="right">
         <IoIosArrowForward  className='center' size={ 40 }/>
-      </div>
       </div>
    
   );

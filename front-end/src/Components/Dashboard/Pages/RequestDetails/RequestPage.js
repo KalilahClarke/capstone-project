@@ -19,12 +19,12 @@ import RequestDetails from "./RequestDetails";
 
 const RequestPage = ({
   applicationUser,
-  setDate,
-  date,
+  setDashboardFilter,
+  dashboardFilter,
   requestSearch,
   setRequestSearch,
   pagination,
-  location
+ 
 }) => {
   const [request, setRequest] = useState([]);
   const [reviews, setReviews] = useState([]);
@@ -72,7 +72,7 @@ const RequestPage = ({
     return formattedDate;
   };
   let currentDate = dateConverter(new Date());
-
+  console.log(dashboardFilter)
   return (
     <div className="details">
 
@@ -80,13 +80,13 @@ const RequestPage = ({
     <div>
       {!reviewFormRevealed ?<RequestDetails
       applicationUser={applicationUser}
-      setDate = {setDate}
-      date={date}
+      setDashboardFilter = {setDashboardFilter}
+      dashboardFilter ={dashboardFilter}
       setReviewFormRevealed={setReviewFormRevealed}
       requestSearch={requestSearch}
       setRequestSearch={setRequestSearch}
       pagination={pagination}
-      location={location}
+    
       request={request}
       />
       : <ReviewForm 

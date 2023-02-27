@@ -1,6 +1,7 @@
-.edit-request {
-  display: grid;
-  grid-template-columns: 7fr 25fr;
+
+.edit-request{
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
 }
 
 .edit-image{
