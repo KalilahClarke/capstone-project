@@ -61,7 +61,7 @@ const DashboardFilter = ({applicationUser, dashboardFilter, setDashboardFilter, 
      {(dashboardFilter === 'achievements' && applicationUser.user_type === 'Volunteer' )&& <Achievements/>}  
      {dashboardFilter === 'acceptedRequest' && <AcceptRequestPage  requests={requests} requestSearch={requestSearch} location={location} setLocation={setLocation} date={date} applicationUser={applicationUser}/>}
      {dashboardFilter === 'reviews' && <ReviewsPage applicationUser={applicationUser}/>}
-     {(dashboardFilter === 'newRequest' && applicationUser.user_type !== 'Volunteer') && <NewRequestForm applicationUser={applicationUser}  date={date} requestSearch={requestSearch} />}
+     {(dashboardFilter === 'newRequest' && applicationUser.user_type !== 'Volunteer') && <NewRequestForm applicationUser={applicationUser} setDashboardFilter={setDashboardFilter} />}
      {dashboardFilter === 'profile' && <Settings applicationUser={applicationUser} setDashboardFilter = {setDashboardFilter}/>}
      {/* {(dashboardFilter === 'edit' && applicationUser.user_type !== 'Volunteer') && <EditRequest/>} */}
     </div>

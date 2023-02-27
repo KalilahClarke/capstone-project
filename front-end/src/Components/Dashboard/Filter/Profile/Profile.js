@@ -56,7 +56,8 @@ function Profile({ applicationUser, setDashboardFilter}) {
       .put(`${API}/users/${applicationUser.uuid}`, updatedUser)
       .then(
         () => {
-          navigate(`/user-dashboard`);
+          setDashboardFilter('main')
+          // navigate(`/dashboard`);
         },
         (error) => console.error(error)
       )

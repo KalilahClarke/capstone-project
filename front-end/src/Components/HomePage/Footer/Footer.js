@@ -2,13 +2,18 @@
 import "./Footer.css";
 import { useContext } from "react";
 import { UserContext } from "../../../Providers/UserProviders";
+
 const Footer = () => {
   const user = useContext(UserContext);
   return (
     <>
       {user ? (
         <div className="footer-userdashboard">
-          <div></div>
+          <div className='github'>
+            {/* <a href='https://github.com/KalilahClarke/capstone-project'>
+            <img id='github-logo' src= "https://cdn-icons-png.flaticon.com/512/25/25231.png" alt='GitHub Logo'/>
+            </a> */}
+          </div>
           <div></div>
           <div className="brand-culture-userdashboard">
             <div className="brand-box-userdasboard">

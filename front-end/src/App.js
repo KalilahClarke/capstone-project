@@ -161,6 +161,7 @@ const App = () => {
                 <Protected>
                   <EditRequest
                     applicationUser={applicationUser}
+                    setDashboardFilter={setDashboardFilter}
                   />
                 </Protected>
               }

@@ -20,13 +20,13 @@ import "./NewRequestForm.css";
 // API
 const API = process.env.REACT_APP_BACKEND_API_KEY;
 
-const NewRequestForm = ({ applicationUser, setDate, date, requestSearch, setRequestSearch }) => {
+const NewRequestForm = ({ applicationUser, setDate, date, requestSearch, setRequestSearch, setDashboardFilter }) => {
   let navigate = useNavigate();
   let user = useContext(UserContext);
 
   // CREATE OR ADD A NEW REQUEST
   const makeRequest = (newRequest) => {
-    debugger;
+    // debugger;
     axios
       .post(`${API}/requests/new-request`, {
         ...newRequest,
@@ -34,15 +34,16 @@ const NewRequestForm = ({ applicationUser, setDate, date, requestSearch, setRequ
       })
       .then(
         () => {
-          navigate("/user-dashboard");
+          navigate("/dashboard");
         },
         (error) => console.error(error)
       )
       .catch((c) => console.warn("catch", c));
   };
 
+  console.log(applicationUser.profilephoto)
   const [request, setRequest] = useState({
-    elder_id: "",
+    elder_id: applicationUser.uuid,
     elder_img: applicationUser.profilephoto,
     title: "",
     req_date: "",
@@ -51,6 +52,7 @@ const NewRequestForm = ({ applicationUser, setDate, date, requestSearch, setRequ
     time: "",
     image: "",
   });
+  console.log(request)
   // text change method
   const textChange = (e) => {
     setRequest({ ...request, [e.target.id]: e.target.value });
@@ -60,6 +62,7 @@ const NewRequestForm = ({ applicationUser, setDate, date, requestSearch, setRequ
   const handleSubmit = (e) => {
     e.preventDefault();
     makeRequest(request);
+    setDashboardFilter('main')
   };
 
   return (

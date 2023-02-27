@@ -68,7 +68,7 @@ const RequestDetails = ({
         volunteer_img: applicationUser.profilephoto,
         req_id: id,
       })
-      .then(navigate("/user-dashboard"));
+      .then(navigate("/dashboard"));
   };
   const missionFailed = () => {
     axios
@@ -77,7 +77,7 @@ const RequestDetails = ({
         volunteer_img: "",
         req_id: id,
       })
-      .then(navigate("/user-dashboard"));
+      .then(navigate("/dashboard"));
   };
 
   const dateConverter = (specifiedDate = "") => {
@@ -100,7 +100,6 @@ const RequestDetails = ({
       <div className="cards">
        <IoIosArrowBack  className ='center' size={ 40 } />
       <div>
-        <h3>Request Details</h3>
         <div className='card-holder'>
           <div className="card-wrap">
             <div className="card-items-forward">

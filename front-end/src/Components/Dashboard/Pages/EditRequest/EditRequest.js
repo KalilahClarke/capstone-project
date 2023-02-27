@@ -5,7 +5,6 @@ import axios from "axios";
 
 //Components
 
-
 //CSS
 import "./EditRequest.css";
 
@@ -19,7 +18,7 @@ import Container from "react-bootstrap/Container";
 //API
 const API = process.env.REACT_APP_BACKEND_API_KEY;
 
-const EditRequest = ({ applicationUser, setDate, date, setRequestSearch, requestSearch }) => {
+const EditRequest = ({ applicationUser }) => {
   let { id } = useParams();
   let navigate = useNavigate();
 
@@ -30,20 +29,21 @@ const EditRequest = ({ applicationUser, setDate, date, setRequestSearch, request
     location: "",
     time: "",
     image: "",
+    elder_id: {applicationUser}
   });
-
+  
   useEffect(() => {
     axios
       .get(`${API}/requests/help_req/${id}`)
       .then((res) => setEditedRequest(res.data))
       .then((res) => console.log(res.data));
-  }, [id]);
+  }, []);
 
   const updateRequest = () => {
     axios
       .put(`${API}/requests/edit_req/${id}`, editedRequest)
       .then((res) => setEditedRequest(res.data))
-      .then(() => navigate("/user-dashboard"))
+      .then(() => navigate("/dashboard"))
       .catch((error) => console.error(error));
   };
 
@@ -58,13 +58,12 @@ const EditRequest = ({ applicationUser, setDate, date, setRequestSearch, request
 
   const handleDelete = () => {
     axios.delete(`${API}/requests/delete_req/${id}`)
-    .then(() => navigate("/user-dashboard"))
+    .then(() => navigate("/dashboard"))
     .catch(err => console.error(err))
   }
-
+  console.log(applicationUser)
   return (
     <div className="edit-request">
-      <div></div>
       <Container className="edit-form">
         <h3>Edit Request</h3>
         <div className="edit-image">
@@ -141,9 +140,8 @@ const EditRequest = ({ applicationUser, setDate, date, setRequestSearch, request
           </div>
         </Form>
       </Container>
-      <div></div>
     </div>
-  )
+);
 };
 
 export default EditRequest;
