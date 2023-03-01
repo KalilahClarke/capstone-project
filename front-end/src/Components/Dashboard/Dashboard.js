@@ -4,12 +4,11 @@ import DashboardFilter from "./DashboardFilter";
 
 import './Dashboard.css';
 
-const Dashboard = ({applicationUser, dashboardFilter, setDashboardFilter}) => {
+const Dashboard = ({applicationUser, dashboardFilter, setDashboardFilter, setLocation, location, setIteration, iteration}) => {
   const [date, setDate] = useState(new Date());
   const [requestSearch, setRequestSearch] = useState("");
   //Specific to person
   const [users, setUsers] = useState([]);
-  const [location, setLocation] = useState("");
   const [pagination, setPagination] = useState({});
  
   
@@ -33,6 +32,8 @@ const Dashboard = ({applicationUser, dashboardFilter, setDashboardFilter}) => {
       setDashboardFilter ={setDashboardFilter}
       setLocation={setLocation}
       location={location}
+      setIteration={setIteration}
+      iteration={iteration}
       />
     </div>
   );

@@ -1,17 +1,19 @@
 
-
+.layout{
+  width: 100%;
+}
 .cards {
   padding: 0rem 4rem;
- 
+  width: 100%;
   padding-top: 1rem;
   padding-bottom: 2rem;
   background: #fff;
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
   min-width: 150px;
+  /* max-width: 1400px; */
 
   /* align-items: center; */
-  
   
 }
 .center{
@@ -41,16 +43,16 @@
 .left{
   justify-content:center ;
   text-align: right;
-  align-items: center;
+  align-items: end;
 }
 
 .card-holder {
   display: flex;
   flex-flow: column;
   align-items: center;
-  max-width: 1120px;
+  max-width: 800px;
   min-width: 200px;
-  width: 70%;
+  width: 60%;
   margin: 0 auto;
 }
 /* Perspective was added ... testing */
@@ -216,6 +218,7 @@ backface-visibility: hidden;
   padding: 0 10px;
 
 }
+
 
 
 

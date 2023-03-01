@@ -135,7 +135,7 @@ const SidebarNav = ({
               
               
                 <p
-                  className={path === "/reviews" ? "bold_link" : ""}
+                  className={dashboardFilter === "reviews" ? "bold_link" : ""}
                   onClick={() => setDashboardFilter("reviews")}
                 >
                   Reviews

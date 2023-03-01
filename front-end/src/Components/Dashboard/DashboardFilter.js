@@ -16,7 +16,7 @@ import EditRequest from './Pages/EditRequest/EditRequest'
 // Function to query the database with the users uid, and return their posted / assigned requests
 const API = process.env.REACT_APP_BACKEND_API_KEY;
 
-const DashboardFilter = ({applicationUser, dashboardFilter, setDashboardFilter, requestSearch, setLocation, location, date}) => {
+const DashboardFilter = ({applicationUser, dashboardFilter, setDashboardFilter, requestSearch, setLocation, location, date, setIteration, iteration}) => {
   const [requests, setRequests] = useState([]);
   const [openRequests, setOpenRequests] = useState([]);
   const user = useContext(UserContext);
@@ -54,16 +54,15 @@ const DashboardFilter = ({applicationUser, dashboardFilter, setDashboardFilter, 
     
   return (
     <div className='userdashboard'>
-     {dashboardFilter === 'main'&& <MyRequests requests={requests} requestSearch={requestSearch} location={location} setLocation={setLocation} date={date} applicationUser={applicationUser}/>}
+     {dashboardFilter === 'main'&& <MyRequests requests={requests} requestSearch={requestSearch} setLocation={setLocation} date={date} applicationUser={applicationUser} iteration={iteration} setIteration={setIteration}/>}
      {(dashboardFilter === 'main' && applicationUser.user_type === 'Volunteer') && <OpenRequests openRequests={openRequests} location={location} setLocation={location} date={date} applicationUser={applicationUser} requestSearch={requestSearch}/>}
      {(dashboardFilter === 'main' && applicationUser.user_type !== 'Volunteer') && <MyFavorites/>}
      {(dashboardFilter === 'browseRequest' && applicationUser.user_type === 'Volunteer') && <BrowseRequestPage openRequests={openRequests} location={location} setLocation={setLocation} date={date} requestSearch={requestSearch} applicationUser={applicationUser}/>}  
      {(dashboardFilter === 'achievements' && applicationUser.user_type === 'Volunteer' )&& <Achievements/>}  
-     {dashboardFilter === 'acceptedRequest' && <AcceptRequestPage  requests={requests} requestSearch={requestSearch} location={location} setLocation={setLocation} date={date} applicationUser={applicationUser}/>}
+     {dashboardFilter === 'acceptedRequest' && <AcceptRequestPage  requests={requests} requestSearch={requestSearch} location={location} setLocation={setLocation} date={date} applicationUser={applicationUser} setIteration={setIteration} iteration={iteration}/>}
      {dashboardFilter === 'reviews' && <ReviewsPage applicationUser={applicationUser}/>}
      {(dashboardFilter === 'newRequest' && applicationUser.user_type !== 'Volunteer') && <NewRequestForm applicationUser={applicationUser} setDashboardFilter={setDashboardFilter} />}
      {dashboardFilter === 'profile' && <Settings applicationUser={applicationUser} setDashboardFilter = {setDashboardFilter}/>}
-     {/* {(dashboardFilter === 'edit' && applicationUser.user_type !== 'Volunteer') && <EditRequest/>} */}
     </div>
   );
 };

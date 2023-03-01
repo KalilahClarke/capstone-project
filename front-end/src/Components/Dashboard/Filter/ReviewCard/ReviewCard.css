@@ -1,5 +1,5 @@
 .Reviews{
-    width: 780px;
+    /* width: 780px; */
     background-color:  #71264314;
     display: grid;
     grid-template-columns: 1fr 6fr ;

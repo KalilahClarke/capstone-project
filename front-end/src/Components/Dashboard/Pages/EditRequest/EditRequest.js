@@ -64,8 +64,8 @@ const EditRequest = ({ applicationUser }) => {
   console.log(applicationUser)
   return (
     <div className="edit-request">
+      <div></div>
       <Container className="edit-form">
-        <h3>Edit Request</h3>
         <div className="edit-image">
         <img src={editedRequest.image} alt="request-image"/>
         </div>
@@ -140,6 +140,7 @@ const EditRequest = ({ applicationUser }) => {
           </div>
         </Form>
       </Container>
+      <div></div>
     </div>
 );
 };

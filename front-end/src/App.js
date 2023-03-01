@@ -27,6 +27,8 @@ const API = process.env.REACT_APP_BACKEND_API_KEY;
 const App = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [dashboardFilter, setDashboardFilter] = useState("main");
+  const [iteration, setIteration] = useState({})
+  const [location, setLocation] = useState('')
   const [applicationUser, setApplicationUser] = useState({
     uuid: "",
     firstname: "",
@@ -45,6 +47,8 @@ const App = () => {
     languages: "",
     verification_type: "",
   });
+
+  console.log(iteration)
 
 
   return (
@@ -138,6 +142,10 @@ const App = () => {
                     applicationUser={applicationUser}
                     dashboardFilter={dashboardFilter}
                     setDashboardFilter={setDashboardFilter}
+                    location={location}
+                    setLocation={setLocation}
+                    setIteration={setIteration}
+                    iteration={iteration}
                   />
                 </Protected>
               }
@@ -162,6 +170,8 @@ const App = () => {
                   <EditRequest
                     applicationUser={applicationUser}
                     setDashboardFilter={setDashboardFilter}
+                    iteration={iteration}
+                    location={location}
                   />
                 </Protected>
               }

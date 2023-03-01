@@ -12,6 +12,9 @@ const MyRequests = ({
   date,
   requestSearch,
   applicationUser,
+  setLocation,
+  setIteration,
+  iteration,
 }) => {
 
 
@@ -28,7 +31,7 @@ const MyRequests = ({
   };
 
   //sort requests by date
-  // requests.sort((a, b) => b.req_date - a.req_date);
+  requests?.sort((a, b) => b.req_date - a.req_date);
 
 
   const currentDate = dateConverter(new Date());
@@ -47,9 +50,10 @@ const MyRequests = ({
         request.title.toLowerCase().includes(search)
       )
     : requestsByDate;
-
+  let myRequest = []
   const requestCards = requestsBySearch?.map((request, index) => {
     if (index < 4) {
+      myRequest.push(request.id)
       return (
         <RequestCard
           key={request.id}
@@ -60,6 +64,13 @@ const MyRequests = ({
     }
   });
 
+
+    useEffect(() => {
+      setIteration({ ...iteration['myRequest'], myRequest })
+  
+    },[])
+  
+    
   return (
     <>
       <div className="openRequestPage__main-page">
@@ -67,6 +78,7 @@ const MyRequests = ({
       </div>
       <div
         className={requestCards?.length > 0 ? "openRequestPage__filter" : "noFilter"}
+        onClick={()=> setLocation('myRequests')}
       >
         {requestCards?.length > 0 ? (
           requestCards

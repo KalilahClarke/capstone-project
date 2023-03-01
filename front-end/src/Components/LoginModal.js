@@ -31,7 +31,7 @@ const LoginModal = ({ modalOpen, setModalOpen, setApplicationUser }) => {
     if (user) {
       userCheck(user);
       setModalOpen(false);
-      navigate("/user-dashboard")
+      navigate("/dashboard")
     }
   }, [user]);
 

@@ -48,7 +48,7 @@ const RequestPage = ({
         volunteer_img: applicationUser.profilephoto,
         req_id: id,
       })
-      .then(navigate("/user-dashboard"));
+      .then(navigate("/dashboard"));
   };
   const missionFailed = () => {
     axios
@@ -57,7 +57,7 @@ const RequestPage = ({
         volunteer_img: "",
         req_id: id,
       })
-      .then(navigate("/user-dashboard"));
+      .then(navigate("/dashboard"));
   };
 
   const dateConverter = (specifiedDate = "") => {
@@ -76,8 +76,6 @@ const RequestPage = ({
   return (
     <div className="details">
 
-       
-    <div>
       {!reviewFormRevealed ?<RequestDetails
       applicationUser={applicationUser}
       setDashboardFilter = {setDashboardFilter}
@@ -97,7 +95,6 @@ const RequestPage = ({
       applicationUser={applicationUser}
       />}
      
-      </div>
     </div>
   );
 };

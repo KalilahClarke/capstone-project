@@ -13,20 +13,24 @@
 
 .ReviewPage{
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 3fr;
     margin-left: 20px;
     margin-top: 20px;
   
 }
 
+
 .ReviewPage__reviews-list{
     margin-top: 25px;
+    height: 95vh;
+    overflow: scroll;
+   
 }
 
 
 .ReviewPage__personalInfo{
     position: sticky;
-    margin-left: 15%;
+    margin-left: 13%;
 }
 .ReviewPage__stars{
     margin-top: 20px;

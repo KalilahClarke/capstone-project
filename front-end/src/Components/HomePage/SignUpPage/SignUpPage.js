@@ -55,7 +55,7 @@ const SignUpPage = ({setApplicationUser}) => {
           if(res.data.payload.uuid){
             setAuthErrors([]);
             setApplicationUser(res.data.payload);
-            navigate("/user-dashboard");
+            navigate("/dashboard");
           }else{
             user.delete().then(() => setAuthErrors([...authErrors, "Sign up failed, please try again."]));
           }

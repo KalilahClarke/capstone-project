@@ -14,6 +14,8 @@ const AcceptRequestPage = ({
   applicationUser,
   requests,
   setRequestSearch,
+  iteration,
+  setIteration,
   requestSearch,
 }) => {
   
@@ -51,6 +53,7 @@ const AcceptRequestPage = ({
   let selectedCalendarDate = dateConverter(date);
   let search = requestSearch.toLowerCase();
 
+  let acceptedRequest = []
   const acceptedRequestFilter = requests?.filter((request) =>
       selectedCalendarDate === currentDate &&
       request.title.toLowerCase().includes(search) &&
@@ -60,11 +63,12 @@ const AcceptRequestPage = ({
     )
     .map((request) => {
       if (request.assigned) {
+        acceptedRequest.push(request.id)
         return <RequestCard key={request.id} request={request} applicationUser={applicationUser}/>;
       }
     });
   
-
+  let completedRequest = []
   const completedRequestFilter = requests
     .filter((request) =>
       selectedCalendarDate === currentDate &&
@@ -74,11 +78,12 @@ const AcceptRequestPage = ({
     )
     .map((request) => {
       if (request.complete) {
-       
+        completedRequest.push(request.id)
         return <RequestCard key={request.id} request={request} applicationUser={applicationUser}/>;
       }
     });
 
+  let pendingRequest = []
   const pendingRequestFilter = requests
     .filter((request) =>
       selectedCalendarDate === currentDate &&
@@ -88,10 +93,12 @@ const AcceptRequestPage = ({
     )
     .map((request) => {
       if (!request.assigned) {
+        pendingRequest.push(request.id)
         return <RequestCard key={request.id} request={request} applicationUser={applicationUser}/>;
       }
     });
 
+    console.log(pendingRequest, completedRequest, acceptedRequest)
 
   return (
     <>

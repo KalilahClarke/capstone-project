@@ -23,8 +23,8 @@ const RequestDetails = ({
   setReviewFormRevealed,
   requestSearch,
   setRequestSearch,
+  iteration,
   location,
-  
   request
 }) => {
   const [showMore, setShowMore] = useState(false)
@@ -93,12 +93,11 @@ const RequestDetails = ({
   };
   let currentDate = dateConverter(new Date());
 
-  
   return (
-  
- 
+    <div className='layout'>
+
       <div className="cards">
-       <IoIosArrowBack  className ='center' size={ 40 } />
+       <IoIosArrowBack  className ='center left' size={ 40 } />
       <div>
         <div className='card-holder'>
           <div className="card-wrap">
@@ -169,7 +168,7 @@ const RequestDetails = ({
       </div>
         <IoIosArrowForward  className='center' size={ 40 }/>
       </div>
-   
+   </div>
   );
 };
 
