@@ -22,6 +22,7 @@
 
 .ReviewPage__reviews-list{
     margin-top: 25px;
+    margin-right: 5vh;
     height: 95vh;
     overflow: scroll;
    
@@ -30,7 +31,6 @@
 
 .ReviewPage__personalInfo{
     position: sticky;
-    margin-left: 13%;
 }
 .ReviewPage__stars{
     margin-top: 20px;

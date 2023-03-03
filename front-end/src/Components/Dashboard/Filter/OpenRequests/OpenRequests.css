@@ -3,11 +3,13 @@
     display: grid;
     margin-top: 2rem;
     grid-template-columns: repeat(4, minmax(0, 1fr));
+    height: 350px;
     /* column-gap: 1.5rem; */
     /* overflow-x: scroll; */
      /* overflow-y: scroll; */
      /* gap: 1vh; */
 }
+
 
 /* .open-list{
     display: flex;

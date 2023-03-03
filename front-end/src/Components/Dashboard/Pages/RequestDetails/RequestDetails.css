@@ -52,7 +52,7 @@
   align-items: center;
   max-width: 800px;
   min-width: 200px;
-  width: 60%;
+  width: 60vh;
   margin: 0 auto;
 }
 /* Perspective was added ... testing */
@@ -233,14 +233,16 @@ backface-visibility: hidden;
   .cards-items {
     display: flex;
   }
+  
 }
 
+
 @media only screen and (max-width: 1024px) {
+
   .carditem {
     margin-bottom: 2rem;
   }
-}
-@media only screen and (max-width: 1024px) {
+  
   .buttons {
     display: flex;
     /* flex-flow: column; */
@@ -264,13 +266,10 @@ backface-visibility: hidden;
   .details h3{
     margin-top: -5px;
   }
-}
-
-
-
-@media only screen and (max-width: 1024px) {
   .sidebar-nav {
-      display: none;
-  }
+    display: none;
 }
+
+}
+
   

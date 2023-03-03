@@ -77,7 +77,7 @@ const MyRequests = ({
         <h3 className='openRequestPage__title top'>My Requests</h3>
       </div>
       <div
-        className={requestCards?.length > 0 ? "openRequestPage__filter" : "noFilter"}
+        className="openRequestPage__filter "
         onClick={()=> setLocation('myRequests')}
       >
         {requestCards?.length > 0 ? (
