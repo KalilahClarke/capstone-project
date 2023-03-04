@@ -5,3 +5,14 @@
 .userdashboard{
     margin-left: 2vh;
 }
+
+@media screen and (max-width: 400px) {
+   .dashboard{
+    display: grid;
+    grid-template-columns: 1fr;
+   }
+   .userdashboard{
+    margin: auto  
+}
+
+}

@@ -48,9 +48,7 @@ const App = () => {
     verification_type: "",
   });
 
-  console.log(iteration)
-
-
+  
   return (
     <div className="App">
       <UserProvider>

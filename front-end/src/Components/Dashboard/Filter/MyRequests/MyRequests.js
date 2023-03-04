@@ -18,6 +18,18 @@ const MyRequests = ({
 }) => {
 
 
+  useEffect(() => {
+      if(!myRequest){
+        console.log(true)
+        requests.map((req,index)=>{
+          if(index < 4){
+            setIteration(iteration => [ ...iteration['myRequest'],  req.id])
+          }
+        })
+      }
+      setIteration({ ...iteration['myRequest'], myRequest })
+    },[])
+    
   const dateConverter = (specifiedDate = "") => {
     const fullYear = specifiedDate?.getFullYear();
     const month = specifiedDate?.getMonth() + 1;
@@ -50,10 +62,13 @@ const MyRequests = ({
         request.title.toLowerCase().includes(search)
       )
     : requestsByDate;
+
+  
+  
   let myRequest = []
   const requestCards = requestsBySearch?.map((request, index) => {
     if (index < 4) {
-      myRequest.push(request.id)
+      myRequest.push()
       return (
         <RequestCard
           key={request.id}
@@ -64,11 +79,6 @@ const MyRequests = ({
     }
   });
 
-
-    useEffect(() => {
-      setIteration({ ...iteration['myRequest'], myRequest })
-  
-    },[])
   
     
   return (

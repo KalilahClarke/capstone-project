@@ -184,3 +184,9 @@ float: left;
 .time{
 float: right;
 } */
+
+@media screen and (max-width: 400px) {
+  .req-card-details{
+    width: 100%;
+  }
+}

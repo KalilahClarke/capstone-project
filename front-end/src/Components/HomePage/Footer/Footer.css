@@ -104,6 +104,34 @@ ul a:hover {
 }
 
 @media screen and (max-width: 400px) {
+  .footer-userdashboard {
+    background-color: #42999b;
+    color: white;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    padding: 1% 0%;
+    
+    /* top: 120vh; */
+    position: sticky;
+    /* position: justify; */
+    z-index: 3;
+    /* justify-content: end; */
+  }
+
+  .brand-culture-userdashboard{
+    margin-left: 0%;
+    width: 100%;
+    text-align:start;
+  }
+  .brand-box-userdasboard{
+    text-align:left;
+  }
+
+
+  .github{
+    display: none;
+  }
+
   .footer {
     background-color: #42999b;
     color: white;

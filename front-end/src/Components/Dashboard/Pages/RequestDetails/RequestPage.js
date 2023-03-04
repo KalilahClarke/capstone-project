@@ -23,9 +23,11 @@ const RequestPage = ({
   dashboardFilter,
   requestSearch,
   setRequestSearch,
-  pagination,
+  iteration
+ 
  
 }) => {
+  console.log(iteration)
   const [request, setRequest] = useState([]);
   const [reviews, setReviews] = useState([]);
   const [reviewFormRevealed, setReviewFormRevealed] = useState(false);
@@ -72,7 +74,7 @@ const RequestPage = ({
     return formattedDate;
   };
   let currentDate = dateConverter(new Date());
-  console.log(dashboardFilter)
+  
   return (
     <div className="details">
 
@@ -83,7 +85,7 @@ const RequestPage = ({
       setReviewFormRevealed={setReviewFormRevealed}
       requestSearch={requestSearch}
       setRequestSearch={setRequestSearch}
-      pagination={pagination}
+      
     
       request={request}
       />

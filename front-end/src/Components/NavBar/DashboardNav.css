@@ -58,10 +58,23 @@
 #bell {
   margin: 12px 5px;
 }
-
+.fillCaretDown{
+  display: none;
+}
 
 @media screen and (max-width: 800px){
 .hidden {
+    display: none;
+  }
+  .fillCaretDown{
+    margin-top: 12px;
+    margin-right: 5px;
+    display: flex;
+
+  
+  }
+
+  #dropdown{
     display: none;
   }
 }

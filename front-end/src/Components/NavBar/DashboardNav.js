@@ -4,7 +4,7 @@ import { signOut } from "../../Services/Firebase";
 import { UserContext } from "../../Providers/UserProviders";
 import { useContext } from "react";
 import { IoMdSettings } from 'react-icons/io'
-import { CgProfile } from 'react-icons/cg'
+import {AiFillCaretDown} from 'react-icons/ai'
 import PersonIcon from '@mui/icons-material/Person';
 
 //Bootstrap
@@ -32,6 +32,7 @@ const DashboardNav = ({ applicationUser, setDashboardFilter }) => {
       <Container className="dashboard-nav">
         <Nav className="me-auto.">
           <img src={applicationUser.profilephoto ? applicationUser.profilephoto : photoURL} className="profile-pic" alt={displayName} />
+          <AiFillCaretDown className = 'fillCaretDown'/>
           <Dropdown>
             <Dropdown.Toggle id="dropdown">
               {applicationUser.verified ? (
