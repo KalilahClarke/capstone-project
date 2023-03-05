@@ -61,8 +61,11 @@
 .fillCaretDown{
   display: none;
 }
+#fill-dropdown{
+  display: none;
+}
 
-@media screen and (max-width: 800px){
+@media screen and (max-width: 400px){
 .hidden {
     display: none;
   }
@@ -70,9 +73,12 @@
     margin-top: 12px;
     margin-right: 5px;
     display: flex;
-
   
   }
+ #fill-dropdown{
+  display: block;
+  width: fit-content;
+ }
 
   #dropdown{
     display: none;

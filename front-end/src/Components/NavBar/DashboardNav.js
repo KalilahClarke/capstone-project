@@ -32,7 +32,25 @@ const DashboardNav = ({ applicationUser, setDashboardFilter }) => {
       <Container className="dashboard-nav">
         <Nav className="me-auto.">
           <img src={applicationUser.profilephoto ? applicationUser.profilephoto : photoURL} className="profile-pic" alt={displayName} />
-          <AiFillCaretDown className = 'fillCaretDown'/>
+          {/* <Dropdown>
+          <Dropdown.Toggle id="fill-dropdown"> */}
+          <AiFillCaretDown className = 'fillCaretDown' />
+          {/* </Dropdown.Toggle>
+          <Dropdown.Menu>
+            <Dropdown.Item onClick={()=>{setDashboardFilter('profile')}}>
+                Profile <PersonIcon/>
+                </Dropdown.Item>
+               <Dropdown.Item onClick={()=>{setDashboardFilter('settings')}}>
+                Settings <IoMdSettings size={20}/>
+                </Dropdown.Item>
+                <Dropdown.Item>Dashboard </Dropdown.Item>
+              <Dropdown.Item onClick={signOut}>Sign-Out </Dropdown.Item>
+             
+            </Dropdown.Menu> */}
+
+          {/* </Dropdown> */}
+
+
           <Dropdown>
             <Dropdown.Toggle id="dropdown">
               {applicationUser.verified ? (

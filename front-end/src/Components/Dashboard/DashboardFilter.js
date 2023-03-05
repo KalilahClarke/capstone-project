@@ -50,7 +50,7 @@ const DashboardFilter = ({applicationUser, dashboardFilter, setDashboardFilter, 
       .get(`${API}/requests/open_requests`)
       .then((res) => setOpenRequests(res.data));
     }
-  }, [user, applicationUser]);
+  }, [user, applicationUser, dashboardFilter]);
 
  
   
