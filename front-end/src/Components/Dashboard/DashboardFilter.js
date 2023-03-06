@@ -76,7 +76,10 @@ const DashboardFilter = ({
         <option value="acceptedrequests">Accepted Requests</option>
         <option value="completedrequests">Completed Requests</option>
         {applicationUser.user_type !== "Volunteer" && (
+          <>
           <option value="pendingrequests">Pending Requests</option>
+          <option value='newrequest'>New Request</option>
+          </>
         )}
       </select>
       <input
@@ -120,7 +123,10 @@ const DashboardFilter = ({
          
           />
         )}
-
+      {dashboardFilter === 'newrequest' && <NewRequestForm
+        applicationUser={applicationUser}
+        setDashboardFilter={setDashboardFilter}
+      />}
     </div>
       </div>
 

@@ -1,7 +1,4 @@
-.user-dashboard{
-    display:flex;
-    grid-template-columns: 7fr 25fr;   
-}
+
 
 .form_sidebar-nav{
     width: 23%;
@@ -50,4 +47,26 @@
     margin-right: 2rem !important;
     margin-left: 1rem !important;
 
+}
+
+@media screen and (max-width: 400px) {
+
+    .request-form{
+        margin-top: 10px;
+        height: 100vh;
+        width: 100vw;
+        
+    }
+ 
+    .row{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .new-req .mb-3{
+        margin-right: 0rem !important;
+        margin-left: 0rem !important;
+    
+    }
+    
 }
