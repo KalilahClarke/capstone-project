@@ -1,33 +1,26 @@
 //CSS
 import "./SignUpPage.css";
-
 //DEPENDENCIES
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from '../../../Providers/UserProviders';
 import { useContext } from "react";
-import { signUpWithGoogle } from "../../../Services/Firebase";
-
+import { signUpWithGoogle } from "../../../Services/Firebase"
 //Bootstrap
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
-
 //API
 const API = process.env.REACT_APP_BACKEND_API_KEY;
-
 //STATES PACKAGE --> https://www.npmjs.com/package/usa-states
 const UsaStates = require('usa-states').UsaStates;
-
 const SignUpPage = ({setApplicationUser}) => {
   const [authErrors, setAuthErrors] = useState([]);
   const usStates = new UsaStates();
-  
   const user = useContext(UserContext);
-
   const [newUser, setNewUser] = useState({
     firstname: "",
     lastname: "",
@@ -45,7 +38,6 @@ const SignUpPage = ({setApplicationUser}) => {
     languages: "",
     verification_type: "",
   });
-
   useEffect(() => {
     const submitUser = async () => {
       if (user?.uid) {
@@ -55,28 +47,23 @@ const SignUpPage = ({setApplicationUser}) => {
           if(res.data.payload.uuid){
             setAuthErrors([]);
             setApplicationUser(res.data.payload);
-            navigate("/dashboard");
+            navigate("/user-dashboard");
           }else{
             user.delete().then(() => setAuthErrors([...authErrors, "Sign up failed, please try again."]));
           }
         })
       };
     };
-
     submitUser();
   }, [user]);
-
   const navigate = useNavigate();
-
   const handleInput = (e) => {
     setNewUser({ ...newUser, [e.target.id]: e.target.value });
   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     await signUpWithGoogle();
   };
-
   return (
     <div className="sign-up">
       <div className="signup-text">
@@ -84,7 +71,7 @@ const SignUpPage = ({setApplicationUser}) => {
         <div className="instructions">
         <p className="p1">
           Welcome! Before we get started, please fill out the following form
-          with the required information. 
+          with the required information.
         </p>
         <p className="p2"><strong>Verification Process:</strong></p>
         <ol>
@@ -112,7 +99,6 @@ const SignUpPage = ({setApplicationUser}) => {
                   required
                 />
               </Form.Group>
-
               <Form.Group as={Col} className="mb-3">
                 <Form.Label>Last Name<span className="required-field">*</span></Form.Label>
                 <Form.Control
@@ -125,7 +111,6 @@ const SignUpPage = ({setApplicationUser}) => {
                 />
               </Form.Group>
             </Row>
-
             <Row>
               <Form.Group as={Col} className="mb-3">
                 <Form.Label>Date of Birth<span className="required-field">*</span></Form.Label>
@@ -137,7 +122,6 @@ const SignUpPage = ({setApplicationUser}) => {
                   required
                 />
               </Form.Group>
-
               <Form.Group as={Col} className="mb-3">
                 <Form.Label>Email<span className="required-field">*</span></Form.Label>
                 <Form.Control
@@ -154,7 +138,6 @@ const SignUpPage = ({setApplicationUser}) => {
                 </Form.Text>
               </Form.Group>
             </Row>
-
             <Form.Group className="mb-3">
               <Form.Label>Address Line 1<span className="required-field">*</span></Form.Label>
               <Form.Control
@@ -166,7 +149,6 @@ const SignUpPage = ({setApplicationUser}) => {
                 required
               />
             </Form.Group>
-
             <Form.Group className="mb-3">
               <Form.Label>Address Line 2</Form.Label>
               <Form.Control
@@ -177,7 +159,6 @@ const SignUpPage = ({setApplicationUser}) => {
                 onChange={handleInput}
               />
             </Form.Group>
-
             <Row>
               <Form.Group as={Col} className="mb-3">
                 <Form.Label>City<span className="required-field">*</span></Form.Label>
@@ -190,7 +171,6 @@ const SignUpPage = ({setApplicationUser}) => {
                   required
                 />
               </Form.Group>
-
               <Form.Group as={Col} className="mb-3">
                 <Form.Label>State<span className="required-field">*</span></Form.Label>
                 <Form.Select
@@ -203,7 +183,6 @@ const SignUpPage = ({setApplicationUser}) => {
                   {usStates.states.map(state => <option key={state.name}>{state.abbreviation}</option>)}
                 </Form.Select>
               </Form.Group>
-
               <Form.Group as={Col} className="mb-3">
                 <Form.Label>Zip Code<span className="required-field">*</span></Form.Label>
                 <Form.Control
@@ -216,7 +195,6 @@ const SignUpPage = ({setApplicationUser}) => {
                 />
               </Form.Group>
             </Row>
-
             <Row>
               <Form.Group as={Col} className="mb-3">
                 <Form.Label>Phone Number<span className="required-field">*</span></Form.Label>
@@ -229,7 +207,6 @@ const SignUpPage = ({setApplicationUser}) => {
                   required
                 />
               </Form.Group>
-
               <Form.Group
                 as={Col}
                 className="mb-3"
@@ -247,7 +224,6 @@ const SignUpPage = ({setApplicationUser}) => {
                   <option>Driver's License</option>
                 </Form.Select>
               </Form.Group>
-
               <Form.Group as={Col} className="mb-3">
                 <Form.Label>Preferred Language</Form.Label>
                 <Form.Control
@@ -259,7 +235,6 @@ const SignUpPage = ({setApplicationUser}) => {
                 />
               </Form.Group>
             </Row>
-
             <Row>
               <Form.Group as={Col} className="mb-3">
                 <Form.Label>Upload Photo</Form.Label>
@@ -274,7 +249,6 @@ const SignUpPage = ({setApplicationUser}) => {
                   Please upload a photo in which your face is visible.
                 </Form.Text>
               </Form.Group>
-
               <Form.Group as={Col} className="mb-3">
                 <Form.Label>User Type<span className="required-field">*</span></Form.Label>
                 <Form.Select
@@ -298,5 +272,4 @@ const SignUpPage = ({setApplicationUser}) => {
     </div>
   );
 };
-
 export default SignUpPage;

@@ -3,6 +3,7 @@ DROP DATABASE IF EXISTS goldensolutionscapstone;
 CREATE DATABASE goldensolutionscapstone;
 
 \c goldensolutionscapstone;
+
 CREATE TABLE users (
     uuid TEXT PRIMARY KEY UNIQUE NOT NULL,
     firstname TEXT NOT NULL,
@@ -24,11 +25,11 @@ CREATE TABLE users (
 );
 
 CREATE TABLE requests (
-    id SERIAL PRIMARY KEY UNIQUE,
-    elder_id TEXT REFERENCES users(uuid),
-    elder_img TEXT REFERENCES users(profilephoto),
-    volunteer_id TEXT REFERENCES users(uuid) DEFAULT NULL,
-    volunteer_img TEXT REFERENCES users(profilephoto) DEFAULT NULL,
+    id SERIAL PRIMARY KEY,
+    elder_id TEXT references users(uuid),
+    elder_img TEXT references users(profilephoto),
+    volunteer_id TEXT references users(uuid) DEFAULT NULL,
+    volunteer_img TEXT references users(profilephoto),
     req_date TEXT NOT NULL,
     title TEXT,
     description TEXT NOT NULL,

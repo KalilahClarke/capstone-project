@@ -61,7 +61,7 @@ const EditRequest = ({ applicationUser }) => {
     .then(() => navigate("/dashboard"))
     .catch(err => console.error(err))
   }
-  console.log(applicationUser)
+  
   return (
     <div className="edit-request">
       <div></div>

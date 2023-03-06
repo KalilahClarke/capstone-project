@@ -248,19 +248,20 @@ backface-visibility: hidden;
     /* flex-flow: column; */
     justify-content: center;
   }
-  .back {
+  /* .back {
     justify-content: center;
     margin-bottom: 2rem;
     padding-left: 15px;
     padding-right: 15px;
     border-radius: 7px;
-  }
+  } */
   .accept {
     justify-content: center;
     padding-left: 15px;
     padding-right: 15px;
     text-align: center;
     border-radius: 7px;
+    min-width: 6vh ;
   }
   
   .details h3{
@@ -272,4 +273,22 @@ backface-visibility: hidden;
 
 }
 
+
+@media only screen and (max-width: 400px) {
+  .cards{
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 0rem 0rem;
+    padding-bottom: 1rem;
+  }
+  .center{
+    display: none
+  }
+  .card-holder{
+    width: 40vh;
+  }
+ .card-wrap{
+  height: 60vh;
+ }
+}
   

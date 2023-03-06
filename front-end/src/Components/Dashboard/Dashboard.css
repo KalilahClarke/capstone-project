@@ -5,6 +5,15 @@
 .userdashboard{
     margin-left: 2vh;
 }
+.request__select{
+    display: none;
+}
+.phone{
+    display: none;
+}
+.phone__search{
+    display: none;
+}
 
 @media screen and (max-width: 400px) {
    .dashboard{
@@ -12,7 +21,27 @@
     grid-template-columns: 1fr;
    }
    .userdashboard{
+    display: none;
     margin: auto  
 }
 
+    .request__select{
+        display: block;
+        text-align: center;
+        font-size:x-large;
+        position: sticky;
+        top: 20px
+    }
+    .phone{
+        display: grid;
+        grid-template-columns: 1fr;
+        margin: auto;
+        padding-bottom: 4vh;
+        min-height: 80vh;
+    }
+    .phone__search{
+        display: block;
+        font-size: 1.5rem;
+        text-align: center;
+    }
 }

@@ -39,4 +39,7 @@
     display: grid;
     grid-template-columns: 1fr;
     }
+    .openRequestPage__title{
+        display: none;
+    }
 }

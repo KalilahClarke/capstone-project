@@ -134,7 +134,7 @@ const RequestDetails = ({
           
           <div>
             <Link to="/dashboard">
-              <Button className="back">BACK</Button>
+              <Button className="back accept">BACK</Button>
             </Link>
           </div>
           <div>

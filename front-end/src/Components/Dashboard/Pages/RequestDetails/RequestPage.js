@@ -27,7 +27,7 @@ const RequestPage = ({
  
  
 }) => {
-  console.log(iteration)
+  
   const [request, setRequest] = useState([]);
   const [reviews, setReviews] = useState([]);
   const [reviewFormRevealed, setReviewFormRevealed] = useState(false);

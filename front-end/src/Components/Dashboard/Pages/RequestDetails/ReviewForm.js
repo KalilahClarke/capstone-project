@@ -59,7 +59,7 @@ const RequestReviewForm = ({ applicationUser, request }) => {
         //find review with id and userId 
         const currentReview = reviews.find(review => review.request_id ===  Number(id) && review.reviewer_id === applicationUser.uuid)
         //if it exist 
-        // console.log(currentReview)
+       
         if(currentReview){
           setNewReview(currentReview)
           console.log(newReview)

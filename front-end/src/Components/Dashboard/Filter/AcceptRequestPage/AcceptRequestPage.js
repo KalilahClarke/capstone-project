@@ -98,7 +98,7 @@ const AcceptRequestPage = ({
       }
     });
 
-    console.log(pendingRequest, completedRequest, acceptedRequest)
+    
 
   return (
     <>

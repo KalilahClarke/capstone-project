@@ -28,6 +28,7 @@ const Dashboard = ({applicationUser, dashboardFilter, setDashboardFilter, setLoc
       applicationUser={applicationUser}
       date={date}
       requestSearch = {requestSearch}
+      setRequestSearch={setRequestSearch}
       dashboardFilter={dashboardFilter}
       setDashboardFilter ={setDashboardFilter}
       setLocation={setLocation}
