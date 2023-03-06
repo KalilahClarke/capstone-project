@@ -44,7 +44,7 @@ function PendingRequests({ applicationUser, requests, requestSearch }) {
     <>
      
       {applicationUser.user_type !== "Volunteer" && (
-          <div className="acceptedRequestPage__filter">
+          <div className="openRequestPage__filter">
             {pendingRequestFilter}
           </div>
         )}

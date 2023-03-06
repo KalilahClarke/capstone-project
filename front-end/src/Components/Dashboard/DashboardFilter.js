@@ -66,6 +66,7 @@ const DashboardFilter = ({
 
   return (
     <>
+    <div className = 'phone-userdashboard'>
       <select
         className="request__select"
         onChange={(e) => setDashboardFilter(e.target.value)}
@@ -119,6 +120,8 @@ const DashboardFilter = ({
          
           />
         )}
+
+    </div>
       </div>
 
       <div className="userdashboard">

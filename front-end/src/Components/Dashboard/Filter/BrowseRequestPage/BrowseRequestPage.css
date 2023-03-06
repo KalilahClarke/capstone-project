@@ -36,8 +36,11 @@
 
 @media screen and (max-width: 400px) {
     .openRequestPage__filter{
+    
     display: grid;
     grid-template-columns: 1fr;
+    margin:  4vh auto;
+    
     }
     .openRequestPage__title{
         display: none;

@@ -8,10 +8,7 @@
 .request__select{
     display: none;
 }
-.phone{
-    display: none;
-}
-.phone__search{
+.phone-userdashboard{
     display: none;
 }
 
@@ -24,12 +21,19 @@
     display: none;
     margin: auto  
 }
+.phone-userdashboard{
+    display: block;
+    width: 100%;
+    margin: auto;
+
+}
 
     .request__select{
         display: block;
         text-align: center;
         font-size:x-large;
         position: sticky;
+        width: 100vw;
         top: 20px
     }
     .phone{
@@ -43,6 +47,7 @@
         display: block;
         font-size: 1.2rem;
         width: 100vw;
+        padding: 0 5vw ;
         text-align: center;
     }
 }
