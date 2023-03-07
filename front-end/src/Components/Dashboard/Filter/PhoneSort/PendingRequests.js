@@ -1,6 +1,6 @@
 import React from "react";
 import RequestCard from "../RequestCard/RequestCard";
-import "./AcceptRequestPage.css";
+import "../AcceptRequestPage/AcceptRequestPage.css";
 
 function PendingRequests({ applicationUser, requests, requestSearch }) {
   console.log(requests)

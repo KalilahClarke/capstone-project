@@ -41,11 +41,11 @@
 }
 
 .left{
-  justify-content:center ;
-  text-align: right;
-  align-items: end;
+  margin-left:  auto;
 }
-
+.right{
+  margin-right: auto;
+}
 .card-holder {
   display: flex;
   flex-flow: column;

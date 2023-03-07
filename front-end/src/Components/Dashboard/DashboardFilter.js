@@ -11,9 +11,9 @@ import MyFavorites from "./Filter/MyFavorites/MyFavorites";
 import NewRequestForm from "./Filter/NewRequestForm/NewRequestForm";
 import Settings from "./Filter/Profile/Profile";
 
-import PendingRequests from "./Filter/AcceptRequestPage/PendingRequests";
-import CompletedRequest from "./Filter/AcceptRequestPage/CompletedRequest";
-import AcceptedRequests from "./Filter/AcceptRequestPage/AcceptedRequests";
+import PendingRequests from "./Filter/PhoneSort/PendingRequests";
+import CompletedRequest from "./Filter/PhoneSort/CompletedRequest";
+import AcceptedRequests from "./Filter/PhoneSort/AcceptedRequests";
 
 // Function to query the database with the users uid, and return their posted / assigned requests
 const API = process.env.REACT_APP_BACKEND_API_KEY;

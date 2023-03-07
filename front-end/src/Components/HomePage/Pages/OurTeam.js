@@ -100,7 +100,7 @@ const OurTeam = () => {
             />
           </a>
           <p className="name"> Samantha Figueroa</p>
-          <p className="position"> President of Engineering</p>
+          <p className="position"> Web Developer (Frontend Functionality)</p>
           {handleLearnMore("sam")}
         </div>
         <div className="team">
@@ -112,7 +112,7 @@ const OurTeam = () => {
             />
           </a>
           <p className="name">Tom LaTulipe</p>
-          <p className="position"> VP of Engineering</p>
+          <p className="position">Web Developer (Backend)</p>
           {handleLearnMore("tom")}
         </div>
         <div className="team">
@@ -125,7 +125,7 @@ const OurTeam = () => {
           </a>
           <p className="name">Kalilah Clarke</p>
           <p className="position">
-            Director of Engineering-User Facing Technologies
+            Web Developer (Frontend Functionality)
           </p>
           {handleLearnMore("kalilah")}
         </div>
@@ -138,7 +138,7 @@ const OurTeam = () => {
             />
             </a>
           <p className="name">Adnan Abubakar Adams</p>
-          <p className="position">Senior Principal Engineer</p>
+          <p className="position">Web Developer (UX Design)</p>
           {handleLearnMore("adnan")}
         </div>
         {/* <div className="team">

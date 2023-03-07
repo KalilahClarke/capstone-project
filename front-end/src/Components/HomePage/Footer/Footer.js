@@ -2,6 +2,7 @@
 import "./Footer.css";
 import { useContext } from "react";
 import { UserContext } from "../../../Providers/UserProviders";
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
   const user = useContext(UserContext);
@@ -17,12 +18,14 @@ const Footer = () => {
           <div></div>
           <div className="brand-culture-userdashboard">
             <div className="brand-box-userdasboard">
+            <Link to='/dashboard'>
               <img
                 className="brand-userdasboard"
                 src="/images/logoGS.png"
                 alt="GoldenSolutions Logo"
                 width="300"
-              />
+                />
+            </Link>
             </div>
             <div className="quote">
               <p>

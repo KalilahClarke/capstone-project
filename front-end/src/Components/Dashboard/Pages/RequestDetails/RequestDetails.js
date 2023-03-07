@@ -166,7 +166,7 @@ const RequestDetails = ({
           </div>
         </div>
       </div>
-        <IoIosArrowForward  className='center' size={ 40 }/>
+        <IoIosArrowForward  className='center right' size={ 40 }/>
       </div>
    </div>
   );

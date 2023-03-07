@@ -19,7 +19,7 @@ const RequestCard = ({ request, applicationUser }) => {
     }
   };
   let imgString = applicationUser.user_type === 'Volunteer' ? request.elder_id : request.volunteer_id
-  console.log(imgString)
+  
   return (
     
     <div className="req-card-details">
