@@ -4,6 +4,8 @@
 }
 .userdashboard{
     margin-left: 2vh;
+    height: 100vh;
+    overflow: scroll;
 }
 .request__select{
     display: none;
@@ -20,6 +22,7 @@
    .userdashboard{
     display: none;
     margin: auto  
+
 }
 .phone-userdashboard{
     display: block;
