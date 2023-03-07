@@ -62,7 +62,7 @@ const RequestReviewForm = ({ applicationUser, request }) => {
        
         if(currentReview){
           setNewReview(currentReview)
-          console.log(newReview)
+         
         }
       })
 
