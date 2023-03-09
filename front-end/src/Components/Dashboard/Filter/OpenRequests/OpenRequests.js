@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 
 //Components
 import RequestCard from '../RequestCard/RequestCard.js';
+import ZeroRequests from "../ZeroRequests.js";
 
 //CSS
 import "./OpenRequests.css";
@@ -40,7 +41,7 @@ const OpenRequests = ({ openRequests, date, requestSearch, applicationUser}) => 
     <>
     <h3 className="head">Open Requests</h3>
     <div className="openRequestPage__filter" >
-      {requestFilter.length > 0 ? requestFilter : <div>No Accepted Request</div>}
+      {requestFilter.length > 0 ? requestFilter : <ZeroRequests/>}
     
     </div>
     </>

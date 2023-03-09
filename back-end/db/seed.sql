@@ -3,6 +3,8 @@
 
 -- Volunteers
 -- Seniors
+-- Requests
+-- INSERT INTO requests ("elder_id", "elder_img", "volunteer_id", "volunteer_img", "req_date", "title", "description", "location", "time", "assigned", "complete") VALUES
 
 INSERT INTO users ("uuid", "firstname", "lastname", "dob", "address", "unit", "city", "zipcode", "phonenumber", "email", "profilephoto", "user_type","languages", "state","verified") VALUES
 ('5XGYcMFPtnPjx2EeG0e7Rw8N2v83','Emilee','Jackson','1989-10-21','105 W. 150 St.','3B','New York','10039','3478826252','emilee.jackson89@gmail.com','https://images.unsplash.com/photo-1597223557154-721c1cecc4b0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGZhY2V8ZW58MHx8MHx8&w=1000&q=80','Volunteer','English','NY','TRUE') ;
@@ -14,8 +16,6 @@ INSERT INTO users ("uuid", "firstname", "lastname", "dob", "address", "unit", "c
 
 
 
--- Requests
--- INSERT INTO requests ("elder_id", "elder_img", "volunteer_id", "volunteer_img", "req_date", "title", "description", "location", "time", "assigned", "complete") VALUES
 
 INSERT INTO requests ("elder_id", "elder_img", "req_date", "title", "description", "location", "time", "assigned", "complete", "image") VALUES
 ('XIqDn8IRYUWLg79g7fY62Yuz7v92','https://images.pexels.com/photos/1729931/pexels-photo-1729931.jpeg?cs=srgb&dl=pexels-nashua-volquezyoung-1729931.jpg&fm=jpg', '2023-12-20','Holiday Prep','Since I cant be with family this year, I decided to do plan a last minute Holiday Party for my friends. I may have honestly biten off more that I can chew. Asking for some support during the Holiday Season. Tree setup and decorations.','Bronx','16:00','FALSE','FALSE','https://www.bhg.com/thmb/glsNjIgdF3SUW8L0g7TV74EXJQ8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/christmastablesettings_walmartproduct_inlinetreatment_1-035fce97ba384000859ed220d11806ac.jpg');
@@ -105,6 +105,10 @@ INSERT INTO requests ("elder_id","elder_img", "volunteer_id", "volunteer_img", "
 ('XIqDn8IRYUWLg79g7fY62Yuz7v92','https://images.pexels.com/photos/1729931/pexels-photo-1729931.jpeg?cs=srgb&dl=pexels-nashua-volquezyoung-1729931.jpg&fm=jpg','5XGYcMFPtnPjx2EeG0e7Rw8N2v83', 'https://images.unsplash.com/photo-1597223557154-721c1cecc4b0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGZhY2V8ZW58MHx8MHx8&w=1000&q=80', '2023-10-26','Grocery Shopping','Looking for some help with Grocery shopping. In need of some additional help bring up the bags to the 3rd Floor','New York','03:00PM-05:00PM','TRUE','TRUE','https://static01.nyt.com/images/2016/11/06/education/06view360-sub/06view360-sub-superJumbo.jpg');
 
 
+
+
+
+INSERT INTO reviews("id","reviewer_id", "reviewer_img", "reviewed_id","description", "post_date", "request_id")
 -- Stretch Goal
 -- INSERT INTO ratings ("rating","request_id","rating_user_id","rated_user_id") VALUES
 -- ('5','1','XIqDn8IRYUWLg79g7fY62Yuz7v92','') ;

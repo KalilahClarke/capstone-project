@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 
 //Components
 import RequestCard from "../RequestCard/RequestCard.js";
+import ZeroRequests from "../ZeroRequests.js";
 
 //CSS
 import '../BrowseRequestPage/BrowseRequestPage.css'
@@ -93,7 +94,7 @@ const MyRequests = ({
         {requestCards?.length > 0 ? (
           requestCards
         ) : (
-          <div>No Accepted Request</div>
+          <ZeroRequests/>
         )}
       </div>
     </>

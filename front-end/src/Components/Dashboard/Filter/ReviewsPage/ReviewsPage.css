@@ -24,6 +24,7 @@
     margin-top: 25px;
     margin-right: 5vh;
     height: 95vh;
+    /* height: auto */
     overflow: scroll;
    
 }

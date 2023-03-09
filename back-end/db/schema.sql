@@ -19,10 +19,10 @@ CREATE TABLE users (
     verified BOOLEAN default false,
     user_type TEXT NOT NULL,
     profilephoto TEXT UNIQUE,  
-    -- profile id needed in request
     languages TEXT,
     verification_type TEXT
 );
+    -- profile id needed in request
 
 CREATE TABLE requests (
     id SERIAL PRIMARY KEY,
@@ -40,6 +40,24 @@ CREATE TABLE requests (
     image TEXT
 );
 
+
+CREATE TABLE reviews (
+    id SERIAL PRIMARY KEY,
+    reviewer_id TEXT references users(uuid) DEFAULT NULL,
+    reviewer_img TEXT references users(profilephoto),
+    reviewed_id  TEXT references users(uuid),
+    description TEXT NOT NULL,
+    post_date DATE NOT NULL,
+    request_id INT references requests(id)
+);
+    -- reviewers_img
+    -- reviewed_id
+
+-- CREATE TABLE favorites{
+--     id SERIAL PRIMARY KEY,
+--     user_favorite  TEXT references users(uuid),
+-- }
+
 -- CREATE TABLE ratings (
 --     id SERIAL PRIMARY KEY,
 --     rating INT NOT NULL,
@@ -47,22 +65,3 @@ CREATE TABLE requests (
 --     rating_user_id TEXT references users(uuid),
 --     rated_user_id TEXT references users(uuid) DEFAULT NULL
 -- );
-
-CREATE TABLE reviews (
-    id SERIAL PRIMARY KEY,
-    reviewer_id TEXT references users(uuid) DEFAULT NULL,
-    reviewer_img TEXT references users(profilephoto),
-    -- reviewers_img
-    reviewed_id  TEXT references users(uuid),
-    -- reviewed_id
-    description TEXT NOT NULL,
-    post_date DATE NOT NULL,
-    request_id INT references requests(id)
-);
-
--- CREATE TABLE favorites{
---     id SERIAL PRIMARY KEY,
---     user_favorite  TEXT references users(uuid),
-
-
--- }

@@ -3,6 +3,10 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import { UserProvider } from "./Providers/UserProviders";
 
+import axios from 'axios';
+import {useEffect} from 'react'
+
+
 //COMPONENTS
 import SignUpPage from "./Components/HomePage/SignUpPage/SignUpPage";
 import Home from "./Components/HomePage/Home/Home";
@@ -26,7 +30,7 @@ const API = process.env.REACT_APP_BACKEND_API_KEY;
 
 const App = () => {
   const [modalOpen, setModalOpen] = useState(false);
-  const [dashboardFilter, setDashboardFilter] = useState("main");
+  const [dashboardFilter, setDashboardFilter] = useState("main")
   const [iteration, setIteration] = useState({})
   const [location, setLocation] = useState('')
   const [applicationUser, setApplicationUser] = useState({
@@ -47,6 +51,12 @@ const App = () => {
     languages: "",
     verification_type: "",
   });
+
+ 
+
+
+
+  
 
   
   return (

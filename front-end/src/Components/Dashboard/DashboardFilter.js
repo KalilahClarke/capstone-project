@@ -60,10 +60,20 @@ const DashboardFilter = ({
     if (applicationUser.user_type === "Volunteer") {
       axios
         .get(`${API}/requests/open_requests`)
-        .then((res) => setOpenRequests(res.data));
+        .then((res) =>{
+          setOpenRequests(res.data)
+          const arrayId = res.data.map((element, index)=> {
+            if(index < 4){
+              return  element.id
+            }
+          } )
+          setIteration({...iteration, 'openRequests': arrayId})
+          
+        });
     }
+    
   }, [user, applicationUser, dashboardFilter]);
-
+      console.log(iteration)
   return (
     <>
     <div className = 'phone-userdashboard'>

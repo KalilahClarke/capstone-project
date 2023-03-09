@@ -1,0 +1,28 @@
+.ZeroRequests{
+    width: 100%;
+    /* margin: 0 auto; */
+    border: 3px solid #42999B;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 15px;
+    box-shadow: 5px 5px 2px 1px #42999B;
+    position: relative;
+    width: 90%;
+    max-width: 250px;
+    border-radius: 10px;
+}
+
+.ZeroRequests img{
+    width: 150px;
+    margin: 10px;
+}
+
+.ZeroRequests_content_header{
+    font-size: x-large;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    font-weight: 600;
+}
