@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS goldensolutionscapstone;
+-- DROP DATABASE IF EXISTS goldensolutionscapstone;
+-- CREATE DATABASE goldensolutionscapstone;
 -- DROP TABLE IF EXISTS users, requests, ratings, reviews;
-CREATE DATABASE goldensolutionscapstone;
 
 \c goldensolutionscapstone;
 

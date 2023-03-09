@@ -1,17 +1,14 @@
+-- DROP TABLE IF EXISTS users, requests, ratings, reviews;
 \c goldensolutionscapstone;
 
 
--- Volunteers
--- Seniors
--- Requests
--- INSERT INTO requests ("elder_id", "elder_img", "volunteer_id", "volunteer_img", "req_date", "title", "description", "location", "time", "assigned", "complete") VALUES
+
 
 INSERT INTO users ("uuid", "firstname", "lastname", "dob", "address", "unit", "city", "zipcode", "phonenumber", "email", "profilephoto", "user_type","languages", "state","verified") VALUES
-('5XGYcMFPtnPjx2EeG0e7Rw8N2v83','Emilee','Jackson','1989-10-21','105 W. 150 St.','3B','New York','10039','3478826252','emilee.jackson89@gmail.com','https://images.unsplash.com/photo-1597223557154-721c1cecc4b0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGZhY2V8ZW58MHx8MHx8&w=1000&q=80','Volunteer','English','NY','TRUE') ;
+('5XGYcMFPtnPjx2EeG0e7Rw8N2v83','Emilee','Jackson','1989-10-21','105 W. 150 St.','3B','New York','10039','3478826252','emilee.jackson89@gmail.com','https://images.unsplash.com/photo-1597223557154-721c1cecc4b0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGZhY2V8ZW58MHx8MHx8&w=1000&q=80','Volunteer','English','NY','TRUE');
 
-
-INSERT INTO users ("uuid", "firstname", "lastname", "dob", "address", "unit", "city", "zipcode", "phonenumber", "email", "profilephoto","languages", "user_type", "state","verified") VALUES
-('XIqDn8IRYUWLg79g7fY62Yuz7v92', 'Cassandra', 'Oliver', '2022-10-01', '123 Fake Ave','','Bronx','10220','2028703049', 'cassandraoliver91@gmail.com', 'https://images.pexels.com/photos/1729931/pexels-photo-1729931.jpeg?cs=srgb&dl=pexels-nashua-volquezyoung-1729931.jpg&fm=jpg','Spanish', 'Senior','NY','TRUE' ) ;
+INSERT INTO users ("uuid", "firstname", "lastname", "dob", "address", "city", "zipcode", "phonenumber", "email", "profilephoto","languages", "user_type", "state","verified") VALUES
+('XIqDn8IRYUWLg79g7fY62Yuz7v92', 'Cassandra', 'Oliver', '2022-10-01', '123 Fake Ave','Bronx','10220','2028703049', 'cassandraoliver91@gmail.com', 'https://images.pexels.com/photos/1729931/pexels-photo-1729931.jpeg?cs=srgb&dl=pexels-nashua-volquezyoung-1729931.jpg&fm=jpg','Spanish', 'Senior','NY','TRUE');
 
 
 
@@ -108,7 +105,7 @@ INSERT INTO requests ("elder_id","elder_img", "volunteer_id", "volunteer_img", "
 
 
 
-INSERT INTO reviews("id","reviewer_id", "reviewer_img", "reviewed_id","description", "post_date", "request_id")
+
 -- Stretch Goal
 -- INSERT INTO ratings ("rating","request_id","rating_user_id","rated_user_id") VALUES
 -- ('5','1','XIqDn8IRYUWLg79g7fY62Yuz7v92','') ;

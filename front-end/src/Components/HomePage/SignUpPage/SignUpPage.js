@@ -38,16 +38,17 @@ const SignUpPage = ({setApplicationUser}) => {
     languages: "",
     verification_type: "",
   });
+
   useEffect(() => {
     const submitUser = async () => {
       if (user?.uid) {
         axios
-        .post(`${API}/users`, { ...newUser, uuid: user.uid })
+        .post(`${API}/users`, { ...newUser, uuid: user.uid, profilephoto: newUser.profilephoto ? newUser.profilephoto : user.photoURL })
         .then(res => {
           if(res.data.payload.uuid){
             setAuthErrors([]);
             setApplicationUser(res.data.payload);
-            navigate("/user-dashboard");
+            navigate("/dashboard");
           }else{
             user.delete().then(() => setAuthErrors([...authErrors, "Sign up failed, please try again."]));
           }

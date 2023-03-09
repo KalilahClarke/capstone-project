@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 
 //Components
 import RequestCard from "../RequestCard/RequestCard.js";
-import ZeroRequests from "../ZeroRequests.js";
+import ZeroRequests from "../ZeroResults/ZeroRequests.js";
 
 //CSS
 import '../BrowseRequestPage/BrowseRequestPage.css'
