@@ -1,6 +1,6 @@
 import React from "react";
 import RequestCard from "../RequestCard/RequestCard";
-import "../AcceptRequestPage/AcceptRequestPage.css";
+import '../AcceptRequestPage/AcceptRequestPage.css';
 
 function CompletedRequest({ applicationUser, requests, requestSearch }) {
   

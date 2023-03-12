@@ -1,5 +1,6 @@
 //Dependencies
 import React, { useEffect } from "react";
+import DashboardFilter from "../../DashboardFilter";
 //{ useState, useEffect }
 //Import Components
 
@@ -10,31 +11,24 @@ import "./AcceptRequestPage.css";
 
 const AcceptRequestPage = ({
   date,
-  setDate,
   applicationUser,
   requests,
-  setRequestSearch,
   iteration,
   setIteration,
   requestSearch,
+  dashboardFilter
 }) => {
   
-  // useEffect(() => {
+  useEffect(() => {
+      setIteration({
+        ...iteration,
+        'pendingRequests': pendingIds,
+        'acceptedRequests': acceptedIds,
+        'completedRequests': completedIds,
+      });
     
-  //   if (applicationUser.user_type !== "Volunteer") {
-  //     setPagination({
-  //       ...pagination,
-  //       pendingRequests: pendingIds,
-  //       acceptedRequests: acceptedIds,
-  //       completedRequests: completedIds,
-  //     });
-  //   }
-  //   setPagination({
-  //     ...pagination,
-  //     acceptedRequests: acceptedIds,
-  //     completedRequests: completedIds,
-  //   });
-  // }, [requestSearch]);
+   
+  }, [requestSearch, dashboardFilter]);
   
 
   const dateConverter = (specifiedDate) => {
@@ -52,8 +46,10 @@ const AcceptRequestPage = ({
   let currentDate = dateConverter(new Date());
   let selectedCalendarDate = dateConverter(date);
   let search = requestSearch.toLowerCase();
+  
+  requests?.sort((a,b)=> a.req_date - b.req_date)
 
-  let acceptedRequest = []
+  let acceptedIds = []
   const acceptedRequestFilter = requests?.filter((request) =>
       selectedCalendarDate === currentDate &&
       request.title.toLowerCase().includes(search) &&
@@ -63,12 +59,12 @@ const AcceptRequestPage = ({
     )
     .map((request) => {
       if (request.assigned) {
-        acceptedRequest.push(request.id)
+        acceptedIds.push(request.id)
         return <RequestCard key={request.id} request={request} applicationUser={applicationUser}/>;
       }
     });
   
-  let completedRequest = []
+  let completedIds = []
   const completedRequestFilter = requests
     .filter((request) =>
       selectedCalendarDate === currentDate &&
@@ -78,12 +74,12 @@ const AcceptRequestPage = ({
     )
     .map((request) => {
       if (request.complete) {
-        completedRequest.push(request.id)
+        completedIds.push(request.id)
         return <RequestCard key={request.id} request={request} applicationUser={applicationUser}/>;
       }
     });
 
-  let pendingRequest = []
+  let pendingIds = []
   const pendingRequestFilter = requests
     .filter((request) =>
       selectedCalendarDate === currentDate &&
@@ -93,7 +89,7 @@ const AcceptRequestPage = ({
     )
     .map((request) => {
       if (!request.assigned) {
-        pendingRequest.push(request.id)
+        pendingIds.push(request.id)
         return <RequestCard key={request.id} request={request} applicationUser={applicationUser}/>;
       }
     });

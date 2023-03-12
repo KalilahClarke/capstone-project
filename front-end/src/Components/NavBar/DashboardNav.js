@@ -23,8 +23,6 @@ const DashboardNav = ({ applicationUser, setDashboardFilter }) => {
   const navigate = useNavigate();
   const { displayName, photoURL } = user;
 
-
-  console.log(open)
   return (
     <Navbar className="dash-navbar">
       <Navbar.Brand className="nav-logo">

@@ -32,6 +32,8 @@ const DashboardFilter = ({
 }) => {
   const [requests, setRequests] = useState([]);
   const [openRequests, setOpenRequests] = useState([]);
+  const [openRequestIds, setOpenRequestsIds] = useState([]);
+  const [requestIds, setRequestsIds] = useState([2,3])
   const user = useContext(UserContext);
 
   let route;
@@ -55,101 +57,106 @@ const DashboardFilter = ({
   };
 
   useEffect(() => {
-    axios(config).then((res) => setRequests(res.data));
+ 
+    axios(config).then((res) =>  setRequests(res.data));
 
     if (applicationUser.user_type === "Volunteer") {
-      axios
-        .get(`${API}/requests/open_requests`)
-        .then((res) =>{
-          setOpenRequests(res.data)
-          const arrayId = res.data.map((element, index)=> {
-            if(index < 4){
-              return  element.id
-            }
-          } )
-          setIteration({...iteration, 'openRequests': arrayId})
-          
-        });
+      axios.get(`${API}/requests/open_requests`).then((res) => setOpenRequests(res.data));
     }
-    
-  }, [user, applicationUser, dashboardFilter]);
-      console.log(iteration)
+  }, [ applicationUser, dashboardFilter]);
+
+  // useEffect(()=>{
+
+  //   console.log('hello')
+  //   setIteration({...iteration, 'myRequests': requestIds})
+  // },[(dashboardFilter === 'main')])
+  
   return (
     <>
-    <div className = 'phone-userdashboard'>
-      <select
-        className="request__select"
-        onChange={(e) => setDashboardFilter(e.target.value)}
-      >
-        <option value="">Choose A Request Type</option>
-        {applicationUser.user_type === 'Volunteer' && <option value="browserequests">Browse Requests</option>}
-        <option value="acceptedrequests">Accepted Requests</option>
-        <option value="completedrequests">Completed Requests</option>
-        {applicationUser.user_type !== "Volunteer" && (
-          <>
-          <option value="pendingrequests">Pending Requests</option>
-          <option value='newrequest'>New Request</option>
-          </>
-        )}
-      </select>
-      <input
-        type="text"
-        onChange={(e) => setRequestSearch(e.target.value)}
-        value={requestSearch}
-        placeholder="Search  Requests"
-        className="phone__search"
-      />
-      <div className="phone">
-        {dashboardFilter === "browserequests" && (
-          <BrowseRequestPage
-            openRequests={openRequests}
-            location={location}
-            setLocation={setLocation}
-            date={date}
-            requestSearch={requestSearch}
-            applicationUser={applicationUser}
-          />
-        )}
-        {dashboardFilter === "acceptedrequests" && (
-          <AcceptedRequests
-            requests={requests}
-            requestSearch={requestSearch}
-            date={date}
-            applicationUser={applicationUser}
-          />
-        )}
-        {dashboardFilter === "completedrequests" && (
-          <CompletedRequest
-            requests={requests}
-            requestSearch={requestSearch}
-            applicationUser={applicationUser}
-          />
-        )}
-        {dashboardFilter === "pendingrequests" && (
-          <PendingRequests
-            requests={requests}
-            requestSearch={requestSearch}
-            applicationUser={applicationUser}
-         
-          />
-        )}
-      {dashboardFilter === 'newrequest' && <NewRequestForm
-        applicationUser={applicationUser}
-        setDashboardFilter={setDashboardFilter}
-      />}
-    </div>
+      <div className="phone-userdashboard">
+        <select
+          className="request__select"
+          onChange={(e) => setDashboardFilter(e.target.value)}
+        >
+          <option value="">Choose A Request Type</option>
+          {applicationUser.user_type === "Volunteer" && (
+            <option value="browserequests">Browse Requests</option>
+          )}
+          <option value="acceptedrequests">Accepted Requests</option>
+          <option value="completedrequests">Completed Requests</option>
+          {applicationUser.user_type !== "Volunteer" && (
+            <>
+              <option value="pendingrequests">Pending Requests</option>
+              <option value="newrequest">New Request</option>
+            </>
+          )}
+        </select>
+        <input
+          type="text"
+          onChange={(e) => setRequestSearch(e.target.value)}
+          value={requestSearch}
+          placeholder="Search  Requests"
+          className="phone__search"
+        />
+        <div className="phone">
+          {dashboardFilter === "browserequests" && (
+            <BrowseRequestPage
+              openRequests={openRequests}
+              location={location}
+              setLocation={setLocation}
+              date={date}
+              requestSearch={requestSearch}
+              applicationUser={applicationUser}
+              iteration={iteration}
+              setIteration={setIteration}
+            />
+          )}
+          {dashboardFilter === "acceptedrequests" && (
+            <AcceptedRequests
+              requests={requests}
+              requestSearch={requestSearch}
+              date={date}
+              applicationUser={applicationUser}
+            />
+          )}
+          {dashboardFilter === "completedrequests" && (
+            <CompletedRequest
+              requests={requests}
+              requestSearch={requestSearch}
+              applicationUser={applicationUser}
+            />
+          )}
+          {dashboardFilter === "pendingrequests" && (
+            <PendingRequests
+              requests={requests}
+              requestSearch={requestSearch}
+              applicationUser={applicationUser}
+            />
+          )}
+          {dashboardFilter === "newrequest" && (
+            <NewRequestForm
+              applicationUser={applicationUser}
+              setDashboardFilter={setDashboardFilter}
+            />
+          )}
+        </div>
       </div>
 
       <div className="userdashboard">
         {dashboardFilter === "main" && (
           <MyRequests
             requests={requests}
-            requestSearch={requestSearch}
+            location={location}
             setLocation={setLocation}
             date={date}
+            requestSearch={requestSearch}
             applicationUser={applicationUser}
             iteration={iteration}
             setIteration={setIteration}
+            dashboardFilter={dashboardFilter}
+            myRequestIds={requestIds}
+            setMyRequestsIds={setRequestsIds}
+
           />
         )}
         {dashboardFilter === "main" &&
@@ -157,10 +164,15 @@ const DashboardFilter = ({
             <OpenRequests
               openRequests={openRequests}
               location={location}
-              setLocation={location}
+              setLocation={setLocation}
               date={date}
-              applicationUser={applicationUser}
               requestSearch={requestSearch}
+              applicationUser={applicationUser}
+              iteration={iteration}
+              setIteration={setIteration}
+              dashboardFilter = {dashboardFilter}
+              openRequestIds = { openRequestIds }
+              setOpenRequestsIds = { setOpenRequestsIds }
             />
           )}
         {dashboardFilter === "main" &&
@@ -174,6 +186,9 @@ const DashboardFilter = ({
               date={date}
               requestSearch={requestSearch}
               applicationUser={applicationUser}
+              iteration={iteration}
+              setIteration={setIteration}
+              dashboardFilter={dashboardFilter}
             />
           )}
         {dashboardFilter === "achievements" &&
@@ -181,13 +196,14 @@ const DashboardFilter = ({
         {dashboardFilter === "acceptedRequest" && (
           <AcceptRequestPage
             requests={requests}
-            requestSearch={requestSearch}
             location={location}
             setLocation={setLocation}
             date={date}
+            requestSearch={requestSearch}
             applicationUser={applicationUser}
             setIteration={setIteration}
             iteration={iteration}
+            dashboardFilter={dashboardFilter}
           />
         )}
         {dashboardFilter === "reviews" && (

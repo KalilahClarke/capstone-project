@@ -23,7 +23,8 @@ const RequestPage = ({
   dashboardFilter,
   requestSearch,
   setRequestSearch,
-  iteration
+  iteration,
+  location,
  
  
 }) => {
@@ -85,6 +86,8 @@ const RequestPage = ({
       setReviewFormRevealed={setReviewFormRevealed}
       requestSearch={requestSearch}
       setRequestSearch={setRequestSearch}
+      iteration={iteration}
+      location = {location}
       
     
       request={request}

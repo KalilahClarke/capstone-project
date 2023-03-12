@@ -1,11 +1,10 @@
 //DEPENDENCIES
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useState } from "react";
-import { UserProvider } from "./Providers/UserProviders";
+import { useState, useContext } from "react";
+import { UserProvider, UserContext } from "./Providers/UserProviders";
 
-import axios from 'axios';
-import {useEffect} from 'react'
-
+import axios from "axios";
+import { useEffect } from "react";
 
 //COMPONENTS
 import SignUpPage from "./Components/HomePage/SignUpPage/SignUpPage";
@@ -30,9 +29,9 @@ const API = process.env.REACT_APP_BACKEND_API_KEY;
 
 const App = () => {
   const [modalOpen, setModalOpen] = useState(false);
-  const [dashboardFilter, setDashboardFilter] = useState("main")
-  const [iteration, setIteration] = useState({})
-  const [location, setLocation] = useState('')
+  const [dashboardFilter, setDashboardFilter] = useState("main");
+  const [iteration, setIteration] = useState({});
+  const [location, setLocation] = useState("");
   const [applicationUser, setApplicationUser] = useState({
     uuid: "",
     firstname: "",
@@ -52,13 +51,64 @@ const App = () => {
     verification_type: "",
   });
 
- 
+  const user = useContext(UserContext);
 
+  console.log(iteration);
 
+  let route;
+
+  if (applicationUser.user_type === "Volunteer") {
+    route = "my_assigned_requests";
+  } else {
+    route = "my_created_requests";
+  }
+
+  const data = JSON.stringify({ uuid: applicationUser.uuid });
+
+  const config = {
+    method: "post",
+    url: `${API}/requests/${route}`,
+
+    headers: {
+      "Content-Type": "application/json",
+    },
+    data: data,
+  };
+
+  let myRequestIds = [];
+  let openRequestIds = []
+
+  useEffect(() => {
+
+    axios(config).then((res) => {
+      let requestSort = res.data?.sort((a, b) => a.req_date - b.req_date);
+
+      for (let i = 0; i < 4; i++) {
+        myRequestIds?.push(requestSort[i]?.id);
+      }
+    });
+   
+    axios(config).then((res) => {
+      if (applicationUser.user_type === "Volunteer") {
+        axios.get(`${API}/requests/open_requests`).then((res) => {
+          let openRequestSort = res.data?.sort((a,b) => a.req_date - b.req_date)
+          for(let i = 0; i < 4; i++){
+            openRequestIds?.push(openRequestSort[i]?.id)
+          }
+          console.log('App')
+          setIteration({
+            ...iteration,
+            openRequests: openRequestIds,
+            myRequests: myRequestIds,
+          });
+        });
+      }
+    });
+
+  }, [applicationUser]);
 
   
 
-  
   return (
     <div className="App">
       <UserProvider>
@@ -166,6 +216,8 @@ const App = () => {
                     applicationUser={applicationUser}
                     dashboardFilter={dashboardFilter}
                     setDashboardFilter={setDashboardFilter}
+                    location={location}
+                    iteration={iteration}
                   />
                 </Protected>
               }
@@ -184,7 +236,6 @@ const App = () => {
                 </Protected>
               }
             />
-            
           </Routes>
           <Footer applicationUser={applicationUser} />
         </Router>

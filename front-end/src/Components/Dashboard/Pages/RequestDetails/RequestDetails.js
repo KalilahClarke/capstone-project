@@ -18,11 +18,7 @@ import ReviewForm from "./ReviewForm";
 
 const RequestDetails = ({
   applicationUser,
-  setDate,
-  date,
   setReviewFormRevealed,
-  requestSearch,
-  setRequestSearch,
   iteration,
   location,
   request
@@ -31,11 +27,16 @@ const RequestDetails = ({
   let { id } = useParams();
   let navigate = useNavigate();
 
+  const index = iteration[location]?.indexOf(Number(id))
+  console.log(Number(id))
+  
+  console.log(iteration[location])
+  console.log(index)
+
+  // console.log(iteration.location)
+
   const API = process.env.REACT_APP_BACKEND_API_KEY;
-  //  <h5 className='card-text'>
-  // <strong>Job Description:</strong>
-  // {description}
-  // </h5>
+ 
 
   const truncateDescriptionText = () =>{
     if(request.description?.length > 100){
@@ -62,6 +63,7 @@ const RequestDetails = ({
   // }, [id, navigate, API]);
 
   const missionAccepted = () => {
+
     axios
       .put(`${API}/requests/accept_request`, {
         volunteer: applicationUser.uuid,
@@ -97,7 +99,8 @@ const RequestDetails = ({
     <div className='layout'>
 
       <div className="cards">
-       <IoIosArrowBack  className ='center left' size={ 40 } />
+       {(iteration[location] && iteration[location][index-1]) ? <IoIosArrowBack  className ='center left' size={ 40 } onClick={()=> navigate(`/requests/${iteration[location][index-1]}`)}/>: <div></div>}
+       
       <div>
         <div className='card-holder'>
           <div className="card-wrap">
@@ -166,7 +169,7 @@ const RequestDetails = ({
           </div>
         </div>
       </div>
-        <IoIosArrowForward  className='center right' size={ 40 }/>
+        {(iteration[location] && iteration[location][index+1]) ? <IoIosArrowForward  className='center right' size={ 40 } onClick={()=> navigate(`/requests/${iteration[location][index+1]}`)}/>: <div></div>}
       </div>
    </div>
   );

@@ -20,7 +20,7 @@ import "./NewRequestForm.css";
 // API
 const API = process.env.REACT_APP_BACKEND_API_KEY;
 
-const NewRequestForm = ({ applicationUser, setDate, date, requestSearch, setRequestSearch, setDashboardFilter }) => {
+const NewRequestForm = ({ applicationUser, setDashboardFilter }) => {
   let navigate = useNavigate();
   let user = useContext(UserContext);
 

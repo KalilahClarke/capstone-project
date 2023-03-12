@@ -15,6 +15,10 @@ const BrowseRequestPage = ({
   applicationUser,
   openRequests,
   requestSearch,
+  setLocation,
+  iteration,
+  setIteration,
+  dashboardFilter
 }) => {
   const dateConverter = (specifiedDate) => {
     const fullYear = specifiedDate?.getFullYear();
@@ -27,6 +31,13 @@ const BrowseRequestPage = ({
 
     return formattedDate;
   };
+  const browseIds = []
+  useEffect(() => {
+      if (applicationUser.user_type === "Volunteer") {
+        setIteration({ ...iteration, 'browseRequests': browseIds});
+      }
+    }, [requestSearch, dashboardFilter]);
+  
   
   openRequests?.sort((a, b) => b.req_date - a.req_date);
 
@@ -48,8 +59,9 @@ const BrowseRequestPage = ({
       )
     : requestsByDate;
 
-  const openRequestFilter = requestsBySearch.map((request, index) => {
+  const openRequestFilter = requestsBySearch.map((request) => {
     if (!request.assigned) {
+        browseIds.push(request.id)
       return (
         <RequestCard
           key={request.id}
@@ -67,7 +79,7 @@ const BrowseRequestPage = ({
         <h3 className="openRequestPage__title top">Open Request</h3>
       )}
       {openRequestFilter.length !== 0 && (
-        <div className="openRequestPage__filter">{openRequestFilter}</div>
+        <div className="openRequestPage__filter" onClick={()=>setLocation('browseRequests')}>{openRequestFilter}</div>
       )}
     </div>
   );
