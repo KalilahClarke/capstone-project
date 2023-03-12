@@ -172,6 +172,7 @@ const DashboardFilter = ({
               requestSearch={requestSearch}
               date={date}
               applicationUser={applicationUser}
+           
             />
           )}
           {dashboardFilter === "completedrequests" && (

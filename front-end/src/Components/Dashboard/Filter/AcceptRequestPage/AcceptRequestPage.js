@@ -16,7 +16,8 @@ const AcceptRequestPage = ({
   iteration,
   setIteration,
   requestSearch,
-  dashboardFilter
+  dashboardFilter,
+  setLocation
 }) => {
   
   useEffect(() => {
@@ -28,9 +29,8 @@ const AcceptRequestPage = ({
       });
     
    
-  }, [requestSearch, dashboardFilter]);
+  }, [requestSearch, dashboardFilter === 'acceptedRequest']);
   
-
   const dateConverter = (specifiedDate) => {
     const fullYear = specifiedDate?.getFullYear();
     const month = specifiedDate?.getMonth() + 1;
@@ -46,7 +46,7 @@ const AcceptRequestPage = ({
   let currentDate = dateConverter(new Date());
   let selectedCalendarDate = dateConverter(date);
   let search = requestSearch.toLowerCase();
-  
+
   requests?.sort((a,b)=> a.req_date - b.req_date)
 
   let acceptedIds = []
@@ -105,6 +105,7 @@ const AcceptRequestPage = ({
         {acceptedRequestFilter.length !== 0 && (
           <div
             className="acceptedRequestPage__filter"
+            onClick={()=> setLocation('acceptedRequests')}
           >
             {acceptedRequestFilter}
           </div>
@@ -117,6 +118,7 @@ const AcceptRequestPage = ({
           pendingRequestFilter.length !== 0 && (
             <div
               className="acceptedRequestPage__filter"
+              onClick={()=>setLocation('pendingRequests')}
             >
               {pendingRequestFilter}
             </div>
@@ -127,6 +129,7 @@ const AcceptRequestPage = ({
         {completedRequestFilter.length !== 0 && (
           <div
             className="acceptedRequestPage__filter"
+            onClick={()=>setLocation('completedRequests')}
           >
             {completedRequestFilter}
           </div>

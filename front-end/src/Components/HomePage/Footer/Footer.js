@@ -4,21 +4,23 @@ import { useContext } from "react";
 import { UserContext } from "../../../Providers/UserProviders";
 import { Link } from 'react-router-dom'
 
-const Footer = () => {
+const Footer = ({render, setRender, setDashboardFilter}) => {
   const user = useContext(UserContext);
+
+  const handleLocation = () => {
+    setRender(!render)
+    setDashboardFilter('main')
+  }
   return (
     <>
       {user ? (
         <div className="footer-userdashboard">
           <div className='github'>
-            {/* <a href='https://github.com/KalilahClarke/capstone-project'>
-            <img id='github-logo' src= "https://cdn-icons-png.flaticon.com/512/25/25231.png" alt='GitHub Logo'/>
-            </a> */}
           </div>
           <div></div>
           <div className="brand-culture-userdashboard">
             <div className="brand-box-userdasboard">
-            <Link to='/dashboard'>
+            <Link to='/dashboard' onClick={handleLocation}>
               <img
                 className="brand-userdasboard"
                 src="/images/logoGS.png"

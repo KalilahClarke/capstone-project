@@ -25,6 +25,8 @@ const RequestPage = ({
   setRequestSearch,
   iteration,
   location,
+  render, 
+  setRender
  
  
 }) => {
@@ -88,6 +90,8 @@ const RequestPage = ({
       setRequestSearch={setRequestSearch}
       iteration={iteration}
       location = {location}
+      render={render}
+      setRender={setRender}
       
     
       request={request}
@@ -106,81 +110,4 @@ const RequestPage = ({
 
 export default RequestPage;
 
-      // <div className="details">
-      //   <div className="sidebar-Nav">
-      //     <SidebarNav
-      //       setDate={setDate}
-      //       date={date}
-      //       applicationUser={applicationUser}
-      //       requestSearch={requestSearch}
-      //       setRequestSearch={setRequestSearch}
-      //     />
-      //   </div>
-      //  { !reviewFormRevealed ? <div className="cards">
-      //     <h3>Request Details</h3>
-      //       <div className="card-holder">
-      //         <div className="card-wrap">
-      //           <div className="card-items-forward">
-      //             <figure className="card-fig" data-category="GoldenSolutions">
-      //               <img
-      //                 className="cardImg"
-      //                 alt="vol"
-      //                 src={
-      //                   request.image
-      //                   ? request.image
-      //                   : "https://www.nbmchealth.com/wp-content/uploads/2018/04/default-placeholder.png"
-      //                 }
-      //               />
-      //             </figure>
-      //             <div className="card-info">
-      //               <h5 className="card-text">
-      //                 <strong>Job Description:</strong> {request.description}
-      //               </h5>
-      //               <h4 className="card-text">
-      //                 <strong>Location:</strong> {request.location}
-      //               </h4>
-      //               <p className="warning">
-      //                 <span className="red">*</span> Cancellations within 24 hours
-      //                 or missing your appointment will result in a negative review
-      //                 & rating.
-      //               </p>
-      //             </div>
-      //           </div>
-      //         </div>
-      //       </div> 
-      //     <div className="buttons">
-            
-      //       <div>
-      //         <Link to="/user-dashboard">
-      //           <Button className="back">BACK</Button>
-      //         </Link>
-      //       </div>
-      //       <div>
-      //         {applicationUser.user_type === "Volunteer" ? (
-      //           request.volunteer_id !== applicationUser.uuid ? (
-      //             <Button className="accept" onClick={missionAccepted}>
-      //               ACCEPT
-      //             </Button>
-      //           ) : request.complete && request.req_date < currentDate ? (
-      //             <Button
-      //             className="reject"
-      //             onClick={() => {
-      //               setReviewFormRevealed(true);
-      //             }}
-      //             >
-      //               REVIEW
-      //             </Button>
-      //           ) : (
-      //             <Button className="reject" onClick={missionFailed}>
-      //               REJECT
-      //             </Button>
-                
-      //           )
-      //         ) : (
-      //           <Link to={`/edit/${id}`}>
-      //             <Button className="edit">EDIT</Button>
-      //           </Link>
-      //         )}
-      //       </div>
-      //     </div>
-      //   </div> 
+     

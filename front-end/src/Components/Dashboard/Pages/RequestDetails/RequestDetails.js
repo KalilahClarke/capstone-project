@@ -13,31 +13,23 @@ import Button from "react-bootstrap/Button";
 
 //Components
 
-import ReviewForm from "./ReviewForm";
-
-
 const RequestDetails = ({
   applicationUser,
   setReviewFormRevealed,
   iteration,
   location,
-  request
+  request,
+  render,
+  setRender
 }) => {
   const [showMore, setShowMore] = useState(false)
   let { id } = useParams();
   let navigate = useNavigate();
 
   const index = iteration[location]?.indexOf(Number(id))
-  console.log(Number(id))
-  
-  console.log(iteration[location])
-  console.log(index)
-
-  // console.log(iteration.location)
-
+ 
   const API = process.env.REACT_APP_BACKEND_API_KEY;
  
-
   const truncateDescriptionText = () =>{
     if(request.description?.length > 100){
       let description = request.description.slice(0,100)
@@ -71,6 +63,7 @@ const RequestDetails = ({
         req_id: id,
       })
       .then(navigate("/dashboard"));
+      setRender(!render)
   };
   const missionFailed = () => {
     axios
@@ -80,6 +73,7 @@ const RequestDetails = ({
         req_id: id,
       })
       .then(navigate("/dashboard"));
+      setRender(!render)
   };
 
   const dateConverter = (specifiedDate = "") => {
@@ -137,7 +131,7 @@ const RequestDetails = ({
           
           <div>
             <Link to="/dashboard">
-              <Button className="back accept">BACK</Button>
+              <Button className="back accept" onClick= {()=> setRender(!render)}>BACK</Button>
             </Link>
           </div>
           <div>

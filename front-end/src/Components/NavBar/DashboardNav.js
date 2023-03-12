@@ -16,17 +16,22 @@ import Dropdown from "react-bootstrap/Dropdown";
 //CSS Import
 import "./DashboardNav.css";
 
-const DashboardNav = ({ applicationUser, setDashboardFilter }) => {
+const DashboardNav = ({ applicationUser, setDashboardFilter, setRender, render}) => {
   const user = useContext(UserContext);
   const [open, setOpen] = useState(false);
   
   const navigate = useNavigate();
   const { displayName, photoURL } = user;
 
+  const handleLocation = () => {
+    setRender(!render)
+    setDashboardFilter('main')
+  }
+
   return (
     <Navbar className="dash-navbar">
       <Navbar.Brand className="nav-logo">
-        <Link to="/dashboard">
+        <Link to="/dashboard" onClick={handleLocation}>
           <img src="/images/logoGS.png" alt="logo" />
         </Link>
       </Navbar.Brand>

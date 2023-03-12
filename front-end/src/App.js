@@ -32,6 +32,7 @@ const App = () => {
   const [dashboardFilter, setDashboardFilter] = useState("main");
   const [iteration, setIteration] = useState({});
   const [location, setLocation] = useState("");
+  const [render, setRender] = useState(true)
   const [applicationUser, setApplicationUser] = useState({
     uuid: "",
     firstname: "",
@@ -102,10 +103,15 @@ const App = () => {
             myRequests: myRequestIds,
           });
         });
+      }else{
+        setIteration({
+          ...iteration,
+          myRequests: myRequestIds,
+        });
       }
     });
 
-  }, [applicationUser]);
+  }, [applicationUser, render]);
 
   
 
@@ -117,6 +123,8 @@ const App = () => {
             setModalOpen={setModalOpen}
             applicationUser={applicationUser}
             setDashboardFilter={setDashboardFilter}
+            render = {render}
+            setRender = {setRender}
           />
           <LoginModal
             modalOpen={modalOpen}
@@ -218,6 +226,8 @@ const App = () => {
                     setDashboardFilter={setDashboardFilter}
                     location={location}
                     iteration={iteration}
+                    render={render}
+                    setRender={setRender}
                   />
                 </Protected>
               }
@@ -237,7 +247,7 @@ const App = () => {
               }
             />
           </Routes>
-          <Footer applicationUser={applicationUser} />
+          <Footer applicationUser={applicationUser} render={render} setRender={setRender} setDashboardFilter={setDashboardFilter} />
         </Router>
       </UserProvider>
     </div>
