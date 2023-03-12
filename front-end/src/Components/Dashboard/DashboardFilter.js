@@ -57,19 +57,74 @@ const DashboardFilter = ({
   };
 
   useEffect(() => {
- 
-    axios(config).then((res) =>  setRequests(res.data));
-
+  axios(config).then((res) =>  setRequests(res.data));
     if (applicationUser.user_type === "Volunteer") {
       axios.get(`${API}/requests/open_requests`).then((res) => setOpenRequests(res.data));
     }
   }, [ applicationUser, dashboardFilter]);
 
-  // useEffect(()=>{
+  const dateConverter = (specifiedDate = "") => {
+    const fullYear = specifiedDate?.getFullYear();
+    const month = specifiedDate?.getMonth() + 1;
+    const paddedMonth = month.toString().padStart(2, "0");
+    const currentDate = specifiedDate?.getDate();
+    const paddedDate = currentDate.toString().padStart(2, "0");
 
-  //   console.log('hello')
-  //   setIteration({...iteration, 'myRequests': requestIds})
-  // },[(dashboardFilter === 'main')])
+    const formattedDate = `${fullYear}-${paddedMonth}-${paddedDate}`;
+
+    return formattedDate;
+  };
+
+  //sort requests by date
+  requests?.sort((a, b) => b.req_date - a.req_date);
+  openRequestIds?.sort((a,b)=> b.req_date - a.req_date);
+
+  const currentDate = dateConverter(new Date());
+  const selectedCalendarDate = dateConverter(date);
+  const search = requestSearch.toLowerCase() || '';
+  
+  //filter by date
+  let requestsByDate =
+  selectedCalendarDate !== currentDate
+  ? requests?.filter((request) => selectedCalendarDate === request.req_date)
+  : requests?.filter((request) => selectedCalendarDate <= request?.req_date && !request?.complete);
+
+  let openRequestsByDate =
+  selectedCalendarDate !== currentDate
+  ? openRequests?.filter((request) => selectedCalendarDate === request.req_date)
+  : openRequests?.filter((request) => selectedCalendarDate <= request?.req_date);
+  
+  // filter by search
+  let requestsBySearch = search
+  ? requestsByDate?.filter((request) =>
+  request.title.toLowerCase().includes(search)
+  ): requestsByDate;
+
+  let openRequestsBySearch = search
+  ? openRequestsByDate?.filter((request) =>
+  request.title.toLowerCase().includes(search)
+  ): openRequestsByDate;
+
+
+
+  let openIds = []
+  openRequestsBySearch.map((request, index)=>{
+    if(index < 4){
+      openIds.push(request.id)
+    }
+  })
+  let myIds = []
+  requestsBySearch.map((request, index)=>{
+    if(index < 4){
+      myIds.push(request.id)
+    }
+  })
+
+  useEffect(()=>{
+    setIteration({...iteration, 'openRequests': openIds, 'myRequests': myIds })
+
+  },[dashboardFilter === 'main', requestSearch])
+
   
   return (
     <>

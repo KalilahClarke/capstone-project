@@ -14,21 +14,9 @@ const MyRequests = ({
   date,
   requestSearch,
   applicationUser,
-  location,
   setLocation,
-  setIteration,
-  iteration,
-  dashboardFilter
+
 }) => {
-  let myRequestIds = []
-  // let myIds = []
-  useEffect(() => {
-    const timer = setTimeout(()=>{
-      console.log('MyRequest')
-      setIteration({...iteration, 'myRequests': myRequestIds})
-    }, 2000)
-    return ()=> clearTimeout(timer)
-  },[requestSearch, location === 'myRequests' && dashboardFilter === 'main', myRequestIds !== iteration['myRequests']]);
 
   
   const dateConverter = (specifiedDate = "") => {
@@ -66,8 +54,6 @@ const MyRequests = ({
 
   const requestCards = requestsBySearch.map((request, index) => {
     if (index < 4) {
-      myRequestIds.push(request.id)
-      // myIds?.push(request.id)
       return (
         <RequestCard
           key={request.id}
@@ -77,7 +63,7 @@ const MyRequests = ({
       );
     }
   })
-  // console.log(myIds)
+ 
   return (
     <>
       <div className="openRequestPage__main-page">

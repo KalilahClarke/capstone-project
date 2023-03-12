@@ -14,24 +14,9 @@ const OpenRequests = ({
   requestSearch,
   applicationUser,
   setLocation,
-  iteration,
-  setIteration,
-  dashboardFilter,
 }) => {
   const search = requestSearch.toLowerCase();
-  openRequests?.sort((a, b) => a.req_date - b.req_date);
-  let openRequestIds = [];
 
-
-  useEffect(() => {
-    const timer = setTimeout(()=>{
-      console.log('OpenRequest')
-      setIteration({ ...iteration, openRequests: openRequestIds });
-    }, 2000)
-    return ()=> clearTimeout(timer)
-  }, [requestSearch, openRequestIds !== iteration['openRequests'] ]);
-
-  console.log(openRequestIds, iteration['openRequests'])
   const dateConverter = (specifiedDate = "") => {
     const fullYear = specifiedDate?.getFullYear();
     const month = specifiedDate?.getMonth() + 1;
@@ -58,7 +43,7 @@ const OpenRequests = ({
     )
     .map((request, index) => {
       if (index < 4) {
-        openRequestIds.push(request.id);
+     
         return (
           <RequestCard
             key={request.id}
