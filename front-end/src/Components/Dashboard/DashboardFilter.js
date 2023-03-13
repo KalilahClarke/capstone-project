@@ -248,7 +248,7 @@ const DashboardFilter = ({
             />
           )}
         {dashboardFilter === "achievements" &&
-          applicationUser.user_type === "Volunteer" && <Achievements />}
+          applicationUser.user_type === "Volunteer" && <Achievements applicationUser={applicationUser} />}
         {dashboardFilter === "acceptedRequest" && (
           <AcceptRequestPage
             requests={requests}
@@ -263,7 +263,7 @@ const DashboardFilter = ({
           />
         )}
         {dashboardFilter === "reviews" && (
-          <ReviewsPage applicationUser={applicationUser} />
+          <ReviewsPage applicationUser={applicationUser} dashboardFilter={dashboardFilter}/>
         )}
         {dashboardFilter === "newRequest" &&
           applicationUser.user_type !== "Volunteer" && (

@@ -54,8 +54,6 @@ const App = () => {
 
   const user = useContext(UserContext);
 
-  console.log(iteration);
-
   let route;
 
   if (applicationUser.user_type === "Volunteer") {
@@ -96,7 +94,6 @@ const App = () => {
           for(let i = 0; i < 4; i++){
             openRequestIds?.push(openRequestSort[i]?.id)
           }
-          console.log('App')
           setIteration({
             ...iteration,
             openRequests: openRequestIds,

@@ -1,19 +1,67 @@
 
-.achieve {
+.achieve{
     
-    background-image: url("/public/images/wheel.svg");
+    /* background-image: url("/public/images/wheel.svg"); */
     background-position: center;
     align-items: center;
-    background-color: #c6eaf6;
     height: 100%;
     width: 100%;
-    background-size: 20%;
     justify-content: center;
-    padding-bottom: 20%;
-
+    background-image: linear-gradient(to right, white ,#71264330, white );
+ /* rgb(210, 249, 249) */
 }
 
+.achieve-grid{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+}
 
+.achieve-box{
+  background-color: whitesmoke;
+  max-width: 35vw;
+  min-height: 250px;
+  box-shadow: 8px 7px 3px 3px rgb(237 234 234);
+  border-radius: 15px;
+  margin-top: 50px;
+  margin-left: 20px;
+  padding-top: 15px;
+  text-align: center;
+  font-size:15px
+}
+.success{
+  width: 80%;
+  margin: auto;
+ 
+}
+
+.achieve-header{
+  display: grid;
+  grid-template-columns: 4fr 1fr
+
+}
+.achieve-header svg{
+  margin-left: auto;
+  margin-right: 20px;
+  
+
+}
+.gold{
+  color: rgb(212, 182, 13);
+}
+.silver{
+  color: rgb(124, 118, 118);
+}
+.black{
+  color: rgba(0, 0, 0, 0.557);
+}
+.bronze{
+  color: rgb(182, 124, 32)
+}
+
+.achieve-name{
+  text-align: center;
+  margin-left: 4vw;
+}
 .logo {
     animation: logo-spin infinite 20s linear;
     pointer-events: none;
@@ -22,9 +70,7 @@
 
 }
 .achieve p {
-  font-size: 60px;
-  font-weight: bold;
-  color: #42999b;
+  font-size: 15px;
   text-align: center;
   align-items: center;
   text-shadow: 2px 0 #fff, -2px 0 #fff, 0 2px #fff, 0 -2px #fff,

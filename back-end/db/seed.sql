@@ -102,7 +102,14 @@ INSERT INTO requests ("elder_id","elder_img", "volunteer_id", "volunteer_img", "
 ('XIqDn8IRYUWLg79g7fY62Yuz7v92','https://images.pexels.com/photos/1729931/pexels-photo-1729931.jpeg?cs=srgb&dl=pexels-nashua-volquezyoung-1729931.jpg&fm=jpg','5XGYcMFPtnPjx2EeG0e7Rw8N2v83', 'https://images.unsplash.com/photo-1597223557154-721c1cecc4b0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGZhY2V8ZW58MHx8MHx8&w=1000&q=80', '2023-10-26','Grocery Shopping','Looking for some help with Grocery shopping. In need of some additional help bring up the bags to the 3rd Floor','New York','03:00PM-05:00PM','TRUE','TRUE','https://static01.nyt.com/images/2016/11/06/education/06view360-sub/06view360-sub-superJumbo.jpg');
 
 
+-- Reviews
+INSERT INTO reviews ("reviewer_id","reviewer_img","reviewed_id", "post_date", "request_id", "description") VALUES
 
+('5XGYcMFPtnPjx2EeG0e7Rw8N2v83','https://images.unsplash.com/photo-1597223557154-721c1cecc4b0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGZhY2V8ZW58MHx8MHx8&w=1000&q=80','XIqDn8IRYUWLg79g7fY62Yuz7v92','2023-01-15','9','She was super sweet and kind but the amount of work given took way longer than the estimated time... I was there over 3 hours more the scheduled');
+
+INSERT INTO reviews ("reviewer_id","reviewer_img","reviewed_id", "post_date", "request_id", "description") VALUES
+
+('5XGYcMFPtnPjx2EeG0e7Rw8N2v83','https://images.unsplash.com/photo-1597223557154-721c1cecc4b0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGZhY2V8ZW58MHx8MHx8&w=1000&q=80','XIqDn8IRYUWLg79g7fY62Yuz7v92','2023-01-15','21','She was super sweet and kind but the amount of work given took way longer than the estimated time... I was there over 3 hours more the scheduled');
 
 
 
