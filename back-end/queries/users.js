@@ -51,6 +51,7 @@ const addUser = async (user) => {
     return error;
   }
 };
+
 //Delete user - requires admin auth
 const deleteUser = async (uuid) => {
   console.log("Removing user " + uuid);

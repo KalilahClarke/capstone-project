@@ -99,8 +99,6 @@ const RequestReviewForm = ({ applicationUser, request, setReviewFormRevealed }) 
   return (
     <div className='cards'>
       <div className="left">
-       {/* <IoIosArrowBack  className ='center' size={ 40 }/> */}
-       <div></div>
       </div>
       <div>
         <div className='card-holder'>
@@ -129,16 +127,12 @@ const RequestReviewForm = ({ applicationUser, request, setReviewFormRevealed }) 
             
               <Button className="back" onClick={()=>{setReviewFormRevealed(false)}}>BACK</Button>
               
-              {/* {reviews.description && !edit ?  */}
-              {/* <Button className="back" onClick={handleEdit}>EDIT</Button> */}
               <Button className="back" onClick={handleSubmit}>SUBMIT</Button>
 
             </div>
         </div> 
       </div>
       <div className="right">
-        {/* <IoIosArrowForward  className='center' size={ 40 }/> */}
-        <div></div>
       </div>
     </div>
   )
