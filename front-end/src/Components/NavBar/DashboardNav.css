@@ -65,9 +65,7 @@
   display: none;
 }
 
-.profile-dropdown{
-  display: none;
-}
+
 @media screen and (max-width: 400px){
 .hidden {
     display: none;

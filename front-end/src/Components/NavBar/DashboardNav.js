@@ -23,6 +23,8 @@ const DashboardNav = ({ applicationUser, setDashboardFilter, setRender, render})
   const navigate = useNavigate();
   const { displayName, photoURL } = user;
 
+
+  console.log(applicationUser)
   const handleLocation = () => {
     setRender(!render)
     setDashboardFilter('main')

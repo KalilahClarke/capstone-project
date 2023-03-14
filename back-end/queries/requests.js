@@ -32,9 +32,10 @@ const makeRequest = async (request) => {
   try {
     console.log("QUERY : Adding request to database");
     request = await db.one(
-      "INSERT INTO requests (elder_id, description, req_date, location, time, title, image) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *",
+      "INSERT INTO requests (elder_id, elder_img, description, req_date, location, time, title, image) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *",
       [
         request.elder_id,
+        request.elder_img,
         request.description,
         request.req_date,
         request.location,
@@ -106,6 +107,8 @@ const editRequest = async (request, id) => {
   }
 };
 
+
+//Review..
 const assignVolunteer = async (request) => {
   try {
     console.log(`QUERY : Assigning volunteer ${request.volunteer} to request ${request.req_id}`);
