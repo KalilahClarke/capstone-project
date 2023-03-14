@@ -21,8 +21,7 @@ const SidebarNav = ({
   dashboardFilter
 }) => {
   const user = useContext(UserContext);
-  const location = useLocation();
-  const path = location.pathname;
+  
   
 
   return (
@@ -43,7 +42,7 @@ const SidebarNav = ({
                       type="text"
                       onChange={(e) => setRequestSearch(e.target.value)}
                       value={requestSearch}
-                      placeholder="Search requests"
+                      placeholder={dashboardFilter === ('main') || dashboardFilter === ('newRequest') || dashboardFilter === ('acceptedRequest') || dashboardFilter === ('browseRequest') ? "Search Requests": dashboardFilter === ('reviews') ? 'Search Reviews': dashboardFilter === ('favorite') ? 'Search Favorites' : ''}
                     />
                   </label>
                 </form>
