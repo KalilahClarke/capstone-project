@@ -23,6 +23,7 @@ const RequestDetails = ({
   setRender
 }) => {
   const [showMore, setShowMore] = useState(false)
+
   let { id } = useParams();
   let navigate = useNavigate();
 
@@ -75,6 +76,8 @@ const RequestDetails = ({
       .then(navigate("/dashboard"));
       setRender(!render)
   };
+
+  
 
   const dateConverter = (specifiedDate = "") => {
     const fullYear = specifiedDate.getFullYear();
@@ -143,9 +146,7 @@ const RequestDetails = ({
               ) : request.complete && request.req_date < currentDate ? (
                 <Button
                 className="reject"
-                onClick={() => {
-                  setReviewFormRevealed(true);
-                }}
+                onClick={()=>setReviewFormRevealed(true)}
                 >
                   REVIEW
                 </Button>
@@ -163,7 +164,7 @@ const RequestDetails = ({
           </div>
         </div>
       </div>
-        {(iteration[location] && iteration[location][index+1]) ? <IoIosArrowForward  className='center right' size={ 40 } onClick={()=> navigate(`/requests/${iteration[location][index+1]}`)}/>: <div></div>}
+        {(iteration[location] && iteration[location][index+1])  ? <IoIosArrowForward  className='center right' size={ 40 } onClick={()=> navigate(`/requests/${iteration[location][index+1]}`)}/>: <div></div>}
       </div>
    </div>
   );
