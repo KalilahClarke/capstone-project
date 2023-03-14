@@ -77,13 +77,28 @@ const App = () => {
   let myRequestIds = [];
   let openRequestIds = []
 
+  const dateConverter = (specifiedDate) => {
+    const fullYear = specifiedDate?.getFullYear();
+    const month = specifiedDate?.getMonth() + 1;
+    const paddedMonth = month.toString().padStart(2, "0");
+    const currentDate = specifiedDate?.getDate();
+    const paddedDate = currentDate.toString().padStart(2, "0");
+
+    const formattedDate = `${fullYear}-${paddedMonth}-${paddedDate}`;
+
+    return formattedDate;
+  };
+
+  let currentDate = dateConverter(new Date());
+
   useEffect(() => {
 
     axios(config).then((res) => {
       let requestSort = res.data?.sort((a, b) => a.req_date - b.req_date);
+      let requestFilter = requestSort?.filter((request)=> currentDate <= request.req_date)
 
       for (let i = 0; i < 4; i++) {
-        myRequestIds?.push(requestSort[i]?.id);
+        myRequestIds?.push(requestFilter[i]?.id);
       }
     });
    
@@ -91,14 +106,16 @@ const App = () => {
       if (applicationUser.user_type === "Volunteer") {
         axios.get(`${API}/requests/open_requests`).then((res) => {
           let openRequestSort = res.data?.sort((a,b) => a.req_date - b.req_date)
+          let openRequestFilter = openRequestSort?.filter((request)=> currentDate <= request.req_date )
           for(let i = 0; i < 4; i++){
-            openRequestIds?.push(openRequestSort[i]?.id)
+            openRequestIds?.push(openRequestFilter[i]?.id)
           }
           setIteration({
             ...iteration,
             openRequests: openRequestIds,
             myRequests: myRequestIds,
           });
+          console.log(myRequestIds)
         });
       }else{
         setIteration({
