@@ -77,7 +77,19 @@ const RequestDetails = ({
       setRender(!render)
   };
 
-  
+  const formatTime = () => {
+    if (request.time?.length <= 5) {
+      let timeArray = request.time?.split(":");
+      if (Number(timeArray[0]) > 12) {
+        return Number(timeArray[0]) - 12 + ":" + timeArray[1] + "PM";
+      } else {
+        return timeArray[0] + ":" + timeArray[1] + "AM";
+      }
+    } else {
+      return request.time;
+    }
+  };
+  let requestTime = formatTime(request.time)
 
   const dateConverter = (specifiedDate = "") => {
     const fullYear = specifiedDate.getFullYear();
@@ -92,6 +104,7 @@ const RequestDetails = ({
   };
   let currentDate = dateConverter(new Date());
 
+
   return (
     <div className='layout'>
 
@@ -102,7 +115,7 @@ const RequestDetails = ({
         <div className='card-holder'>
           <div className="card-wrap">
             <div className="card-items-forward">
-              <figure className='card-fig' data-category='GoldenSolutions'>
+              <figure className='card-fig' data-category={`Date: ${request.req_date}\n Time: ${requestTime}`}>
                 <img className= 'cardImg'
                 alt='vol'
                 src={request.image || "https://www.nbmchealth.com/wp-content/uploads/2018/04/default-placeholder.png"

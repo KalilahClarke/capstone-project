@@ -110,6 +110,14 @@
 
 }
 
+.calendar-nivo{
+  width: 75vw;
+  max-width: none;
+  
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
 @keyframes logo-spin {
     from {
       transform: rotate(0deg);

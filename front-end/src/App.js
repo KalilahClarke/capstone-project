@@ -115,7 +115,6 @@ const App = () => {
             openRequests: openRequestIds,
             myRequests: myRequestIds,
           });
-          console.log(myRequestIds)
         });
       }else{
         setIteration({

@@ -24,7 +24,6 @@ const DashboardNav = ({ applicationUser, setDashboardFilter, setRender, render})
   const { displayName, photoURL } = user;
 
 
-  console.log(applicationUser)
   const handleLocation = () => {
     setRender(!render)
     setDashboardFilter('main')
@@ -66,6 +65,7 @@ const DashboardNav = ({ applicationUser, setDashboardFilter, setRender, render})
             <Dropdown.Menu>
               <Dropdown.Item
                 onClick={() => {
+                  navigate('/dashboard')
                   setDashboardFilter("profile");
                 }}
               >
@@ -73,6 +73,7 @@ const DashboardNav = ({ applicationUser, setDashboardFilter, setRender, render})
               </Dropdown.Item>
               <Dropdown.Item
                 onClick={() => {
+                  navigate('/dashboard')
                   setDashboardFilter("settings");
                 }}
               >

@@ -1,42 +1,22 @@
+import React, { useState } from 'react'
+
 // Components
 import SvgIcon from "../../../ComingSoon/SvgIcon";
 import { GiAchievement } from "react-icons/gi";
 import { RiStarSFill } from "react-icons/ri";
 import ProgressBar from "react-bootstrap/ProgressBar";
-import Chart from './Chart'
-
-import { useState } from 'react'
+import Chart from './Chart.js'
+import data from './data.json'
+ 
 
 // CSS
 import "./Achievements.css";
 
 
 const Achievements = ({ applicationUser }) => {
+
   let accumulator = 0
-  let months =  ['January','Feburary', 'March', 'April', 'May', 'June','July','August','September','October','November','December']
-  const [chartData, setChartData] = useState({
-    labels: months.map((data) => data),
-
-    datasets: [
-      {
-        label: "Users Gained ",
-        data: months.map((data) => accumulator++),
-        backgroundColor: [
-          "rgba(75,192,192,1)",
-          "#ecf0f1",
-          "#f0331a",
-          "#f3ba2f",
-          "#2a71d0"
-        ],
-        borderColor: "black",
-        borderWidth: 2
-      }
-    ]
-  });
-
-
-
-
+ 
 
 
   const ratings = [1, 2, 4, 5, 2, 5, 3, 1, 5];
@@ -61,10 +41,8 @@ const Achievements = ({ applicationUser }) => {
   } else if (percentage >= 60) {
     color = "silver";
   } else if (percentage >= 40) {
-    console.log("bronze");
     color = "bronze";
   } else {
-    console.log("black");
     color = "black";
   }
 
@@ -81,7 +59,15 @@ const Achievements = ({ applicationUser }) => {
     volenteerLevel = "Novice";
   }
   //     --bs-success-rgb
-  console.log(color);
+ 
+
+  
+ 
+  
+
+
+
+
 
   return (
     <div className="achieve">
@@ -162,14 +148,13 @@ const Achievements = ({ applicationUser }) => {
         </div>
         <div className="achieve-box"></div>
         </div>
-        <div className="achieve-box">
-            {/* <Chart chartData={chartData}/> */}
+        <div className="achieve-box">  
+           
         </div>
-        <div className="achieve-box">
-        
-        </div>
-        <div className="achieve-box"></div>
       </div>
+        <div className="achieve-box calendar-nivo">
+        <Chart data={data}/>
+        </div>
     </div>
   );
 };
