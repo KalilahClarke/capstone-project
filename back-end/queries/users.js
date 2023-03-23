@@ -24,7 +24,7 @@ const getUser = async (uuid) => {
 };
 
 const addUser = async (user) => {
-  console.log("Adding new user to the DB");
+
   try {
     const newUser = await db.one(
       "INSERT INTO users (uuid, firstname, lastname, dob, address, unit, city, state, zipcode, phonenumber, email, user_type, profilephoto, languages, verification_type) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING *",

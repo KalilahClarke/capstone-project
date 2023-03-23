@@ -9,7 +9,7 @@ const Dashboard = ({applicationUser, dashboardFilter, setDashboardFilter, setLoc
   const [requestSearch, setRequestSearch] = useState("");
   //Specific to person
   const [users, setUsers] = useState([]);
-  const [pagination, setPagination] = useState({});
+ 
  
   
 

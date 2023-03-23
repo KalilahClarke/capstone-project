@@ -5,15 +5,17 @@ import { ResponsiveCalendar } from '@nivo/calendar'
 
 function Chart({data}) {
 
-  data = data.filter((object)=>object.day.includes('2016'))
-  console.log(data)
+  let year = new Date()?.getFullYear() || '2023'
+  
+  data = data.filter((object)=>object.day.includes(year))
+  
   return (
     <div style={{'height': '30vh'}}>
      
      <ResponsiveCalendar
         data={data}
-        from="2016-02-01"
-        to="2016-12-30"
+        from={`${year}-02-01`}
+        to={`${year}-12-30`}
         emptyColor="#eeeeee"
         colors={[ '#61cdbb', '#97e3d5', '#e8c1a0', '#f47560' ]}
         margin={{ top: 40, right: 40, bottom: 40, left: 40 }}

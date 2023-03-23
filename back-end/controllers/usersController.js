@@ -18,6 +18,7 @@ users.get("/", async (req, res) => {
   if (allUsers[0]) {
     res.status(200).json(allUsers);
   } else {
+    console.log(allUsers, 'Error')
     res.status(500).json({ error: "server error" });
   }
 });
@@ -52,10 +53,9 @@ users.put("/:id", async (req, res) => {
 
 // CREATE USER
 users.post("/", async (req, res) => {
-  console.log("Creating new user");
+ 
   try {
     const newUser = await addUser(req.body);
-    console.log(newUser);
     if (newUser.uuid) {
       res.status(200).json({ payload: newUser, success: true });
     } else {

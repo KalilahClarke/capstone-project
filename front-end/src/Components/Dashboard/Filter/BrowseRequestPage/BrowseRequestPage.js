@@ -37,6 +37,9 @@ const BrowseRequestPage = ({
         setIteration({ ...iteration, 'browseRequests': browseIds});
       }
     }, [requestSearch, dashboardFilter]);
+  useEffect(()=>{
+    
+  },[])
   
   
   openRequests?.sort((a, b) => b.req_date - a.req_date);
@@ -45,6 +48,8 @@ const BrowseRequestPage = ({
   const selectedCalendarDate = dateConverter(date);
   const search = requestSearch.toLowerCase() || "";
 
+  
+  
 
   //filter by date
   let requestsByDate =

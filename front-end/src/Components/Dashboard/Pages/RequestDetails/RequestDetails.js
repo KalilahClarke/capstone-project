@@ -121,6 +121,7 @@ const RequestDetails = ({
                 src={request.image || "https://www.nbmchealth.com/wp-content/uploads/2018/04/default-placeholder.png"
               }
               />
+              
               </figure>
             <div className='card-info'>
               <h5 className='card-description'>

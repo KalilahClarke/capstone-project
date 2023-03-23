@@ -149,6 +149,7 @@ backface-visibility: hidden;
   padding-top: 67%;
   overflow: hidden;
   border-radius: 10px;
+  content: "\a";
 }
 
 .fade-img {
