@@ -17,7 +17,10 @@ const AcceptRequestPage = ({
   setIteration,
   requestSearch,
   dashboardFilter,
-  setLocation
+  setLocation,
+  setCompletedData,
+  completedData
+
 }) => {
   
   useEffect(() => {
@@ -48,7 +51,30 @@ const AcceptRequestPage = ({
   let search = requestSearch.toLowerCase();
 
   requests?.sort((a,b)=> a.req_date - b.req_date)
+  let completedObject = {}
+  requests?.map((request)=> {
+    if(request.complete && currentDate > request.req_date){
+      if(completedObject[request.req_date]){
+        completedObject[request.req_date]++
+      }else{
+        completedObject[request.req_date] = 1
+      }
+    }    
+  })
 
+  let completedArray = []
+  for(const key in completedObject){
+    completedArray.push({'value': completedObject[key], 'day': key})
+  }
+  
+  useEffect(()=>{
+    const timer = setTimeout(() => {
+      setCompletedData([...completedData, completedArray])
+    }, 5000);
+    return () => clearTimeout(timer);
+  },[])
+
+  
   let acceptedIds = []
   const acceptedRequestFilter = requests?.filter((request) =>
       selectedCalendarDate === currentDate &&
@@ -65,6 +91,7 @@ const AcceptRequestPage = ({
     });
   
   let completedIds = []
+
   const completedRequestFilter = requests
     .filter((request) =>
       selectedCalendarDate === currentDate &&

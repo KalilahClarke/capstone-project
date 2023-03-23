@@ -2,12 +2,12 @@ import React from 'react';
 import { ResponsiveCalendar } from '@nivo/calendar'
 
 
-
 function Chart({data}) {
 
-  let year = new Date()?.getFullYear() || '2023'
+  let year = new Date()?.getFullYear() || '2022'
+
   
-  data = data.filter((object)=>object.day.includes(year))
+  data = data[0]?.filter((object)=>object.day?.includes(year))
   
   return (
     <div style={{'height': '30vh'}}>

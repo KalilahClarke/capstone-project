@@ -6,14 +6,14 @@ import { GiAchievement } from "react-icons/gi";
 import { RiStarSFill } from "react-icons/ri";
 import ProgressBar from "react-bootstrap/ProgressBar";
 import Chart from './Chart.js'
-import data from './data.json'
+// import data from './data.json'
  
 
 // CSS
 import "./Achievements.css";
 
 
-const Achievements = ({ applicationUser }) => {
+const Achievements = ({ applicationUser, completedData }) => {
 
   let accumulator = 0
  
@@ -60,7 +60,7 @@ const Achievements = ({ applicationUser }) => {
   }
   //     --bs-success-rgb
  
-
+  
   
  
   
@@ -153,7 +153,7 @@ const Achievements = ({ applicationUser }) => {
         </div>
       </div>
         <div className="achieve-box calendar-nivo">
-        <Chart data={data}/>
+        <Chart data={completedData}/>
         </div>
     </div>
   );

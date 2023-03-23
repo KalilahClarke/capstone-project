@@ -33,7 +33,8 @@ const DashboardFilter = ({
   const [requests, setRequests] = useState([]);
   const [openRequests, setOpenRequests] = useState([]);
   const [openRequestIds, setOpenRequestsIds] = useState([]);
-  const [requestIds, setRequestsIds] = useState([2,3])
+  const [requestIds, setRequestsIds] = useState([])
+  const [completedData, setCompletedData] = useState([])
   const user = useContext(UserContext);
 
   let route;
@@ -63,6 +64,9 @@ const DashboardFilter = ({
     }
   }, [ applicationUser, dashboardFilter]);
 
+
+  
+
   const dateConverter = (specifiedDate = "") => {
     const fullYear = specifiedDate?.getFullYear();
     const month = specifiedDate?.getMonth() + 1;
@@ -80,6 +84,31 @@ const DashboardFilter = ({
   openRequestIds?.sort((a,b)=> b.req_date - a.req_date);
 
   const currentDate = dateConverter(new Date());
+
+  // let completedObject = {}
+  // requests?.map((request)=> {
+  //   if(request.complete && currentDate > request.req_date){
+  //     if(completedObject[request.req_date]){
+  //       completedObject[request.req_date]++
+  //     }else{
+  //       completedObject[request.req_date] = 1
+  //     }
+  //   }    
+  // })
+
+  // let completedArray = []
+  // for(const key in completedObject){
+  //   completedArray.push({'value': completedObject[key], 'day': key})
+  // }
+  // console.log(completedArray)
+  // useEffect(()=>{
+  //   const timer = setTimeout(() => {
+  //     setCompletedData([...completedData, completedArray])
+  //   }, 10000);
+  //   return () => clearTimeout(timer);
+  // },[dashboardFilter === 'acheivements'])
+  // console.log(completedData)
+
   const selectedCalendarDate = dateConverter(date);
   const search = requestSearch.toLowerCase() || '';
   
@@ -248,7 +277,7 @@ const DashboardFilter = ({
             />
           )}
         {dashboardFilter === "achievements" &&
-          applicationUser.user_type === "Volunteer" && <Achievements applicationUser={applicationUser} />}
+          applicationUser.user_type === "Volunteer" && <Achievements applicationUser={applicationUser} completedData = {completedData} />}
         {dashboardFilter === "acceptedRequest" && (
           <AcceptRequestPage
             requests={requests}
@@ -260,6 +289,8 @@ const DashboardFilter = ({
             setIteration={setIteration}
             iteration={iteration}
             dashboardFilter={dashboardFilter}
+            setCompletedData = {setCompletedData}
+            completedData = {completedData}
           />
         )}
         {dashboardFilter === "reviews" && (
