@@ -32,7 +32,8 @@ const App = () => {
   const [dashboardFilter, setDashboardFilter] = useState("main");
   const [iteration, setIteration] = useState({});
   const [location, setLocation] = useState("");
-  const [render, setRender] = useState(true)
+  const [completedData, setCompletedData] = useState([])
+  const [render, setRender] = useState(true);
   const [applicationUser, setApplicationUser] = useState({
     uuid: "",
     firstname: "",
@@ -96,12 +97,28 @@ const App = () => {
     axios(config).then((res) => {
       let requestSort = res.data?.sort((a, b) => a.req_date - b.req_date);
       let requestFilter = requestSort?.filter((request)=> currentDate <= request.req_date)
-
+      
+      let achievementFilter = res.data?.filter((request)=> currentDate > request.req_date && request.complete)
+      let completedObject = {}
+      for(let i = 0; i < achievementFilter.length; i++){
+        console.log(achievementFilter[i].req_date)
+        if(completedObject[achievementFilter[i].req_date]){
+          completedObject[achievementFilter[i].req_date]++
+        }else{
+          completedObject[achievementFilter[i].req_date] = 1
+        }
+      }
+      
+      let completedArray = []
+      for(let key in completedObject){
+        completedArray.push({'value': completedObject[key], 'day': key})
+      }
+      setCompletedData([completedArray, ...completedData])
       for (let i = 0; i < 4; i++) {
         myRequestIds?.push(requestFilter[i]?.id);
       }
     });
-   
+  
     axios(config).then((res) => {
       if (applicationUser.user_type === "Volunteer") {
         axios.get(`${API}/requests/open_requests`).then((res) => {
@@ -125,8 +142,6 @@ const App = () => {
     });
 
   }, [applicationUser, render]);
-
-  
 
   return (
     <div className="App">
@@ -225,6 +240,8 @@ const App = () => {
                     setLocation={setLocation}
                     setIteration={setIteration}
                     iteration={iteration}
+                    completedData={completedData}
+                    setCompletedData={setCompletedData}
                   />
                 </Protected>
               }

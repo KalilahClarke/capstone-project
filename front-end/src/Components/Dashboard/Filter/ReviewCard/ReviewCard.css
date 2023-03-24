@@ -4,24 +4,34 @@
     display: grid;
     grid-template-columns: 1fr 6fr ;
     padding: 5px;
+    margin-top: 10px;
     margin-right: 15px;
     border-radius: 10px;
-    min-height: 235px;
-   margin-bottom: 20px;
+    min-height: 200px;
+    margin-bottom: 20px;
+    box-shadow: 8px 7px 3px 3px rgb(237 234 234);
     /* margin-left: 25px; */
 }
 .Reviews__reviewer-info{
     margin-top: 10px;
 }
+.Reviews__review{
+    margin-top: 30px;
+}
+
 .reviewer_img {
     padding-right: 20px ; 
 }
+.Reviews-header{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
 
 .Reviews__img{
-    width: 100px;   
+    width: 80px;   
 }
 .Reviewer__profile{
-    width: 100px;
+    width: 80px;
     border-radius: 50%;
     border: cadetblue solid 1px;
     margin-left: 20px;

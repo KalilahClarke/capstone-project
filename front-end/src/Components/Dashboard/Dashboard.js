@@ -4,7 +4,7 @@ import DashboardFilter from "./DashboardFilter";
 
 import './Dashboard.css';
 
-const Dashboard = ({applicationUser, dashboardFilter, setDashboardFilter, setLocation, location, setIteration, iteration}) => {
+const Dashboard = ({applicationUser, dashboardFilter, setDashboardFilter, setLocation, location, setIteration, iteration, completedData}) => {
   const [date, setDate] = useState(new Date());
   const [requestSearch, setRequestSearch] = useState("");
   //Specific to person
@@ -35,6 +35,7 @@ const Dashboard = ({applicationUser, dashboardFilter, setDashboardFilter, setLoc
       location={location}
       setIteration={setIteration}
       iteration={iteration}
+      completedData={completedData}
       
       />
     </div>

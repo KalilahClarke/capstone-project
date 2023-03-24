@@ -29,15 +29,17 @@ const DashboardFilter = ({
   date,
   setIteration,
   iteration,
+  completedData,
 }) => {
   const [requests, setRequests] = useState([]);
   const [openRequests, setOpenRequests] = useState([]);
   const [openRequestIds, setOpenRequestsIds] = useState([]);
   const [requestIds, setRequestsIds] = useState([])
-  const [completedData, setCompletedData] = useState([])
+  
   const user = useContext(UserContext);
 
   let route;
+ console.log(completedData)
 
   if (applicationUser.user_type === "Volunteer") {
     route = "my_assigned_requests";
@@ -85,29 +87,7 @@ const DashboardFilter = ({
 
   const currentDate = dateConverter(new Date());
 
-  // let completedObject = {}
-  // requests?.map((request)=> {
-  //   if(request.complete && currentDate > request.req_date){
-  //     if(completedObject[request.req_date]){
-  //       completedObject[request.req_date]++
-  //     }else{
-  //       completedObject[request.req_date] = 1
-  //     }
-  //   }    
-  // })
-
-  // let completedArray = []
-  // for(const key in completedObject){
-  //   completedArray.push({'value': completedObject[key], 'day': key})
-  // }
-  // console.log(completedArray)
-  // useEffect(()=>{
-  //   const timer = setTimeout(() => {
-  //     setCompletedData([...completedData, completedArray])
-  //   }, 10000);
-  //   return () => clearTimeout(timer);
-  // },[dashboardFilter === 'acheivements'])
-  // console.log(completedData)
+  
 
   const selectedCalendarDate = dateConverter(date);
   const search = requestSearch.toLowerCase() || '';
@@ -289,8 +269,6 @@ const DashboardFilter = ({
             setIteration={setIteration}
             iteration={iteration}
             dashboardFilter={dashboardFilter}
-            setCompletedData = {setCompletedData}
-            completedData = {completedData}
           />
         )}
         {dashboardFilter === "reviews" && (

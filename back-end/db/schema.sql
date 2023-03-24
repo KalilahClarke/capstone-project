@@ -1,6 +1,6 @@
--- DROP DATABASE IF EXISTS goldensolutionscapstone;
--- CREATE DATABASE goldensolutionscapstone;
--- DROP TABLE IF EXISTS users, requests, ratings, reviews;
+DROP DATABASE IF EXISTS goldensolutionscapstone;
+CREATE DATABASE goldensolutionscapstone;
+DROP TABLE IF EXISTS users, requests, ratings, reviews;
 
 \c goldensolutionscapstone;
 
@@ -47,7 +47,7 @@ CREATE TABLE reviews (
     reviewer_img TEXT references users(profilephoto),
     reviewed_id  TEXT references users(uuid),
     description TEXT NOT NULL,
-    post_date DATE NOT NULL,
+    post_date TEXT NOT NULL,
     request_id INT references requests(id)
 );
     -- reviewers_img

@@ -64,7 +64,7 @@ const Achievements = ({ applicationUser, completedData }) => {
   
  
   
-
+  console.log(completedData)
 
 
 

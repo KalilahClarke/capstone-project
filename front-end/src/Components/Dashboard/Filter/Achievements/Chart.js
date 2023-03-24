@@ -4,7 +4,7 @@ import { ResponsiveCalendar } from '@nivo/calendar'
 
 function Chart({data}) {
 
-  let year = new Date()?.getFullYear() || '2022'
+  let year = new Date()?.getFullYear() || '2023'
 
   
   data = data[0]?.filter((object)=>object.day?.includes(year))
