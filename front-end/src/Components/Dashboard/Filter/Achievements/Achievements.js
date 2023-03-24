@@ -6,6 +6,7 @@ import { GiAchievement } from "react-icons/gi";
 import { RiStarSFill } from "react-icons/ri";
 import ProgressBar from "react-bootstrap/ProgressBar";
 import Chart from './Chart.js'
+import PieChart from './PieChart';
 // import data from './data.json'
  
 
@@ -149,7 +150,7 @@ const Achievements = ({ applicationUser, completedData }) => {
         <div className="achieve-box"></div>
         </div>
         <div className="achieve-box">  
-           
+           <PieChart/>
         </div>
       </div>
         <div className="achieve-box calendar-nivo">
