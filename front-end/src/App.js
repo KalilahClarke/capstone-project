@@ -20,7 +20,7 @@ import Footer from "./Components/HomePage/Footer/Footer";
 import PersonalPage from "./Components/HomePage/Pages/PersonalPage";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import RequestPage from "./Components/Dashboard/Pages/RequestDetails/RequestPage";
-import EditRequest from "./Components/Dashboard/Pages/EditRequest/EditRequest";
+import PublicReviews from './Components/Dashboard/Pages/PublicReviews/PublicReviews';
 //CSS
 import "./App.css";
 
@@ -32,7 +32,7 @@ const App = () => {
   const [dashboardFilter, setDashboardFilter] = useState("main");
   const [iteration, setIteration] = useState({});
   const [location, setLocation] = useState("");
-  const [completedData, setCompletedData] = useState([])
+  const [completedData, setCompletedData] = useState([]);
   const [render, setRender] = useState(true);
   const [applicationUser, setApplicationUser] = useState({
     uuid: "",
@@ -76,7 +76,7 @@ const App = () => {
   };
 
   let myRequestIds = [];
-  let openRequestIds = []
+  let openRequestIds = [];
 
   const dateConverter = (specifiedDate) => {
     const fullYear = specifiedDate?.getFullYear();
@@ -93,39 +93,48 @@ const App = () => {
   let currentDate = dateConverter(new Date());
 
   useEffect(() => {
+    setCompletedData([]);
 
     axios(config).then((res) => {
       let requestSort = res.data?.sort((a, b) => a.req_date - b.req_date);
-      let requestFilter = requestSort?.filter((request)=> currentDate <= request.req_date)
-      
-      let achievementFilter = res.data?.filter((request)=> currentDate > request.req_date && request.complete)
-      let completedObject = {}
-      for(let i = 0; i < achievementFilter.length; i++){
-        console.log(achievementFilter[i].req_date)
-        if(completedObject[achievementFilter[i].req_date]){
-          completedObject[achievementFilter[i].req_date]++
-        }else{
-          completedObject[achievementFilter[i].req_date] = 1
+      let requestFilter = requestSort?.filter(
+        (request) => currentDate <= request.req_date
+      );
+
+      let achievementFilter = res.data?.filter(
+        (request) => currentDate > request.req_date && request.complete
+      );
+
+      let completedObject = {};
+      for (let i = 0; i < achievementFilter.length; i++) {
+        if (completedObject[achievementFilter[i].req_date]) {
+          completedObject[achievementFilter[i].req_date]++;
+        } else {
+          completedObject[achievementFilter[i].req_date] = 1;
         }
       }
-      
-      let completedArray = []
-      for(let key in completedObject){
-        completedArray.push({'value': completedObject[key], 'day': key})
+
+      let completedArray = [];
+      for (let key in completedObject) {
+        completedArray.push({ value: completedObject[key], day: key });
       }
-      setCompletedData([completedArray, ...completedData])
+      setCompletedData([completedArray, ...completedData]);
       for (let i = 0; i < 4; i++) {
         myRequestIds?.push(requestFilter[i]?.id);
       }
     });
-  
+
     axios(config).then((res) => {
       if (applicationUser.user_type === "Volunteer") {
         axios.get(`${API}/requests/open_requests`).then((res) => {
-          let openRequestSort = res.data?.sort((a,b) => a.req_date - b.req_date)
-          let openRequestFilter = openRequestSort?.filter((request)=> currentDate <= request.req_date )
-          for(let i = 0; i < 4; i++){
-            openRequestIds?.push(openRequestFilter[i]?.id)
+          let openRequestSort = res.data?.sort(
+            (a, b) => a.req_date - b.req_date
+          );
+          let openRequestFilter = openRequestSort?.filter(
+            (request) => currentDate <= request.req_date
+          );
+          for (let i = 0; i < 4; i++) {
+            openRequestIds?.push(openRequestFilter[i]?.id);
           }
           setIteration({
             ...iteration,
@@ -133,14 +142,13 @@ const App = () => {
             myRequests: myRequestIds,
           });
         });
-      }else{
+      } else {
         setIteration({
           ...iteration,
           myRequests: myRequestIds,
         });
       }
     });
-
   }, [applicationUser, render]);
 
   return (
@@ -151,8 +159,8 @@ const App = () => {
             setModalOpen={setModalOpen}
             applicationUser={applicationUser}
             setDashboardFilter={setDashboardFilter}
-            render = {render}
-            setRender = {setRender}
+            render={render}
+            setRender={setRender}
           />
           <LoginModal
             modalOpen={modalOpen}
@@ -264,20 +272,20 @@ const App = () => {
             />
 
             <Route
-              path="/edit/:id"
+              path="/reviews/:id"
               element={
                 <Protected>
-                  <EditRequest
-                    applicationUser={applicationUser}
-                    setDashboardFilter={setDashboardFilter}
-                    iteration={iteration}
-                    location={location}
-                  />
+                  <PublicReviews />
                 </Protected>
               }
             />
           </Routes>
-          <Footer applicationUser={applicationUser} render={render} setRender={setRender} setDashboardFilter={setDashboardFilter} />
+          <Footer
+            applicationUser={applicationUser}
+            render={render}
+            setRender={setRender}
+            setDashboardFilter={setDashboardFilter}
+          />
         </Router>
       </UserProvider>
     </div>

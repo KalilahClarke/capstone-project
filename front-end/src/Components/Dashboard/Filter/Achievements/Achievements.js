@@ -150,7 +150,7 @@ const Achievements = ({ applicationUser, completedData }) => {
         <div className="achieve-box"></div>
         </div>
         <div className="achieve-box">  
-           <PieChart/>
+           <PieChart completedData={completedData}/>
         </div>
       </div>
         <div className="achieve-box calendar-nivo">

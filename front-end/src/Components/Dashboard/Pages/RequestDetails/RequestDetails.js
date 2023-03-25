@@ -1,5 +1,5 @@
 ///Dependencies
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import {  IoIosArrowForward, IoIosArrowBack } from 'react-icons/io'
 import { SlArrowUp, SlArrowDown } from 'react-icons/sl'
@@ -20,9 +20,12 @@ const RequestDetails = ({
   location,
   request,
   render,
-  setRender
+  setRender,
+  setEditRequestRevealed,
+  
 }) => {
   const [showMore, setShowMore] = useState(false)
+  
 
   let { id } = useParams();
   let navigate = useNavigate();
@@ -55,7 +58,7 @@ const RequestDetails = ({
   //   axios.get(`${API}/reviews/${id}`).then((res) => setReviews(res.data));
   // }, [id, navigate, API]);
 
-  const missionAccepted = () => {
+  const requestAccepted = () => {
 
     axios
       .put(`${API}/requests/accept_request`, {
@@ -66,7 +69,7 @@ const RequestDetails = ({
       .then(navigate("/dashboard"));
       setRender(!render)
   };
-  const missionFailed = () => {
+  const requestRejected = () => {
     axios
       .put(`${API}/requests/reject_request`, {
         volunteer: "",
@@ -104,7 +107,58 @@ const RequestDetails = ({
   };
   let currentDate = dateConverter(new Date());
 
-
+  const renderButton = () => {
+    if (applicationUser.user_type === "Volunteer") {
+      if (request.volunteer_id !== applicationUser.uuid) {
+        return (
+          <>
+            <Button className="accept" onClick={requestAccepted}>
+              ACCEPT
+            </Button>
+          </>
+        );
+      } else if (request.complete && request.req_date < currentDate) {
+        return (
+          <>
+            <Button
+              className="reject"
+              onClick={() => setReviewFormRevealed(true)}
+            >
+              REVIEW
+            </Button>
+          </>
+        );
+      } else {
+        return (
+          <>
+            <Button className="reject" onClick={requestRejected}>
+              REJECT
+            </Button>
+          </>
+        );
+      }
+    } else {
+      if (request.complete && request.req_date < currentDate) {
+        return (
+          <>
+            <Button
+              className="reject"
+              onClick={() => setReviewFormRevealed(true)}
+            >
+              REVIEW
+            </Button>
+          </>
+        );
+      } else {
+        return (
+          <>
+            <Button className="edit" onClick={() => setEditRequestRevealed(true)}>EDIT</Button>
+          </>
+        );
+      }
+    }
+  };
+  
   return (
     <div className='layout'>
 
@@ -152,29 +206,7 @@ const RequestDetails = ({
             </Link>
           </div>
           <div>
-            {applicationUser.user_type === "Volunteer" ? (
-              request.volunteer_id !== applicationUser.uuid ? (
-                <Button className="accept" onClick={missionAccepted}>
-                  ACCEPT
-                </Button>
-              ) : request.complete && request.req_date < currentDate ? (
-                <Button
-                className="reject"
-                onClick={()=>setReviewFormRevealed(true)}
-                >
-                  REVIEW
-                </Button>
-              ) : (
-                <Button className="reject" onClick={missionFailed}>
-                  REJECT
-                </Button>
-              
-              )
-            ) : (
-              <Link to={`/edit/${id}`}>
-                <Button className="edit">EDIT</Button>
-              </Link>
-            )}
+            {renderButton()}
           </div>
         </div>
       </div>

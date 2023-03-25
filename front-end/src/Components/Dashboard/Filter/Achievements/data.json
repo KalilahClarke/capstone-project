@@ -1,32 +1,15 @@
 [
-    {
-      "id": "scala",
-      "label": "scala",
-      "value": 264,
-      "color": "hsl(103, 70%, 50%)"
-    },
-    {
-      "id": "ruby",
-      "label": "ruby",
-      "value": 163,
-      "color": "hsl(219, 70%, 50%)"
-    },
-    {
-      "id": "go",
-      "label": "go",
-      "value": 3,
-      "color": "hsl(256, 70%, 50%)"
-    },
-    {
-      "id": "javascript",
-      "label": "javascript",
-      "value": 397,
-      "color": "hsl(342, 70%, 50%)"
-    },
-    {
+  {
+    "id": "javascript",
+    "label": "javascript",
+    "value": 397,
+    "color": "hsl(342, 70%, 50%)"
+  },
+  {
       "id": "erlang",
       "label": "erlang",
       "value": 176,
       "color": "hsl(195, 70%, 50%)"
     }
   ]
+ 

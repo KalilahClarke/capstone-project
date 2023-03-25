@@ -39,7 +39,6 @@ const DashboardFilter = ({
   const user = useContext(UserContext);
 
   let route;
- console.log(completedData)
 
   if (applicationUser.user_type === "Volunteer") {
     route = "my_assigned_requests";

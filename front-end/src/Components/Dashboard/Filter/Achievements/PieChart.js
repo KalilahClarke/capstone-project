@@ -1,12 +1,34 @@
 import React from 'react'
 import { ResponsivePie } from '@nivo/pie'
-import data from './data.json'
+// import data from './data.json'
 
-function PieChart() {
+function PieChart({completedData}) {
+
+    let accumulator = 0
+
+    for(let i = 0; i < completedData[0].length; i++){
+       accumulator += completedData[0][i].value
+    }
+
+    let data = [
+        {
+          "id": "erlang",
+          "label": "erlang",
+          "value": accumulator,
+          "color": "hsl(342, 70%, 50%)"
+        },
+        {
+            "id": "javascript",
+            "label": "javascript",
+            "value": 100 - (accumulator % 100),
+            "color": "hsl(204, 4%, 42%)"
+          }
+        ]
 
   return (
     <div style={{'height': '48vh'}}>
         <ResponsivePie
+
             data={data}
             margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
             innerRadius={0.5}
@@ -51,19 +73,16 @@ function PieChart() {
                     id: 'lines',
                     type: 'patternLines',
                     background: 'inherit',
-                    color: 'rgba(255, 255, 255, 0.3)',
+                    color: 	'rgb(220,220,220)',
+                    
                     rotation: -45,
                     lineWidth: 6,
                     spacing: 10
                 }
             ]}
+            
             fill={[
-                {
-                    match: {
-                        id: 'ruby'
-                    },
-                    id: 'dots'
-                },
+            
                 {
                     match: {
                         id: 'c'

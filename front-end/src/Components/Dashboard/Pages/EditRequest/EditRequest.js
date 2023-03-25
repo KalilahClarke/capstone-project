@@ -135,6 +135,7 @@ const EditRequest = ({ applicationUser }) => {
             </Form.Group>
           </Row>
           <div className="editForm-button">
+          <Button type="submit" onClick={() => navigate("/dashboard")}>Back</Button>
           <Button type="submit">Submit</Button>
           <Button onClick={handleDelete}>Delete</Button>
           </div>
