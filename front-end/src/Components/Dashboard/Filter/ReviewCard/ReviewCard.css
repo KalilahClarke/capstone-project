@@ -1,5 +1,4 @@
 .Reviews{
-    /* width: 780px; */
     background-color:  #71264314;
     display: grid;
     grid-template-columns: 1fr 6fr ;
@@ -10,7 +9,6 @@
     min-height: 200px;
     margin-bottom: 20px;
     box-shadow: 8px 7px 3px 3px rgb(237 234 234);
-    /* margin-left: 25px; */
 }
 .Reviews__reviewer-info{
     margin-top: 10px;
@@ -38,9 +36,7 @@
     margin-right: 20px;
     margin-top: 10px;
 }
-/* h6{
-    margin-right: 10px;
-} */
+
 .ellipsis{
     white-space: wrap;
     overflow: hidden;

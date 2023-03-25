@@ -1,14 +1,12 @@
 
 .achieve{
     
-    /* background-image: url("/public/images/wheel.svg"); */
     background-position: center;
     align-items: center;
     height: 100%;
     width: 100%;
     justify-content: center;
-    /* background-image: linear-gradient(to right, white ,#71264330, white ); */
- /* rgb(210, 249, 249) */
+   
 }
 
 .achieve-grid{

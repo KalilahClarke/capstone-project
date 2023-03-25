@@ -1,7 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 // Components
-import SvgIcon from "../../../ComingSoon/SvgIcon";
 import { GiAchievement } from "react-icons/gi";
 import { RiStarSFill } from "react-icons/ri";
 import ProgressBar from "react-bootstrap/ProgressBar";
@@ -15,10 +14,6 @@ import "./Achievements.css";
 
 
 const Achievements = ({ applicationUser, completedData }) => {
-
-  let accumulator = 0
- 
-
 
   const ratings = [1, 2, 4, 5, 2, 5, 3, 1, 5];
   let color = "";
@@ -59,16 +54,8 @@ const Achievements = ({ applicationUser, completedData }) => {
   } else {
     volenteerLevel = "Novice";
   }
-  //     --bs-success-rgb
  
-  
-  
  
-  
-  console.log(completedData)
-
-
-
 
   return (
     <div className="achieve">
