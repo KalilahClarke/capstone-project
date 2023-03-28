@@ -17,6 +17,7 @@ const AcceptRequestPage = ({
   setIteration,
   requestSearch,
   dashboardFilter,
+  setDashboardFilter,
   setLocation,
   setCompletedData,
   completedData
@@ -66,7 +67,7 @@ const AcceptRequestPage = ({
     .map((request) => {
       if (request.assigned) {
         acceptedIds.push(request.id)
-        return <RequestCard key={request.id} request={request} applicationUser={applicationUser}/>;
+        return <RequestCard key={request.id} request={request} applicationUser={applicationUser} setDashboardFilter={setDashboardFilter}/>;
       }
     });
   
@@ -82,7 +83,7 @@ const AcceptRequestPage = ({
     .map((request) => {
       if (request.complete) {
         completedIds.push(request.id)
-        return <RequestCard key={request.id} request={request} applicationUser={applicationUser}/>;
+        return <RequestCard key={request.id} request={request} applicationUser={applicationUser} setDashboardFilter={setDashboardFilter}/>;
       }
     });
 
@@ -97,7 +98,7 @@ const AcceptRequestPage = ({
     .map((request) => {
       if (!request.assigned) {
         pendingIds.push(request.id)
-        return <RequestCard key={request.id} request={request} applicationUser={applicationUser}/>;
+        return <RequestCard key={request.id} request={request} applicationUser={applicationUser} setDashboardFilter={setDashboardFilter}/>;
       }
     });
 

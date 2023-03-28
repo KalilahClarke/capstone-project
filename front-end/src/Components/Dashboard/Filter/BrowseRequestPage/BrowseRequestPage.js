@@ -18,6 +18,7 @@ const BrowseRequestPage = ({
   setLocation,
   iteration,
   setIteration,
+  setDashboardFilter,
   dashboardFilter
 }) => {
   const dateConverter = (specifiedDate) => {
@@ -72,6 +73,7 @@ const BrowseRequestPage = ({
           key={request.id}
           request={request}
           applicationUser={applicationUser}
+          setDashboardFilter={setDashboardFilter}
         />
       );
     }

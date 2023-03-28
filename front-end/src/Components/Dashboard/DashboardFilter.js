@@ -172,6 +172,7 @@ const DashboardFilter = ({
               applicationUser={applicationUser}
               iteration={iteration}
               setIteration={setIteration}
+              setDashboardFilter={setDashboardFilter}
             />
           )}
           {dashboardFilter === "acceptedrequests" && (
@@ -180,6 +181,7 @@ const DashboardFilter = ({
               requestSearch={requestSearch}
               date={date}
               applicationUser={applicationUser}
+              setDashboardFilter={setDashboardFilter}
            
             />
           )}
@@ -188,6 +190,7 @@ const DashboardFilter = ({
               requests={requests}
               requestSearch={requestSearch}
               applicationUser={applicationUser}
+              setDashboardFilter={setDashboardFilter}
             />
           )}
           {dashboardFilter === "pendingrequests" && (
@@ -195,6 +198,7 @@ const DashboardFilter = ({
               requests={requests}
               requestSearch={requestSearch}
               applicationUser={applicationUser}
+              setDashboardFilter={setDashboardFilter}
             />
           )}
           {dashboardFilter === "newrequest" && (
@@ -220,6 +224,7 @@ const DashboardFilter = ({
             dashboardFilter={dashboardFilter}
             myRequestIds={requestIds}
             setMyRequestsIds={setRequestsIds}
+            setDashboardFilter={setDashboardFilter}
 
           />
         )}
@@ -237,6 +242,7 @@ const DashboardFilter = ({
               dashboardFilter = {dashboardFilter}
               openRequestIds = { openRequestIds }
               setOpenRequestsIds = { setOpenRequestsIds }
+              setDashboardFilter={setDashboardFilter}
             />
           )}
         {dashboardFilter === "main" &&
@@ -253,6 +259,7 @@ const DashboardFilter = ({
               iteration={iteration}
               setIteration={setIteration}
               dashboardFilter={dashboardFilter}
+              setDashboardFilter={setDashboardFilter}
             />
           )}
         {dashboardFilter === "achievements" &&
@@ -268,6 +275,7 @@ const DashboardFilter = ({
             setIteration={setIteration}
             iteration={iteration}
             dashboardFilter={dashboardFilter}
+            setDashboardFilter={setDashboardFilter}
           />
         )}
         {dashboardFilter === "reviews" && (

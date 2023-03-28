@@ -25,12 +25,14 @@ const PublicReviews = ({
   dashboardFilter,
 }) => {
   let { id } = useParams();
+ 
   const [date, setDate] = useState(new Date());
   const [reviews, setReviews] = useState([]);
   const [users, setUsers] = useState([]);
   const [ratings, setRatings] = useState([]);
   const [reviewCount, setReviewCount] = useState(0);
-  console.log(reviews);
+
+
 
   useEffect(() => {
     axios.get(`${API}/reviews`).then((res) => {

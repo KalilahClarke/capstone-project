@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 //CSS Imports
 import "./RequestCard.css";
 
-const RequestCard = ({ request, applicationUser }) => {
+const RequestCard = ({ request, applicationUser, setDashboardFilter }) => {
   
   const formatTime = () => {
     if (request.time.length <= 5) {
@@ -24,7 +24,7 @@ const RequestCard = ({ request, applicationUser }) => {
     
     <div className="req-card-details">
       {imgString && <Link to = {applicationUser?.user_type === 'Volunteer' ? `/reviews/${request.elder_id}`:`/reviews/${request.volunteer_id}` }>
-         <img className="req-card-img" src={applicationUser?.user_type === 'Volunteer' ?  request.elder_img  : request?.volunteer_img}/>
+         <img  onClick = {()=>setDashboardFilter('reviews')}className="req-card-img" src={applicationUser?.user_type === 'Volunteer' ?  request.elder_img  : request?.volunteer_img}/>
       </Link> }
         <div className="req-card">
       <Link className="link" to={`/requests/${request.id}`}>

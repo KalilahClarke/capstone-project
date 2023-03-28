@@ -14,6 +14,7 @@ const OpenRequests = ({
   requestSearch,
   applicationUser,
   setLocation,
+  setDashboardFilter,
 }) => {
   const search = requestSearch.toLowerCase();
 
@@ -49,6 +50,7 @@ const OpenRequests = ({
             key={request.id}
             request={request}
             applicationUser={applicationUser}
+            setDashboardFilter={setDashboardFilter}
           />
         );
       }

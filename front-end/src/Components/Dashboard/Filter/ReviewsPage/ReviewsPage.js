@@ -1,7 +1,6 @@
 //DEPENDENCIES
 import { useState, useEffect, useContext } from "react";
 import axios from "axios";
-// import { UserContext } from "../../../../Providers/UserProviders";
 import { Link, useNavigate } from "react-router-dom";
 
 //COMPONENTS
@@ -14,7 +13,7 @@ import "./ReviewsPage.css";
 //API
 const API = process.env.REACT_APP_BACKEND_API_KEY;
 
-const ReviewsPage = ({ applicationUser }) => {
+const ReviewsPage = ({ applicationUser, dashboardFilter }) => {
   const [reviews, setReviews] = useState([]);
   const [ratings, setRatings] = useState([]);
   const [reviewCount, setReviewCount] = useState(0);
@@ -41,7 +40,7 @@ const ReviewsPage = ({ applicationUser }) => {
   //map through the reviews using the date and the requestSearch in the conditional
   // let accumulator = 0;
   // rate.map((score)=> accumulator += score)
-  console.log(reviews.length)
+
   return (
     <div className="ReviewPage">
       <div className="ReviewPage__personalInfo">
@@ -55,7 +54,7 @@ const ReviewsPage = ({ applicationUser }) => {
         <div className="ReviewPage__count">Review Count: <span className= 'reviewCount_span'>{reviewCount === 0 ? 'No Reviews' : reviewCount}{!!reviewCount && (reviewCount > 1 ? ' reviews': ' review')}</span></div>
       </div>
       <div className="ReviewPage__reviews-list">
-      {reviews.length === 0 ? <ZeroRequests /> : reviews.map(review => <ReviewCard key={review.id} review={review} />)}
+      {reviews.length === 0 ? <ZeroRequests dashboardFilter={dashboardFilter}/> : reviews.map(review => <ReviewCard key={review.id} review={review} />)}
       </div>
     </div>
   );

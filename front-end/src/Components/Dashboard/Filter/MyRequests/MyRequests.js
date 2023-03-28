@@ -15,6 +15,7 @@ const MyRequests = ({
   requestSearch,
   applicationUser,
   setLocation,
+  setDashboardFilter,
 
 }) => {
 
@@ -59,6 +60,7 @@ const MyRequests = ({
           key={request.id}
           request={request}
           applicationUser={applicationUser}
+          setDashboardFilter={setDashboardFilter}
         />
       );
     }
