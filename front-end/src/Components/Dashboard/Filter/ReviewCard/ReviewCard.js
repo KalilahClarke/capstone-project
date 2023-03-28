@@ -105,7 +105,6 @@ const ReviewCard = ({ review, requests }) => {
             size="small"
             readOnly
           />
-          {/* <div>{reviewedRequest?.title}</div> */}
         </div>
         <br></br>
         {processText}

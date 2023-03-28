@@ -1,6 +1,7 @@
 //DEPENDENCIES
 import { useState, useEffect } from "react";
 import { SlArrowUp, SlArrowDown } from "react-icons/sl";
+import { Link } from 'react-router-dom'
 import { Rating } from "@mui/material";
 import axios from "axios";
 
@@ -75,15 +76,23 @@ const PublicReviewCard = ({ review }) => {
     <div className="Reviews">
       <div className="Reviews__reviewer-info">
         <div className="reviewer__img">
+          <Link to={`/reviews/${reviewer_id}`}>
           <img
             className="Reviewer__profile"
             src={reviewer_img}
-            alt="reviewer_img"
+            alt={reviewer.firstname}
           />
+          </Link>
         </div>
       </div>
       <div className="Reviews__review">
-        <p>{reviewer.firstname + " " + reviewer.lastname || "Reviewer Name"}</p>
+        <div className="Reviews-header">
+        <div>{reviewer.firstname + " " + reviewer.lastname  || "Reviewer Name"}</div>
+        <div></div>
+        <div className="ReviewCard__date"> Date: {post_date}</div>
+
+        </div>
+
         <div className="ReviewCard__rating">
           <Rating
             name="half-rating-read"
@@ -92,10 +101,8 @@ const PublicReviewCard = ({ review }) => {
             size="small"
             readOnly
           />
-          <div className="ReviewCard__date">
-            Date: {post_date || "02/04/2023"}
-          </div>
         </div>
+        <br></br>
         {processText}
       </div>
     </div>

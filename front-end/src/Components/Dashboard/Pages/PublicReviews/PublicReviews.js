@@ -58,19 +58,10 @@ const PublicReviews = ({
         <div className="ReviewPage__personalInfo">
           <img className="ReviewPage__img" src={foundUser?.profilephoto} />
           <br />
-          <div className="ReviewPage__stars">Star Rating:</div>
-          <DynamicStar ratings={ratings} setReviewCount={setReviewCount} />
-          <div className="ReviewPage__count">
-            Review Count: {foundReviews?.length}
+        <div className="ReviewPage__stars">Star Rating:</div>
+        <DynamicStar ratings={ratings} setReviewCount={setReviewCount} />
+        <div className="ReviewPage__count">Review Count: <span className= 'reviewCount_span'>{reviewCount === 0 ? 'No Reviews' : reviewCount}{!!reviewCount && (reviewCount > 1 ? ' reviews': ' review')}</span></div>
           </div>
-          <div className="count__result">
-            {!ratings
-              ? ratings.length > 1
-                ? `${ratings.length} reviews`
-                : `${ratings.length} review`
-              : "No Current Reviews"}
-          </div>
-        </div>
         <div className="ReviewPage__reviews-list">
           {foundReviews.length === 0 ? (
             <ZeroRequests />
@@ -79,7 +70,8 @@ const PublicReviews = ({
               <PublicReviewCard key={review.id} review={review} />
             ))
           )}
-        </div>
+      
+      </div>
       </div>
     </div>
   );
