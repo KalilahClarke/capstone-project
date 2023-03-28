@@ -1,5 +1,6 @@
 //DEPENDENCIES
 import { useState, useEffect } from "react";
+import { Link } from 'react-router-dom'
 import { SlArrowUp, SlArrowDown } from "react-icons/sl";
 import { Rating } from "@mui/material";
 import axios from "axios";
@@ -20,7 +21,7 @@ const ReviewCard = ({ review, requests }) => {
   const [ratings, setRating] = useState({
     rating: 0,
   });
-
+  console.log(review)
   useEffect(() => {
     axios.get(`${API}/users`)
     .then(res => {
@@ -79,11 +80,13 @@ const ReviewCard = ({ review, requests }) => {
     <div className="Reviews">
       <div className="Reviews__reviewer-info">
         <div className="reviewer__img">
+          <Link to={`/reviews/${reviewer_id}`}>
           <img
             className="Reviewer__profile"
             src={reviewer_img}
             alt={reviewer.firstname}
           />
+          </Link>
         </div>
       </div>
       <div className="Reviews__review">
