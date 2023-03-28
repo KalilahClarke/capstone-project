@@ -143,7 +143,7 @@ const EditRequest = ({ applicationUser }) => {
             </Form>
           </div>
           </div>
-        <div className="buttons">
+        <div className="editForm-button">
           <Button type="submit" onClick={() => navigate("/dashboard")}>
             Back
           </Button>
