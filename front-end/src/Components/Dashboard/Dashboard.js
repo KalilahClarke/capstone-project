@@ -4,9 +4,8 @@ import DashboardFilter from "./DashboardFilter";
 
 import './Dashboard.css';
 
-const Dashboard = ({applicationUser, dashboardFilter, setDashboardFilter, setLocation, location, setIteration, iteration, completedData}) => {
+const Dashboard = ({applicationUser, dashboardFilter, setDashboardFilter, setLocation, location, setIteration, iteration, completedData, requestSearch, setRequestSearch}) => {
   const [date, setDate] = useState(new Date());
-  const [requestSearch, setRequestSearch] = useState("");
   //Specific to person
   const [users, setUsers] = useState([]);
  

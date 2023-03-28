@@ -20,7 +20,7 @@ import Footer from "./Components/HomePage/Footer/Footer";
 import PersonalPage from "./Components/HomePage/Pages/PersonalPage";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import RequestPage from "./Components/Dashboard/Pages/RequestDetails/RequestPage";
-import PublicReviews from './Components/Dashboard/Pages/PublicReviews/PublicReviews';
+import PublicReviews from "./Components/Dashboard/Pages/PublicReviews/PublicReviews";
 //CSS
 import "./App.css";
 
@@ -34,6 +34,7 @@ const App = () => {
   const [location, setLocation] = useState("");
   const [completedData, setCompletedData] = useState([]);
   const [render, setRender] = useState(true);
+  const [requestSearch, setRequestSearch] = useState("");
   const [applicationUser, setApplicationUser] = useState({
     uuid: "",
     firstname: "",
@@ -250,6 +251,8 @@ const App = () => {
                     iteration={iteration}
                     completedData={completedData}
                     setCompletedData={setCompletedData}
+                    setRequestSearch={setRequestSearch}
+                    requestSearch={requestSearch}
                   />
                 </Protected>
               }
@@ -275,7 +278,13 @@ const App = () => {
               path="/reviews/:id"
               element={
                 <Protected>
-                  <PublicReviews />
+                  <PublicReviews
+                    applicationUser={applicationUser}
+                    requestSearch={requestSearch}
+                    setRequestSearch={setRequestSearch}
+                    setDashboardFilter={setDashboardFilter}
+                    dashboardFilter={dashboardFilter}
+                  />
                 </Protected>
               }
             />

@@ -170,13 +170,13 @@ const RequestDetails = ({
           <div className="card-wrap">
             <div className="card-items-forward">
               <figure className='card-fig' data-category={'GoldenSolutions'}>
-                <img className= 'cardImg'
+                <img className="cardImg"
                 alt='vol'
                 src={request.image || "https://www.nbmchealth.com/wp-content/uploads/2018/04/default-placeholder.png"
               }
               />
               </figure>
-              {/* <span>Date:{request.req_date}<br/>Time:{request.time}</span> */}
+
             <div className='card-info'>
               <h5 className='card-description'>
                 <strong>Job Description:</strong>

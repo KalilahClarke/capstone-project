@@ -48,6 +48,7 @@ const SidebarNav = ({
                 </form>
               </div>
               <div className="under-click"></div>
+                <Link to='/dashboard'>
               <p
                 className={dashboardFilter === "main" ? "bold_link" : ""}
                 onClick={() => setDashboardFilter("main")}
@@ -140,8 +141,9 @@ const SidebarNav = ({
                   Reviews
                 </p>
                 <div className="under-click"></div>
-              
+                </Link>
             </div>
+
             <div className="calender-view">
               <CalendarView setDate={setDate} date={date} />
             </div>

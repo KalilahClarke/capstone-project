@@ -11,14 +11,19 @@
     margin-bottom: 25px;
 }
 
-.edit-image img{
-    width: 300px;
+
+.figure{
+    margin: 0 0 0;
 }
 
 .edit-form{
     height: 100%;
     width: 100%;
     margin: 10px;
+}
+.mb-3{
+    width: 95%;
+    text-align: center;
 }
 
 .edit-form h3{
