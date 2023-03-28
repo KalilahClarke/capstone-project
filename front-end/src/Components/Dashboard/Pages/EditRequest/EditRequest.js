@@ -102,7 +102,7 @@ const EditRequest = ({ applicationUser }) => {
                 <Form.Control
                   as="textarea"
                   rows={3}
-                  cols={3}
+                  cols={6}
                   id="description"
                   value={editedRequest.description}
                   onChange={handleTextChange}

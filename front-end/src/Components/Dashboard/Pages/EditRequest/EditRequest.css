@@ -23,7 +23,8 @@
 }
 .mb-3{
     width: 95%;
-    text-align: center;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .edit-form h3{
