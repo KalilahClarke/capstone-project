@@ -19,11 +19,15 @@
 .ReviewPage__reviews-list{
     margin-top: 25px;
     margin-right: 5vh;
+    margin-left: 4vh;
     height: 95vh;
     overflow: scroll;
    
 }
-
+.reviewCount_span{
+    font-size: 16px;
+    margin-left: 1px;
+}
 
 .ReviewPage__personalInfo{
     position: sticky;

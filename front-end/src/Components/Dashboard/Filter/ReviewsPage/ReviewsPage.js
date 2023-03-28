@@ -52,7 +52,7 @@ const ReviewsPage = ({ applicationUser }) => {
         <br />
         <div className="ReviewPage__stars">Star Rating:</div>
         <DynamicStar ratings={ratings} setReviewCount={setReviewCount} />
-        <div className="ReviewPage__count">Review Count: {reviewCount === 0 ? 'No Reviews' : reviewCount}{!!reviewCount && (reviewCount > 1 ? ' reviews': ' review')}</div>
+        <div className="ReviewPage__count">Review Count: <span className= 'reviewCount_span'>{reviewCount === 0 ? 'No Reviews' : reviewCount}{!!reviewCount && (reviewCount > 1 ? ' reviews': ' review')}</span></div>
       </div>
       <div className="ReviewPage__reviews-list">
       {reviews.length === 0 ? <ZeroRequests /> : reviews.map(review => <ReviewCard key={review.id} review={review} />)}
