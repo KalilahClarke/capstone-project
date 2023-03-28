@@ -18,7 +18,7 @@ import Container from "react-bootstrap/Container";
 //API
 const API = process.env.REACT_APP_BACKEND_API_KEY;
 
-const EditRequest = ({ applicationUser }) => {
+const EditRequest = ({ applicationUser, setEditRequestRevealed }) => {
   let { id } = useParams();
   let navigate = useNavigate();
 
@@ -144,7 +144,7 @@ const EditRequest = ({ applicationUser }) => {
           </div>
           </div>
         <div className="editForm-button">
-          <Button type="submit" onClick={() => navigate("/dashboard")}>
+          <Button type="submit" onClick={() => setEditRequestRevealed(false)}>
             Back
           </Button>
           <Button type="submit">Submit</Button>

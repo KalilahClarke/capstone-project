@@ -74,6 +74,8 @@ const RequestPage = ({
     }else if(editRequestRevealed){
       return <EditRequest
       applicationUser={applicationUser}
+      editRequestRevealed={editRequestRevealed}
+      setEditRequestRevealed={setEditRequestRevealed}
     />
     }
 

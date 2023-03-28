@@ -21,7 +21,6 @@ const RequestReviewForm = ({ applicationUser, request, setReviewFormRevealed }) 
 
   const { id } = useParams();
   const [edit, setEdit] = useState(false)
-  // const [reviews, setReviews] = useState([]); disgard
   const [newReview, setNewReview] = useState({
     reviewer_id: applicationUser.uuid,
     reviewed_id:  applicationUser.user_type === 'Volunteer' ? request.elder_id : request.volunteer_id,
@@ -66,16 +65,6 @@ const RequestReviewForm = ({ applicationUser, request, setReviewFormRevealed }) 
         }
       })
 
-    //   if(applicationUser.user_type === 'Volunteer'){
-    // axios
-    //   .get(`${API}/users/${request.elder_id}`)
-    //   .then((res)=>setUser(res.data.payload))
-    //   }else{
-    // axios
-    //   .get(`${API}/users/${request.volunteer_id}`)
-    //   .then((res)=>setUser(res.data.payload))
-
-    //   }
   }, []);
 
 //   let filter =  review.find( specifiedReview => specifiedReview.reviewer_id === applicationUser.uuid)
@@ -140,4 +129,3 @@ const RequestReviewForm = ({ applicationUser, request, setReviewFormRevealed }) 
 
 export default RequestReviewForm
 
-// && !edit ? <div>{reviews}</div>:<textarea value= {reviews.find((user) => user.reviewer_id === applicationUser.uuid && <p>{user.reviewer_id}</p> || '')} rows={4} cols= {56} onChange={handleTextReview}></textarea>}
