@@ -20,9 +20,11 @@ const LoginModal = ({ modalOpen, setModalOpen, setApplicationUser }) => {
   const navigate = useNavigate();
 
   const userCheck = async (user) => {
-    axios.get(`${API}/users/${user.uid}`).then((res) => {
+   axios.get(`${API}/users/${user.uid}`).then((res) => {
       if (res.data.payload.uuid) {
         setApplicationUser(res.data.payload);
+      } else {
+        console.error("unable to set user");
       }
     });
   };

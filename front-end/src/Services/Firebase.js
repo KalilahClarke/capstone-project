@@ -37,7 +37,8 @@ export const signInWithGoogle = () => {
     signInWithPopup(auth, googleProvider).then((res) => {
       const loggedInUser = res.user;
       const isNewUser = getAdditionalUserInfo(res).isNewUser;
-
+      console.log(isNewUser)
+     
       if (isNewUser) {
         //delete user if the user is not in our database, regardless of signing in with Google
         loggedInUser.delete().then(() => {

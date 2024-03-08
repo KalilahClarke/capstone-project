@@ -9,6 +9,7 @@ import "./Home.css";
 
 //BOOTSTRAP
 import Button from "react-bootstrap/Button";
+import LoadingButton from "../../LoadingButton";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -22,6 +23,7 @@ const Home = () => {
             <br/>
             <p>
             As you grow you become wiser and have many life experiences. Getting older is a normal part of life with it's up's and down's. You may also find that basic everday tasks become a little bit more difficult and you could use some help.
+              
               <br />
               <img
             className="home__mobileimg"
@@ -39,6 +41,8 @@ const Home = () => {
             </p>
           </div>
           <Button onClick={() => navigate("/sign-up")}>SIGN UP NOW</Button>
+        
+          
         </div>
         <div className="gallery">
           <img

@@ -64,6 +64,8 @@ const SignUpPage = ({setApplicationUser}) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await signUpWithGoogle();
+
+    // Copy and Paste lines 44-56 checking to makes sure that the user was successfully
   };
   return (
     <div className="sign-up">
